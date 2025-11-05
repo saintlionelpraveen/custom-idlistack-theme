@@ -1,0 +1,23 @@
+{{!-- partials/header.hbs --}}
+<header class="site-header">
+    <div class="header-wrapper">
+        <div class="header-left">
+            {{#if @site.logo}}
+                <a href="{{@site.url}}" class="site-logo">
+                    <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                </a>
+            {{else}}
+                <a href="{{@site.url}}" class="site-title">
+                    {{@site.title}}
+                </a>
+            {{/if}}
+
+            <nav class="nav-bar" id="navBar">
+                <div class="nav-container">
+                    {{navigation}}
+                    <div class="lamp-indicator" id="lampIndicator"></div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>

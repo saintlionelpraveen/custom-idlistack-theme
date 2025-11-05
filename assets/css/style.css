@@ -1,0 +1,33 @@
+/* Root variables and base styles */
+:root{
+  --color-light-pink: #ffe4ef;
+  --color-dark-pink: #be185d;
+  --color-accent: #ec4899;
+  --color-white: #ffffff;
+  --color-black: #0b0b0b;
+  --max-width: 1200px;
+}
+
+/* Reset */
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+
+body{font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; color:var(--color-black); background:var(--color-white); line-height:1.6}
+
+h1,h2,h3,h4{font-family: 'Poppins', 'Helvetica Neue', Arial, sans-serif; color:var(--color-black);}
+
+a{color:inherit;text-decoration:none}
+
+/* Modular imports */
+@import "header.css";
+@import "hero.css";
+@import "posts.css";
+@import "footer.css";
+@import "animations.css";
+
+/* Utility classes */
+.container{max-width:var(--max-width);margin:0 auto;padding:0 20px}
+img{display:block;max-width:100%;height:auto}
+
+/* Accessibility focus */
+:focus{outline:3px solid var(--color-accent);outline-offset:2px}

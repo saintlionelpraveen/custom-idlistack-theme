@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <!-- SEO Meta Tags -->
+    <title>{{meta_title}}</title>
+    <meta name="description" content="{{meta_description}}">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{asset 'images/favicon.ico'}}">
+    
+    <!-- Google Fonts - Poppins for Headings, Inter for Body -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="{{asset 'css/animated-background.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/circle-expand.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/elegant-header.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/header.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/style.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/hero.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/posts.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/footer.css'}}">
+    <link rel="stylesheet" href="{{asset "css/footer.css"}}">
+    
+    <!-- Ghost Head - Required for Ghost functionality -->
+    {{ghost_head}}
+</head>
+<body id="site-body" class="{{body_class}}">
+    
+    <!-- Site Wrapper -->
+    <div id="site-wrapper" class="site-wrapper">
+        
+        <!-- Header with Logo and Navigation -->
+        <header class="site-header">
+            <div class="header-wrapper">
+                <div class="header-left">
+                    {{#if @site.logo}}
+                        <a href="{{@site.url}}" class="site-logo">
+                            <img src="{{@site.logo}}" alt="{{@site.title}}" />
+                        </a>
+                    {{else}}
+                        <a href="{{@site.url}}" class="site-title">
+                            {{@site.title}}
+                        </a>
+                    {{/if}}
+
+                    <nav class="nav-bar" id="navBar">
+                        <div class="nav-container">
+                            {{navigation}}
+                            <div class="lamp-indicator" id="lampIndicator"></div>
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </header>
+        
+        <!-- Main Content Area -->
+        <main id="main-content" class="main-content" role="main">
+            {{{body}}}
+        </main>
+        
+        <!-- Footer Partial -->
+        {{> footer}}
+        
+    </div>
+    
+    <!-- JavaScript Files -->
+    <script src="{{asset 'js/circle-expand.js'}}"></script>
+    <script src="{{asset 'js/main.js'}}"></script>
+    <script src="{{asset 'js/navigation.js'}}"></script>
+    <script src="{{asset 'js/header.js'}}"></script>
+    
+    <!-- Ghost Foot - Required for Ghost functionality -->
+    {{ghost_foot}}
+</body>
+</html>

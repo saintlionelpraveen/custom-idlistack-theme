@@ -1,0 +1,17 @@
+<article id="post-card-{{id}}" class="post-card" aria-labelledby="post-title-{{id}}">
+    <a id="post-link-{{id}}" class="post-link" href="{{url}}">
+        <div id="post-image-{{id}}" class="post-image-wrapper">
+            {{#if feature_image}}
+                <img id="post-thumbnail-{{id}}" class="post-thumbnail" loading="lazy" src="{{feature_image}}" alt="{{title}}">
+            {{else}}
+                <div id="post-thumbnail-placeholder-{{id}}" class="post-thumbnail-placeholder" aria-hidden="true"></div>
+            {{/if}}
+        </div>
+
+        <div id="post-content-{{id}}" class="post-content-wrapper">
+            <h3 id="post-title-{{id}}" class="post-title">{{title}}</h3>
+            <p id="post-excerpt-{{id}}" class="post-excerpt">{{excerpt words="25"}}</p>
+            <time id="post-date-{{id}}" class="post-date">{{date published_at format="MMM DD, YYYY"}}</time>
+        </div>
+    </a>
+</article>
