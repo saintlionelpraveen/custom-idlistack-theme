@@ -1,18 +1,50 @@
 {{!< default}}
 
-<article id="post-article" class="post-article">
-    <header id="post-header" class="post-header">
-        <h1 id="post-title" class="post-page-title">{{title}}</h1>
-        <time id="post-published" class="post-published">{{date published_at format="MMM DD, YYYY"}}</time>
-    </header>
+{{!-- Inject Post-Specific CSS --}}
+{{#contentFor "styles"}}
+  <link rel="stylesheet" href="{{asset "css/post-page.css"}}">
+{{/contentFor}}
 
-    {{#if feature_image}}
-    <figure id="post-feature-image" class="post-feature-image">
-        <img src="{{feature_image}}" alt="{{title}}">
-    </figure>
-    {{/if}}
+{{!-- Wrap the entire post in the 'post' context --}}
+{{#post}}
 
-    <section id="post-content" class="post-content">
-        {{{content}}}
-    </section>
+{{!-- Progress bar outside the main card --}}
+<div class="progress-bar-container">
+  <div class="progress-bar" id="progressBar"></div>
+</div>
+
+{{!-- The main white card --}}
+<article class="post-card-wrapper">
+  
+  {{!-- Header: Image on left, Title on right center --}}
+  <header class="post-page-header">
+    
+    {{!-- Logo/Image Column --}}
+    <div class="post-layout-logo">
+      {{#if feature_image}}
+        <img class="post-page-logo" src="{{feature_image}}" alt="{{title}}">
+      {{else}}
+        <div class="post-page-logo-placeholder"></div>
+      {{/if}}
+    </div>
+    
+    {{!-- Title Column (centered vertically) --}}
+    <div class="post-title-wrapper">
+      <h1 class="post-page-title">{{title}}</h1>
+    </div>
+    
+  </header>
+  
+  {{!-- Content Section (Full Width, Left Aligned) --}}
+  <section class="post-page-content">
+    {{{content}}}
+  </section>
+
 </article>
+
+{{/post}}
+
+{{!-- Inject Post-Specific JS --}}
+{{#contentFor "scripts"}}
+  <script src="{{asset "js/post.js"}}"></script>
+{{/contentFor}}

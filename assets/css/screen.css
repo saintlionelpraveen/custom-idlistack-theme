@@ -1,0 +1,120 @@
+/* --- Global Theme Setup --- */
+:root {
+  --ghost-accent-color: #8a2be2; /* Neon Purple - can be adjusted */
+  --color-dark-bg: #000000; /* Pure black background */
+  --color-text: #e0e0e0;
+  --color-text-light: #aaa;
+  --color-border: #222;
+}
+
+/* Add to your main/global CSS file */
+body {
+  background-color: #000; /* Black background */
+  margin: 0;
+  padding: 0;
+}
+
+/* This is the '.container' class used in index, post, and default */
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* --- Animated Background Wrapper --- */
+.animated-bg-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  overflow: hidden;
+  filter: blur(100px);
+}
+.animated-bg-wrapper .blur {
+  position: absolute;
+  border-radius: 50%;
+  mix-blend-mode: screen;
+  will-change: transform;
+}
+#blur1 {
+  width: 400px; height: 400px; background: #ff00ff; /* Neon Pink */
+}
+#blur2 {
+  width: 300px; height: 300px; background: #00ffff; /* Neon Cyan */
+}
+#blur3 {
+  width: 350px; height: 350px; background: #8a2be2; /* Neon Purple */
+}
+
+/* --- Site Wrapper --- */
+.site-wrapper {
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* --- Global Site Header (Navigation) --- */
+.site-header {
+  padding-top: 1.5rem;
+  padding-bottom: 1.5rem;
+  z-index: 100;
+  position: relative;
+  background-color: transparent; /* Ensure transparent */
+}
+
+.header-inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.site-logo-link {
+  display: block;
+  text-decoration: none;
+}
+
+.site-logo {
+  max-height: 40px;
+  display: block;
+}
+
+.site-title-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  text-shadow: 0 0 5px #fff, 0 0 10px var(--ghost-accent-color);
+}
+
+.site-nav {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.site-nav a {
+  color: var(--color-text-light);
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.site-nav a:hover,
+.site-nav a.nav-current {
+  color: #fff;
+  text-shadow: 0 0 5px var(--ghost-accent-color);
+}
+
+/* --- Main Content Area --- */
+.site-main {
+  flex-grow: 1; 
+  position: relative;
+  z-index: 10;
+}
+
+/* --- Global Site Footer --- */
+
+

@@ -1,15 +1,5 @@
+// assets/js/circle-gallery.js
 (function() {
-  const profiles = [
-    { id: 'profile1', angle: 0 },
-    { id: 'profile2', angle: Math.PI / 4 },
-    { id: 'profile3', angle: Math.PI / 2 },
-    { id: 'profile4', angle: (3 * Math.PI) / 4 },
-    { id: 'profile5', angle: Math.PI },
-    { id: 'profile6', angle: (5 * Math.PI) / 4 },
-    { id: 'profile7', angle: (3 * Math.PI) / 2 },
-    { id: 'profile8', angle: (7 * Math.PI) / 4 }
-  ];
-
   function initCircleGallery() {
     const galleryContainer = document.querySelector('.embedded-gallery');
     const outerCircle = document.getElementById('outerCircle');
@@ -20,26 +10,76 @@
       return;
     }
 
+    // Dynamically get all profile images
+    const profileElements = document.querySelectorAll('.profile-image');
+    const profileCount = profileElements.length;
+
+    // Generate angles based on the number of profiles
+    const profiles = Array.from(profileElements).map((element, index) => ({
+      id: element.id,
+      element: element,
+      angle: (2 * Math.PI * index) / profileCount
+    }));
+
+    // Calculate dynamic sizes based on profile count
+    const baseSize = 96; // Base profile image size
+    const minSize = 64; // Minimum size for many images
+    const maxProfiles = 12; // After this, start reducing size
+    
+    // Calculate profile size (smaller if more images)
+    const profileSize = profileCount > maxProfiles 
+      ? Math.max(minSize, baseSize - ((profileCount - maxProfiles) * 2))
+      : baseSize;
+
+    // Calculate expand radius based on profile count and size
+    const baseRadius = 300;
+    const radiusIncrement = Math.max(0, (profileCount - 6) * 15);
+    const maxExpandRadius = baseRadius + radiusIncrement;
+
+    // Apply dynamic sizing to profile images
+    profileElements.forEach(element => {
+      element.style.width = `${profileSize}px`;
+      element.style.height = `${profileSize}px`;
+    });
+
+    // Adjust circle sizes based on profile count
+    const innerCircleSize = 400 + (profileCount > 8 ? (profileCount - 8) * 20 : 0);
+    const middleCircleSize = innerCircleSize + 100;
+    const outerCircleSize = middleCircleSize + 100;
+
+    const gradientRing = document.querySelector('.gradient-ring');
+    const innerCircle = document.querySelector('.inner-circle');
+
+    if (gradientRing) {
+      gradientRing.style.width = `${innerCircleSize}px`;
+      gradientRing.style.height = `${innerCircleSize}px`;
+    }
+
+    if (middleCircle) {
+      middleCircle.style.width = `${middleCircleSize}px`;
+      middleCircle.style.height = `${middleCircleSize}px`;
+    }
+
+    if (outerCircle) {
+      outerCircle.style.width = `${outerCircleSize}px`;
+      outerCircle.style.height = `${outerCircleSize}px`;
+    }
+
     function handleScroll() {
-      // Get the position of the gallery relative to viewport
       const rect = galleryContainer.getBoundingClientRect();
       const galleryTop = rect.top;
       const windowHeight = window.innerHeight;
       
-      // Calculate scroll progress relative to when gallery is in view
-      // Negative galleryTop means gallery has scrolled up past viewport top
       const scrollProgress = Math.max(0, -galleryTop);
       const animationProgress = Math.min(scrollProgress / 500, 1);
-      const expandRadius = animationProgress * 300;
+      const expandRadius = animationProgress * maxExpandRadius;
 
-      // Only animate when gallery is in viewport
       if (galleryTop < windowHeight && galleryTop > -rect.height) {
         profiles.forEach(profile => {
-          const element = document.getElementById(profile.id);
-          if (element) {
+          if (profile.element) {
             const x = expandRadius * Math.cos(profile.angle);
             const y = expandRadius * Math.sin(profile.angle);
-            element.style.transform = `translate(${x}px, ${y}px)`;
+            profile.element.style.transform = `translate(${x}px, ${y}px)`;
           }
         });
 
@@ -68,7 +108,6 @@
     handleScroll();
   }
 
-  // Initialize when DOM is ready
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', initCircleGallery);
   } else {

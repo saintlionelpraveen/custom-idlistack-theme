@@ -1,6 +1,6 @@
 /* POSTS SECTION – LEMON SQUEEZY STYLE WITH ANIMATED BACKGROUND */
 .posts-section {
-  padding: 5rem 0;
+  padding: 3rem 0;
   position: relative;
   background: rgba(255, 0, 0, 0);
   overflow: hidden;
@@ -14,7 +14,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, #fce7f3 0%, #fff1f2 50%, #ffe4e6 100%);
+  background: linear-gradient(135deg, #fce7f300 0%, #fff1f200 50%, #ffe4e600 100%);
   z-index: -2;
 }
 
@@ -26,6 +26,7 @@
   height: 100%;
   overflow: hidden;
   z-index: -1;
+  background-color: #00000000;
 }
 
 .posts-section-bg .blur {
@@ -92,11 +93,12 @@
 .posts-grid {
   display: grid;
   gap: 2rem;
+  border-color: #be185d00;
   grid-template-columns: repeat(4, 1fr);
   max-width: 1400px;
-  margin: 0 auto;
+  margin: 0%;
   position: relative;
-  background: transparent;
+  background: rgba(165, 165, 165, 0);
   z-index: 1;
 }
 
@@ -157,8 +159,8 @@
 
 /* TITLE */
 .post-title {
-  font-size: 1.35rem;
-  font-weight: 600;
+  font-size: 1.45rem;
+  font-weight: 550;
   margin: 0 0 0.75rem;
   color: #000000;
   line-height: 1.3;
@@ -178,11 +180,11 @@
 .neon-border {
   position: absolute;
   inset: 0;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: 1rem;
   pointer-events: none;
   opacity: 0;
-  background: linear-gradient(45deg, #ec4899, #be185d) border-box;
+  background: linear-gradient(45deg, #ec4899, #be18a5) border-box;
   -webkit-mask: linear-gradient(#fff 0 0) padding-box, linear-gradient(#fff 0 0);
   -webkit-mask-composite: xor;
   mask-composite: exclude;
@@ -191,7 +193,7 @@
 
 .post-card:hover .neon-border {
   opacity: 1;
-  animation: neonPulse 1.8s infinite;
+  animation: neonPulse .8s infinite;
 }
 
 @keyframes neonPulse {

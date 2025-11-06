@@ -111,6 +111,20 @@
     {{/foreach}}
   </div>
 </section>
+{{!-- Replace slug:new-page with your page's slug --}}
+{{#get "pages" filter="slug:new-page" limit="1"}}
+  {{#foreach pages}}
+    <section class="embedded-new-page">
+      {{#if feature_image}}
+        <img src="{{feature_image}}" alt="{{title}}">
+        {{#if meta_description}}<p class="caption">{{meta_description}}</p>{{/if}}
+      {{else}}
+        {{{content}}}  {{!-- triple stash to render HTML from the page body --}}
+      {{/if}}
+    </section>
+  {{/foreach}}
+{{/get}}
+
 
 {{!-- EMBED CIRCULAR GALLERY PAGE BY SLUG --}}
 {{#get "pages" filter="slug:circle-gallery" limit="1"}}

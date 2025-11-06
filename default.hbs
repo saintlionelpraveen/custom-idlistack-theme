@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
+    
+    {{! Your main global stylesheet }}
+    <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
+
+    {{! This is the EMPTY placeholder for page-specific styles }}
+    {{{block "styles"}}}
     <!-- Meta Tags -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,6 +34,9 @@
     <link rel="stylesheet" href="{{asset 'css/posts.css'}}">
     <link rel="stylesheet" href="{{asset 'css/footer.css'}}">
     <link rel="stylesheet" href="{{asset "css/footer.css"}}">
+    <link rel="stylesheet" href="{{asset "css/new-page.css"}}">
+    {{!-- <link rel="stylesheet" href="{{asset "css/post-page.css"}}"> --}}
+    
     
     <!-- Ghost Head - Required for Ghost functionality -->
     {{ghost_head}}
@@ -76,7 +85,8 @@
     <script src="{{asset 'js/main.js'}}"></script>
     <script src="{{asset 'js/navigation.js'}}"></script>
     <script src="{{asset 'js/header.js'}}"></script>
-    
+    <script src="{{asset 'js/post-page.js'}}"></script>
+    <script src="{{asset "js/new-page-init.js"}}"></script>
     <!-- Ghost Foot - Required for Ghost functionality -->
     {{ghost_foot}}
 </body>
