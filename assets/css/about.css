@@ -180,9 +180,12 @@
 .about-page .about-img-2,
 .about-page .about-img-3 {
   width: 100%;
+  height: auto;
   aspect-ratio: 4 / 3;
   object-fit: cover;
-  border-radius: 12px;
+  /* border-style: solid; */
+    /* border-width: 5px;
+  border-radius: 20px; */
   display: block;
 }
 
@@ -190,6 +193,7 @@
 @media (min-width: 901px) {
   .about-page .intro-right .intro-row {
     align-items: stretch;
+    
     gap: 20px;
   }
 }
@@ -337,3 +341,4 @@
     aspect-ratio: 16 / 10; /* smoother on mobile */
   }
 }
+

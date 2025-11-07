@@ -2,7 +2,7 @@
 
 /* --- Dark Black Background for Post Pages with Hover Effect --- */
 body.post-template {
-  background-color: #0a0a0a !important;
+  background-color: rgb(255, 236, 250) !important;
   min-height: 100vh;
   position: relative;
   overflow-x: hidden;

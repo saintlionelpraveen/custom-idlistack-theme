@@ -88,7 +88,7 @@
 }
 .lamp-indicator::before{
   content:''; position:absolute; top:-.55rem; left:22%;
-  width: 54px; height: 8px; background: var(--nav-accent);
+  width: 52px; height: 2px; background: var(--nav-accent);
   border-radius: 9999px;
   filter: drop-shadow(0 6px 10px color-mix(in oklab, var(--nav-accent) 40%, transparent));
 }

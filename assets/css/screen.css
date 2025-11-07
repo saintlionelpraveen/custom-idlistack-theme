@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Bobby Jones';
+  src: url('../fonts/BobbyRoughSoftOutline.ttf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 /* --- Global Theme Setup --- */
 :root {
   --ghost-accent-color: #8a2be2; /* Neon Purple - can be adjusted */

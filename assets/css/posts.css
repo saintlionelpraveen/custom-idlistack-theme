@@ -1,4 +1,9 @@
-/* POSTS SECTION – LEMON SQUEEZY STYLE WITH ANIMATED BACKGROUND */
+/* =========================================================
+   POSTS SECTION – FULL RESPONSIVE VERSION
+   Desktop unchanged • Tablet & Mobile redesigned
+   ========================================================= */
+
+/* --- Base Section Styling --- */
 .posts-section {
   padding: 3rem 0;
   position: relative;
@@ -6,7 +11,7 @@
   overflow: hidden;
 }
 
-/* Animated Background for Posts Section */
+/* Animated Background Gradient */
 .posts-section::before {
   content: '';
   position: absolute;
@@ -18,6 +23,7 @@
   z-index: -2;
 }
 
+/* Blurred Animated Balls */
 .posts-section-bg {
   position: absolute;
   top: 0;
@@ -65,31 +71,17 @@
 }
 
 @keyframes float {
-  0%, 100% {
-    transform: translate(0, 0) scale(1);
-  }
-  25% {
-    transform: translate(30px, -30px) scale(1.1);
-  }
-  50% {
-    transform: translate(-20px, 20px) scale(0.9);
-  }
-  75% {
-    transform: translate(40px, 10px) scale(1.05);
-  }
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(30px, -30px) scale(1.1); }
+  50% { transform: translate(-20px, 20px) scale(0.9); }
+  75% { transform: translate(40px, 10px) scale(1.05); }
 }
 
-.section-title {
-  text-align: center;
-  font-size: 2.3rem;
-  margin-bottom: 3rem;
-  font-weight: 700;
-  color: #be185d;
-  position: relative;
-  z-index: 1;
-}
+/* =========================================================
+   DESKTOP (UNCHANGED)
+   Four-column grid with fixed-size cards
+   ========================================================= */
 
-/* 4 PER ROW – FIXED WIDTH */
 .posts-grid {
   display: grid;
   gap: 2rem;
@@ -102,7 +94,7 @@
   z-index: 1;
 }
 
-/* FIXED SIZE CARD – SAME HEIGHT ALWAYS */
+/* Card Base */
 .post-card {
   position: relative;
   background: rgb(255, 255, 255);
@@ -123,16 +115,16 @@
   border-color: rgba(236, 72, 153, 0.3);
 }
 
+/* Card Inner Structure */
 .post-card-inner {
   padding: 1.8rem 1.5rem;
   display: flex;
   flex-direction: column;
   height: 100%;
   min-height: 220px;
-  text-align: left;
 }
 
-/* LOGO / ICON */
+/* Logo */
 .post-logo {
   width: 48px;
   height: 48px;
@@ -140,7 +132,6 @@
   border-radius: 0.75rem;
   overflow: hidden;
   background: rgba(243, 244, 246, 0.8);
-  flex-shrink: 0;
 }
 
 .post-icon {
@@ -157,7 +148,7 @@
   border-radius: 0.5rem;
 }
 
-/* TITLE */
+/* Title */
 .post-title {
   font-size: 1.45rem;
   font-weight: 550;
@@ -167,7 +158,7 @@
   flex-grow: 1;
 }
 
-/* DESCRIPTION */
+/* Excerpt */
 .post-excerpt {
   font-size: 0.95rem;
   color: #000000;
@@ -176,7 +167,7 @@
   flex-grow: 1;
 }
 
-/* NEON BORDER ON HOVER */
+/* Neon border */
 .neon-border {
   position: absolute;
   inset: 0;
@@ -201,32 +192,104 @@
   50% { box-shadow: 0 0 20px #ec4899, 0 0 30px #be185d; }
 }
 
-/* RESPONSIVE */
-@media (max-width: 1200px) {
-  .posts-grid { grid-template-columns: repeat(3, 1fr); }
-}
-
+/* =========================================================
+   ✅ TABLET VIEW (≤900px)
+   ========================================================= */
 @media (max-width: 900px) {
-  .posts-grid { grid-template-columns: repeat(2, 1fr); }
-  
+
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .post-card-inner {
+    padding: 1.25rem 1rem;
+    min-height: 200px;
+  }
+
+  .post-title {
+    font-size: 1.15rem;
+    line-height: 1.35;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem;
+  }
+
+  .post-logo {
+    width: 42px;
+    height: 42px;
+  }
+
+  /* Softer animated blur */
   .posts-section-bg .blur {
     width: 300px;
     height: 300px;
     filter: blur(60px);
+    opacity: 0.35;
+  }
+
+  /* Disable heavy hover neon on touch */
+  .neon-border {
+    opacity: 0.4;
+    animation: none;
   }
 }
 
+/* =========================================================
+   ✅ MOBILE VIEW (≤600px)
+   ========================================================= */
 @media (max-width: 600px) {
-  .posts-grid { grid-template-columns: 1fr; }
-  .post-card-inner { min-height: 200px; padding: 1.5rem; }
-  .post-title { font-size: 1.25rem; }
-  
+
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.1rem;
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .post-card-inner {
+    padding: 1rem 0.9rem;
+    min-height: 180px;
+  }
+
+  .post-title {
+    font-size: 1.05rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .post-excerpt {
+    font-size: 0.95rem;
+    line-height: 1.55;
+  }
+
+  .post-logo {
+    width: 38px;
+    height: 38px;
+  }
+
+  /* Reduce animations on mobile */
+  .neon-border {
+    opacity: 0.25;
+  }
+
+  .post-card:hover {
+    transform: none;
+    box-shadow: 0 8px 18px rgba(236, 72, 153, 0.14);
+  }
+
+  /* Lighter bg blurs */
   .posts-section-bg .blur {
     width: 200px;
     height: 200px;
     filter: blur(40px);
+    opacity: 0.28;
+    animation-duration: 26s;
   }
-}
-*{
-  background: transparent;
+
+  .posts-section {
+    overflow-x: hidden;
+  }
 }
