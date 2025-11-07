@@ -4,12 +4,12 @@
 
 <main class="about-page">
 
-  <!-- Floating Orbs (static, no custom helpers) -->
+  <!-- Floating Orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
-  <!-- Floating Particles (static positions; JS can add more if you want) -->
+  <!-- Floating Particles -->
   <div class="particle" style="top: 12%; left: 15%;"></div>
   <div class="particle" style="top: 28%; left: 78%;"></div>
   <div class="particle" style="top: 56%; left: 10%;"></div>
@@ -20,73 +20,88 @@
 
   <div class="about-container">
 
-    <!-- HERO -->
-    <section class="hero fade-stagger parallax-layer" data-speed="0.5">
-      <div class="hero-left fade-in">
-        <h1 class="stroke">BEHIND THE STACK</h1>
-        <p class="accent meta">16 tinkerers, 2,000 partners in purpose.</p>
-        <div class="tag-cloud fade-stagger">
-          <span>Open Source</span>
-          <span>Community</span>
-          <span>Care-Driven</span>
-          <span>Accessible</span>
-          <span>Mission-First</span>
-        </div>
-      </div>
+   <!-- HERO -->
+<section class="hero fade-stagger parallax-layer" data-speed="0.5">
+  <div class="hero-left fade-in">
+    <h1 class="stroke">BEHIND THE STACK</h1>
+    <p class="accent meta">16 tinkerers, 2,000 partners in purpose.</p>
+    <div class="tag-cloud fade-stagger">
+      <span>Open Source</span>
+      <span>Community</span>
+      <span>Care-Driven</span>
+      <span>Accessible</span>
+      <span>Mission-First</span>
+    </div>
+  </div>
 
-      <div class="hero-right fade-in scale-in">
-        <div class="accent-block"></div>
-        <img class="hero-img" src="https://picsum.photos/1100/550?grayscale" alt="Team photo">
-      </div>
-    </section>
+  <div class="hero-right fade-in scale-in">
+    <div class="accent-block" ></div>
+    <!-- 1.png -->
+    <img class="hero-image about-img-1"
+     src="{{asset 'about/1.png'}}"
+     alt="Hero Image"
+     style="transform: scale(0.90); transform-origin: top right;">
 
-    <!-- STATS -->
-   {{!-- <section class="stats-bar fade-in parallax-layer" data-speed="0.3">
-      <div class="stat"><span class="stat-number">2K+</span><span class="stat-label">Partners</span></div>
-      <div class="stat"><span class="stat-number">16</span><span class="stat-label">Team Members</span></div>
-      <div  class="stat"><span class="stat-number">100%</span><span class="stat-label">Open Source</span></div>
-    </section> --}}
+  </div>
+</section>
+<!-- INTRO -->
+<section class="intro fade-stagger parallax-layer" data-speed="0.4">
+  <div class="intro-left fade-in">
+    <div class="intro-copy">
+      <p>
+        We’re a crew of 16 wildly driven change engineers—part dreamers, part tinkerers, part “let’s see what happens if we press this button.” We break things (on purpose), rebuild them better, and reimagine what tech can do for nonprofits. For years, we’ve been where real impact happens—in the glitchy, remote corners of the world where people still somehow move mountains. We’ve sat with nonprofits in their offices, fields, and community halls, learning what technology really means to them (especially when the signal’s weak but the spirit is strong).
+      </p>
 
-    <!-- INTRO -->
-    <section class="intro fade-stagger parallax-layer" data-speed="0.4">
-      <div class="intro-left fade-in">
-        <p>
-          With a fusion of no-code-savvy design engineers, open source builders,
-          nonprofit practitioners, and dreamers—we build tech that gives a damn.
-          Our mission isn't to impress — it's to enable.
-        </p>
-      </div>
+      <p>
+        With every lesson, we shaped our approach—watching them wrestle with tools that never quite fit their world. Naturally, we rolled up our sleeves and started tinkering. Sometimes we sparked magic. Sometimes we built Franken-tech that never left the shelf (hey, that happens).
+      </p>
 
-      <div class="intro-right fade-stagger">
-        <div class="intro-row">
-          <img class="scale-in" src="https://picsum.photos/530/360?grayscale" alt="">
-          <img class="scale-in" src="https://picsum.photos/530/361?grayscale" alt="">
-        </div>
+      <p class="intro-question lead">
+        But every win, flop and facepalm brought us closer to one beautifully stubborn question:
+      </p>
+    </div>
+  </div>
 
-        <div class="intro-card scale-in">
-          <img src="https://picsum.photos/1100/620?grayscale" alt="">
-          <p class="tiny accent">Many teams, one mission: remove complexity.</p>
-        </div>
-      </div>
-    </section>
+  <div class="intro-right fade-stagger">
+    <div class="intro-row">
+      <img class="scale-in about-img-2" src="{{asset 'about/2.png'}}" alt="Team at work">
+      <img class="scale-in about-img-3" src="{{asset 'about/3.png'}}" alt="Field collaboration">
+    </div>
+
+    <div class="intro-card scale-in">
+      <img class="about-img-4" src="{{asset 'about/4.png'}}" alt="Mission in action">
+      <p class="tiny accent card-caption"><strong>Many teams, one mission:</strong> remove complexity.</p>
+    </div>
+  </div>
+</section>
+
+
 
     <!-- QUESTION -->
     <section class="question fade-stagger parallax-layer" data-speed="0.6">
-      <h2 class="stroke tight fade-in">WHY DOESN'T TECH JUST WORK FOR NONPROFITS?</h2>
-      <div class="question-row fade-in">
-        <div class="face">:(</div>
-        <ul class="reason">
-          <li>Too costly</li>
-          <li>Too many tools</li>
-          <li>No one to maintain</li>
-          <li>Constantly changing</li>
-        </ul>
+      <div class="container question-container">
+
+        <h2 class="stroke tight fade-in">WHY DOESN'T TECH JUST <strong style="color: rgb(235, 44, 219);">WORK</strong> FOR NONPROFITS?</h2>
+
+        <div class="question-row fade-in">
+          <a class="face">
+            <img src="{{asset 'images/smily.gif'}}" alt="Hero Image">
+          </a>
+
+          <ul class="reason">
+            <li>Too costly</li>
+            <li>Too many tools</li>
+            <li>No one to maintain</li>
+            <li>Constantly changing</li>
+          </ul>
+        </div>
+
       </div>
     </section>
 
     <!-- VALUES -->
     <section class="values fade-stagger parallax-layer" data-speed="0.3">
-      <h2 class="stroke fade-in">OUR CORE VALUES</h2>
+      <h2 class="stroke fade-in" style="color: black;">OUR CORE VALUES</h2>
       <div class="values-grid">
         <div class="value-item fade-in"><h4>Empathy First</h4><p>Real needs first.</p></div>
         <div class="value-item fade-in"><h4>Radical Transparency</h4><p>Open by default.</p></div>
@@ -98,12 +113,26 @@
     <!-- SPLIT -->
     <section class="split fade-stagger parallax-layer" data-speed="0.5">
       <div class="split-left fade-in">
-        <h3 class="stroke">THROUGH IT ALL, ONE TRUTH BECAME CLEAR:</h3>
-        <p class="em">
+        <h3 class="stroke" style="color: black;">THROUGH IT ALL, ONE TRUTH BECAME CLEAR:</h3>
+        
+         
+       <p class="em" style="width:175%;height:50%;">
           Nonprofits don't need more software.<br>
-          They need <span class="accent">software that fits</span>.
+          They need <span class="accent" style="font-weight:bolder">simpler, saner, sustainable </span>ways to use the tech that’s already out there<br>without draining their people, their pockets, or their patience. That truth became our compass.
         </p>
+        <p class="em" style="width:175%;height:30%;position:relative;bottom:30%;">So, instead of adding yet another tool to the pile,<br> <span class="accent" style="font-weight:bolder">We decided to build a shared layer of support.</span>
+        </p>
+        
+       
       </div>
+      <p>
+  <img src="{{asset 'images/stack.gif'}}"
+       alt="Decorative Image"
+       class="stack"
+       style="width: 200%; max-width: 900px; display:block; margin:auto;padding-bottom:80%;padding-right:80%;">
+</p>
+
+        
 
       <div class="split-right card neon-border scale-in">
         <p class="tiny subtle">Say hello to</p>
@@ -114,15 +143,24 @@
 
     <!-- CLOSING -->
     <section class="closing fade-in parallax-layer" data-speed="0.3">
-      <h2 class="stroke center">IT IS TRULY TECH THAT GIVES A <span class="accent">DAMN.</span></h2>
+      <h2 class="stroke center" style="color:black">IT IS TRULY TECH THAT GIVES A <span class="accent">DAMN.</span></h2>
       <p class="subtle center">Now, let's get started.</p>
+
+      <center>
+        <a href="https://docs.google.com/forms/d/e/1FAIpQLSen8w5W5By8I7aC5tselWQqfyi32NMPVtzzPByQF7ef4ord0g/viewform"
+           class="btn-join-beta" style="margin-top: 4.5%;">
+            <span class="btn-text">Join the Beta</span>
+            <span class="neon-glow"></span>
+        </a>
+      </center>
     </section>
 
     <footer class="about-logo fade-in">
       <div class="brand mark">iDliSt<span class="accent">a</span>ck</div>
     </footer>
-
+     
   </div>
+  
 </main>
 
 <script src="{{asset "js/about.js"}}" defer></script>

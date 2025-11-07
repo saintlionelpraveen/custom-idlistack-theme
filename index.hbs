@@ -6,29 +6,38 @@
   <div id="blur2" class="blur"></div>
   <div id="blur3" class="blur"></div>
 </div>
-
+{{!-- <a class="hero1"><img src="{{asset 'images/footer-logo.png'}}" alt="Hero Image"></a> --}}
 <!-- HERO SECTION -->
-<section id="hero-section" class="hero-section" aria-labelledby="hero-title">
+<section id="hero-section" class="hero-section" aria-labelledby="hero-title" style="padding-left: 0; postion: relative;right: 100%;margin= 0;">
   <div class="hero-grid container">
     
     <!-- Left: Text Content -->
-    <div class="hero-content">
-      <h1 id="hero-title" class="hero-title">
-        {{@site.title}}
+    <div class="hero-content" style="padding: 0;postion: relative;right: 100%;">
+      <h1 id="title" class="title" style="font-weight: 400;font-size: 2rem;padding-top:0;position:relative;bottom:70px;">
+        Open-source made effortless. Hosting made affordable.
+        
       </h1>
-      <p class="hero-description">
-        {{@site.description}}
+      <p class="hero-description" style="font-size: medium;padding-top:0;position:relative;bottom:40px;">
+        Because changemakers deserve <strong>Tech That Gives a Damn</strong>
       </p>
 
-      <!-- JOIN BUTTON -->
-      <a href="/join" class="btn-join" aria-label="Join With Us">
-        <span class="btn-text">Join With Us</span>
-        <span class="neon-glow"></span>
-      </a>
+     <!-- JOIN BUTTON (replaced) -->
+<a href="https://forms.gle/3gSeVYnXPisZAaqR7"
+   class="btn-join-beta"
+   aria-label="Join the Beta (Google Form)"
+   target="_blank" rel="noopener" style="position:relative;bottom:20px;">
+  <span class="btn-text">Join the Beta</span>
+  <span class="neon-glow"></span>
+</a>
+
+      <br>
+      <br>
+      <p style="font-weight: 800;">Bring your heart. We’ve got the stack</p>
+      
     </div>
 
     <!-- Right: Featured Image (No Card, Transparent BG) -->
-    <figure class="hero-image-wrapper" aria-hidden="true">
+    <figure class="hero-image-wrapper" aria-hidden="true" style="padding-top:0;position:relative;bottom:70px;">
       {{#if @site.cover_image}}
         <img 
           src="{{img_url @site.cover_image size="xl"}}" 
@@ -64,11 +73,14 @@
 
   <div class="posts-grid">
     {{#foreach posts}}
-      <article class="post-card" data-post-id="{{id}}">
+      <article class="post-card" data-post-id="{{id}}" data-slug="{{slug}}">
+
         <a href="{{url}}" class="post-link" aria-label="Read {{title}}">
 
           <!-- Fixed Size Container -->
           <div class="post-card-inner">
+            <!-- ADDED: T4GC badge (rendered for all; CSS shows only for slug=fms) -->
+            <div class="t4gc-badge" style="color: black;">T4GC <span class="heart" aria-hidden="true">❤️</span></div>
 
             <!-- Logo / Icon (Use Feature Image as Icon or Placeholder) -->
             <div class="post-logo">

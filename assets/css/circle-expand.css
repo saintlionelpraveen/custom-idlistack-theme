@@ -1,165 +1,123 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+/* =========================================================
+   EARLY STACKERS — DARK DEFAULT, SAME IN LIGHT
+   Title hidden at rest (revealed only after scroll)
+   ========================================================= */
+
+:root, html { color-scheme: dark !important; }
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 .embedded-gallery {
   min-height: 200vh;
-  background-color: transparent;
+  background-color: #000 !important; /* always black */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  isolation: isolate;
 }
 
 .embedded-gallery .container {
   height: 100vh;
+  position: sticky;
+  top: 0;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 2rem;
-  position: sticky;
-  top: 0;
 }
 
+/* ------- Concentric rings ------- */
 .embedded-gallery .outer-circle {
-  width: 600px;
-  height: 600px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.5s;
-}
-
-.embedded-gallery .outer-circle.show-border {
-  border: 2px solid #6e0dff;
+  width: 600px; height: 600px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(149,163,189,.16);
 }
 
 .embedded-gallery .middle-circle {
-  width: 500px;
-  height: 500px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  width: 500px; height: 500px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px solid rgba(64,102,179,.30);
   position: relative;
-  transition: all 0.5s;
-}
-
-.embedded-gallery .middle-circle.show-border {
-  border: 2px solid #b4099a;
 }
 
 .embedded-gallery .gradient-ring {
-  width: 400px;
-  height: 400px;
-  border-radius: 50%;
-  background: linear-gradient(to right, #c084fc, #ec4899, #ef4444);
+  width: 400px; height: 400px; border-radius: 50%;
   padding: 2px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: flex; align-items: center; justify-content: center;
   position: relative;
+  background: linear-gradient(90deg, #8b5cf6, #ec4899, #ef4444);
+  box-shadow: 0 0 0 1px rgba(0,0,0,.45) inset;
 }
 
 .embedded-gallery .inner-circle {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #ffffff;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: relative;
+  width: 100%; height: 100%; border-radius: 50%;
+  background: #000; /* inky center */
+  display: flex; align-items: center; justify-content: center;
+  position: relative; z-index: 3;
 }
 
+/* ------- Center logo tile ------- */
 .embedded-gallery .profile-image {
-  position: absolute;
-  width: 96px;
-  height: 96px;
-  border-radius: 1rem;
+  position: absolute; /* centered by flex parents */
+  width: 120px; height: 120px;
+  border-radius: 18px;
   overflow: hidden;
-  border: 4px solid white;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s ease-out;
+  background: #fff;
+  border: 4px solid #1f2937;               /* slate frame */
+  box-shadow: 0 12px 24px rgba(0,0,0,.35);
+  z-index: 5;                               /* above title at rest */
 }
 
 .embedded-gallery .profile-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: 100%; height: 100%; object-fit: contain;
 }
 
+/* ------- Title/copy (hidden at rest) ------- */
 .embedded-gallery .content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  position: relative;
-  z-index: 20;
-  transition: opacity 0.5s;
-  opacity: 0;
-}
-
-.embedded-gallery .content.visible {
-  opacity: 1;
+  position: absolute; inset: 0;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  opacity: 0;                    /* hidden initially */
+  transform: translateY(12px);   /* subtle settle */
+  z-index: 4;                    /* BEHIND the logo at rest */
+  pointer-events: none;
+  transition: opacity .35s ease, transform .35s ease, z-index .01s linear;
 }
 
 .embedded-gallery .content h1 {
-  font-size: 2.25rem;
-  font-weight: bold;
-  color: #1f2937;
-  text-align: center;
-  margin-bottom: 0.5rem;
+  font-size: 2.6rem; line-height: 1.05;
+  font-weight: 800; text-align: center;
+  color: #fff;
+  text-shadow: 0 2px 10px rgba(0,0,0,.35);
+  margin: .2rem 0;
 }
 
-.embedded-gallery .content h1:last-of-type {
-  margin-bottom: 1rem;
+/* When section starts moving, reveal title ABOVE logo */
+.embedded-gallery .content.visible {
+  opacity: 1;
+  transform: translateY(0);
+  z-index: 6; /* above the logo now */
 }
 
-.embedded-gallery .content p {
-  color: #6b7280;
-  text-align: center;
-  max-width: 20rem;
+/* ------- Responsive ------- */
+@media (max-width: 860px){
+  .embedded-gallery .outer-circle { width: 520px; height: 520px; }
+  .embedded-gallery .middle-circle{ width: 430px; height: 430px; }
+  .embedded-gallery .gradient-ring{ width: 340px; height: 340px; }
+  .embedded-gallery .profile-image { width: 110px; height: 110px; }
+  .embedded-gallery .content h1 { font-size: 2.2rem; }
 }
 
-@media (prefers-color-scheme: dark) {
-  .embedded-gallery {
-    background-color: #000000;
-  }
-
-  .embedded-gallery .outer-circle.show-border {
-    border-color: #374151;
-  }
-
-  .embedded-gallery .middle-circle.show-border {
-    border-color: #1e3a8a;
-  }
-
-  .embedded-gallery .gradient-ring {
-    background: linear-gradient(to right, #9333ea, #db2777, #dc2626);
-  }
-
-  .embedded-gallery .inner-circle {
-    background-color: #000000;
-  }
-
-  .embedded-gallery .profile-image {
-    border-color: #1f2937;
-  }
-
-  .embedded-gallery .content h1 {
-    color: #ffffff;
-  }
-
-  .embedded-gallery .content p {
-    color: #9ca3af;
-  }
+@media (max-width: 560px){
+  .embedded-gallery .outer-circle { width: 440px; height: 440px; }
+  .embedded-gallery .middle-circle{ width: 360px; height: 360px; }
+  .embedded-gallery .gradient-ring{ width: 300px; height: 300px; }
+  .embedded-gallery .profile-image { width: 96px; height: 96px; border-width: 3px; }
+  .embedded-gallery .content h1 { font-size: 1.9rem; }
 }
 
-
-
-
-
-
-
-
+/* ------- Hard lock for light OS: keep identical visuals ------- */
+@media (prefers-color-scheme: light) {
+  html body .embedded-gallery { background-color: #000 !important; }
+  html body .embedded-gallery .gradient-ring {
+    background: linear-gradient(90deg, #8b5cf6, #ec4899, #ef4444) !important;
+  }
+}

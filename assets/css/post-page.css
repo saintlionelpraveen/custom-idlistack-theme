@@ -255,3 +255,11 @@ body.post-template.bg-hover::before {
     font-size: 1.8rem;
   }
 }
+
+/* If your page slug is different, change 'early-stackers' below */
+body.page-template.page-early-stackers .site-header .site-logo img.page-logo-override {
+  height: 48px;   /* adjust as needed */
+  width: auto;
+  display: block;
+  object-fit: contain;
+}

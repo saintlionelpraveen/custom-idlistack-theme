@@ -2,9 +2,11 @@
 .hero-section {
   min-height: 100vh;
   display: flex;
-  align-items: center;
+  align-items: left;
   padding: 6rem 0;
   background: transparent;
+ 
+  
 }
 
 .hero-grid {
@@ -49,12 +51,18 @@
   font-weight: 600;
   font-size: 1.1rem;
   color: white;
-  background: #F252AA;
+  background: #000000;
   border-radius: 9999px;
   text-decoration: none;
   overflow: hidden;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-  z-index: 1;
+  z-index: 99999;
+  pointer-events: auto;        /* anchor is clickable */
+}
+
+/* ✅ FIXED — inner elements no longer block the click */
+.btn-join * {
+  pointer-events: none;
 }
 
 .btn-text {
@@ -65,7 +73,7 @@
 .neon-glow {
   position: absolute;
   inset: 0;
-  background: #ec4899;
+  background: #565455;
   border-radius: 9999px;
   opacity: 0;
   filter: blur(14px);
@@ -74,10 +82,10 @@
 }
 
 .btn-join:hover {
-  background: #F18DF2;
-  color: #000;
+  background: #736d73;
+  color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(236, 72, 153, 0.3);
+  box-shadow: 0 20px 40px rgba(111, 111, 111, 0.3);
 }
 
 .btn-join:hover .neon-glow {
@@ -109,6 +117,17 @@
   transform: scale(1.04);
 }
 
+/* the idlistack logo in the hero section */
+.hero1 {
+  position: absolute;
+  top: 200px;
+  left: 200px;
+  width: 800px;
+  height: auto;
+  z-index: 10;
+}
+
+/*------------------------------------------------*/
 /* Responsive */
 @media (max-width: 1024px) {
   .hero-grid {
@@ -122,4 +141,99 @@
 
 @media (max-width: 640px) {
   .hero-section { padding: 5rem 0; }
+}
+/* FIX: Allow clicking inside parallax sections */
+.parallax-layer {
+  pointer-events: auto !important;
+}
+
+
+/* Make sure the badge can sit in the top-right corner of each card */
+.post-card .post-card-inner { position: relative; }
+
+/* Badge - hidden by default everywhere */
+.t4gc-badge {
+  display: none !important;              /* hidden unless slug=fms */
+  position: absolute;
+  top: 12px;                              /* tweak to match your rectangle */
+  right: 14px;                            /* tweak to match your rectangle */
+  z-index: 3;
+  padding: 6px 10px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: .5px;
+  color: #ffffff;                         /* word is white */
+  background: rgba(255,255,255,0.14);     /* subtle chip background */
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  line-height: 1;
+  gap: 6px;
+  align-items: center;
+  pointer-events: none;                   /* never interfere with clicking the card */
+  transition: transform .18s ease, box-shadow .18s ease, filter .18s ease;
+}
+
+/* Heart in dark pink */
+.t4gc-badge .heart {
+  color: #d81b60;                         /* dark pink */
+  transition: transform .18s ease, filter .18s ease;
+}
+
+/* ✅ Show the badge only for the post whose slug is exactly "fms" */
+.post-card[data-slug="fms"] .t4gc-badge {
+  display: inline-flex !important;
+}
+
+/* Hover effects — only for that FMS card */
+.post-card[data-slug="fms"]:hover .t4gc-badge {
+  transform: translateY(-2px) scale(1.05);
+  box-shadow: 0 0 10px rgba(216,27,96,.7), 0 0 22px rgba(216,27,96,.45);
+}
+
+.post-card[data-slug="fms"]:hover .t4gc-badge .heart {
+  transform: scale(1.15);
+  filter: drop-shadow(0 0 8px rgba(216,27,96,.85));
+}
+
+
+/* JOIN BUTTON */
+.btn-join,
+.btn-join-beta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 1rem 2.3rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: white;
+  background: #000000;
+  border-radius: 9999px;
+  text-decoration: none;
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  z-index: 99999;
+  pointer-events: auto;
+}
+
+/* ✅ keep click-through fix */
+.btn-join *,
+.btn-join-beta * {
+  pointer-events: none;
+}
+
+.btn-join:hover,
+.btn-join-beta:hover {
+  background: #736d73;
+  color: #ffffff;
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(111, 111, 111, 0.3);
+}
+
+.btn-join:hover .neon-glow,
+.btn-join-beta:hover .neon-glow {
+  opacity: 1;
+  transform: scale(1.15);
+  animation: pulseGlow 1.5s infinite;
 }

@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{@site.locale}}">
 <head>
+    {{! Responsive design}}
     
     {{! Your main global stylesheet }}
     <link rel="stylesheet" type="text/css" href="{{asset "css/screen.css"}}" />
@@ -25,6 +26,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     
     <!-- CSS Stylesheets -->
+    <!-- Dark mode styles -->
+    <meta name="color-scheme" content="dark">
+    <html lang="{{@site.locale}}" class="force-dark theme-dark" data-theme="dark">
+
+
     <link rel="stylesheet" href="{{asset 'css/animated-background.css'}}">
     <link rel="stylesheet" href="{{asset 'css/circle-expand.css'}}">
     <link rel="stylesheet" href="{{asset 'css/elegant-header.css'}}">

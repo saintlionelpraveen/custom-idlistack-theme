@@ -38,7 +38,7 @@
 
 /* HERO */
 .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:48px;align-items:center;margin-bottom:70px;}
-.stroke{text-transform:uppercase;font-weight:900;}
+.stroke{text-transform:uppercase;font-weight:900;color: white;}
 .accent{color:var(--accent);}
 .meta{font-size:1.2rem;margin-top:.5rem;font-weight:700;}
 .hero-left h1{
@@ -55,7 +55,7 @@
 .tag-cloud span:hover{border-color:var(--accent);box-shadow:0 0 16px rgba(0,181,173,.5);transform:translateY(-4px);}
 
 .hero-right{position:relative;height:420px;}
-.accent-block{position:absolute;top:-20px;left:-20px;width:calc(100% - 40px);height:68%;background:linear-gradient(135deg,var(--accent2),rgba(10,124,158,.6));border-radius:12px;animation:floatBlock 6s ease-in-out infinite;z-index:1;}
+.accent-block{position:absolute;top:-20px;left:-20px;width:calc(100% - 40px);height:90%;background:linear-gradient(135deg,var(--accent2),rgba(10,124,158,.6));border-radius:12px;animation:floatBlock 6s ease-in-out infinite;z-index:1;}
 @keyframes floatBlock{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 
 .hero-img{width:100%;border-radius:12px;box-shadow:0 22px 70px rgba(0,0,0,.12);transition:.4s;z-index:2;position:relative;}
@@ -82,7 +82,7 @@
 .question{text-align:center;margin:100px 0;}
 .tight{letter-spacing:-.5px;}
 .question-row{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:28px;}
-.face{width:90px;height:90px;background:#f1f1f1;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:2px solid rgba(0,181,173,.3);}
+.face{width:300px;height:90px;background:#ffffff00;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:2.5rem;border:2px solid rgba(0, 181, 172, 0);}
 
 /* VALUES */
 .values{margin:100px 0;padding:60px 0;background:linear-gradient(135deg,#d952c38b,#e430c648);border-radius:16px;}
@@ -99,11 +99,25 @@
 .value-item:hover{transform:translateX(8px);box-shadow:-8px 8px 24px #d952c2;}
 .value-item h4{font-size:1.15rem;margin-bottom:8px;color:var(--accent);}
 .value-item p{color:var(--muted);}
+.reason li{text-align: left;font-size: 25px;font-weight: bold;color: white;}
+.question-container {
+  width: 90%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 30px;
+  
+  border: 2px solid #ffffff33; /* Light white border */
+  border-radius: 15px;         /* Smooth corners */
+  backdrop-filter: blur(5px);  /* Fancy glass effect (optional) */
+  
+  background: rgb(0, 0, 0); /* Subtle dark glass bg */
+}
+
 
 /* SPLIT */
 .split{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin:100px 0;align-items:center;}
-.split-left h3{font-size:1.6rem;margin-bottom:12px;}
-.split-left .em{font-size:1.15rem;line-height:1.7;margin-bottom:8px;}
+.split-left h3{font-size:1.6rem;margin-bottom:30px;margin: 20%;}
+.split-left .em{font-size:1.15rem;line-height:1.7;margin: 20%;}
 .card{background:#fff;padding:40px;border-radius:14px;text-align:center;border:1px solid var(--border);transition:.35s;}
 .card:hover{transform:translateY(-6px);}
 .neon-border{border:2px solid var(--accent);box-shadow:0 0 24px #d952c2;}
@@ -127,7 +141,7 @@
 .parallax-layer{transition:transform .3s ease-out;}
 
 /* UNIFORM IMAGE RATIOS (fix uneven sizes) */
-.hero-img,.intro-row img,.intro-card img{aspect-ratio:16/9;object-fit:cover;width:100%;height:auto;}
+.intro-row img,.intro-card img{object-fit:cover;width:100%;height:auto;}
 @media(min-width:900px){.intro-card img{aspect-ratio:4/3;}}
 
 /* RESPONSIVE */
@@ -135,4 +149,191 @@
   .hero,.intro,.split,.values-grid{grid-template-columns:1fr;}
   .stats-bar{grid-template-columns:1fr;}
   .hero-left h1{font-size:2.4rem;}
+}
+
+
+/* --------------------------------------------
+   ABOUT PAGE — IMAGE ALIGNMENT (1–4.png only)
+   --------------------------------------------
+   Notes:
+   - All rules are scoped with .about-page to avoid side effects.
+   - Uses aspect-ratio + object-fit for consistent sizing.
+   - Grid alignment preserved; only images are normalized.
+--------------------------------------------- */
+
+/* 1) 1.png — hero image (right column) */
+.about-page .about-img-1 {
+  display: block;
+  width: 100%;
+  height: 3px;
+  max-width: 560px;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  box-shadow: 0 22px 70px rgba(0, 0, 0, 0.12);
+  position: relative;      /* sits above accent-block */
+  z-index: 2;
+  margin-left: auto;       /* keeps it snug to the right column */
+}
+
+/* 2) 2.png and 3.png — intro grid pair */
+.about-page .about-img-2,
+.about-page .about-img-3 {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+}
+
+/* Slight nudge for visual balance (optional) */
+@media (min-width: 901px) {
+  .about-page .intro-right .intro-row {
+    align-items: stretch;
+    gap: 20px;
+  }
+}
+
+/* 3) 4.png — card image with caption */
+.about-page .about-img-4 {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  border-radius: 12px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Responsive refinements for small screens */
+@media (max-width: 900px) {
+  .about-page .about-img-1 {
+    max-width: 100%;
+    aspect-ratio: 16 / 10;   /* wider feel on mobile */
+  }
+
+  .about-page .about-img-2,
+  .about-page .about-img-3 {
+    aspect-ratio: 16 / 10;
+  }
+}
+
+/* Utility: ensure any image within these blocks keeps edges tidy */
+.about-page .hero-right img,
+.about-page .intro-row img,
+.about-page .intro-card img {
+  background: #fff;           /* avoids dark bleed under blur/glass */
+  border: 1px solid var(--border);
+}
+
+/* ---------------------------------------------
+   ABOUT PAGE — INTRO CONTENT (typography & layout)
+---------------------------------------------- */
+
+/* Grid + spacing */
+.about-page .intro {
+  display: grid;
+  grid-template-columns: 0.95fr 1.35fr;
+  gap: 48px;
+  margin: 80px 0;
+  align-items: start;
+}
+
+/* Text block: readable width & clean rhythm */
+.about-page .intro-copy {
+  max-width: 62ch;                /* optimal line length */
+  display: grid;
+  gap: 1rem;                      /* consistent paragraph spacing */
+}
+
+.about-page .intro-copy p {
+  font-size: 1.05rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin: 0;                      /* gap handles spacing */
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-wrap: anywhere;        /* prevents overflow on long tokens */
+  hyphens: auto;
+}
+
+/* Emphasis line before the big question */
+.about-page .intro-copy .lead {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Right column structure */
+.about-page .intro-right {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+/* Image row */
+.about-page .intro-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+/* Image alignment (2.png & 3.png) */
+.about-page .about-img-2,
+.about-page .about-img-3 {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+/* Card (4.png + caption) */
+.about-page .intro-card {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.about-page .about-img-4 {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: block;
+}
+
+.about-page .intro-card .card-caption {
+  margin: 0;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .about-page .intro {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 56px 0;
+  }
+
+  .about-page .intro-copy {
+    max-width: 100%;
+    gap: 0.9rem;
+  }
+
+  .about-page .intro-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .about-page .about-img-2,
+  .about-page .about-img-3,
+  .about-page .about-img-4 {
+    aspect-ratio: 16 / 10; /* smoother on mobile */
+  }
 }
