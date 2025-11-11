@@ -9,6 +9,7 @@
   
 }
 
+
 .hero-grid {
   display: grid;
   grid-template-columns: 1fr 1.3fr;
@@ -82,10 +83,10 @@
 }
 
 .btn-join:hover {
-  background: #736d73;
+  background: #736d7300;
   color: #ffffff;
   transform: translateY(-4px);
-  box-shadow: 0 20px 40px rgba(111, 111, 111, 0.3);
+  box-shadow: 0 20px 40px rgba(111, 111, 111, 0);
 }
 
 .btn-join:hover .neon-glow {
@@ -129,7 +130,7 @@
 
 /*------------------------------------------------*/
 /* Responsive */
-@media (max-width: 1024px) {
+@media (max-width: 900px) {
   .hero-grid {
     grid-template-columns: 1fr;
     text-align: center;
@@ -137,10 +138,46 @@
   }
   .hero-content { margin: 0 auto; max-width: 600px; }
   .hero-image { min-height: 420px; }
+  /* Hide the arrow on desktop and tablet */
+.arrow {
+  display: none;
+}
+
+/* Show only on small screens (≤560px) */
+@media (max-width: 560px) {
+  .arrow {
+    display: block;       /* show it again */
+    font-size: 1.5rem;
+    color: #ff66cc;
+    text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+    animation: glowPulse 1s infinite alternate;
+    position: relative;
+    left: 20rem;
+    top: 1rem;
+  }
+
+  @keyframes glowPulse {
+    from {
+      opacity: 0.6;
+      text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff66cc;
+      transform: scale(1);
+    }
+    to {
+      opacity: 1;
+      text-shadow: 0 0 20px #ff66cc, 0 0 30px #ff99ff;
+      transform: scale(1.2);
+    }
+  }
+}
+
 }
 
 @media (max-width: 640px) {
   .hero-section { padding: 5rem 0; }
+  .title1{
+    font-size:25px;
+  }
+  .damn{font-size:35rem;}
 }
 /* FIX: Allow clicking inside parallax sections */
 .parallax-layer {
@@ -148,8 +185,10 @@
 }
 
 
+
 /* Make sure the badge can sit in the top-right corner of each card */
 .post-card .post-card-inner { position: relative; }
+/* .post-card{padding:2rem;margin:1rem;} */
 
 /* Badge - hidden by default everywhere */
 .t4gc-badge {
@@ -163,7 +202,7 @@
   font-size: 14px;
   font-weight: 800;
   letter-spacing: .5px;
-  color: #ffffff;                         /* word is white */
+  color: #000000;                         /* word is white */
   background: rgb(255, 255, 255);     /* subtle chip background */
   backdrop-filter: blur(6px);
   -webkit-backdrop-filter: blur(6px);
@@ -203,7 +242,8 @@
   position: relative;
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
+  bottom: 1.5rem;
+  gap: 0.50rem;
   padding: 1rem 2.3rem;
   font-weight: 600;
   font-size: 1.1rem;
@@ -238,3 +278,62 @@
   animation: pulseGlow 1.5s infinite;
 }
 
+@media (max-width: 560px){
+
+.post-card{padding:0.5rem;margin:1rem;}
+.arrow {
+  font-size: 1.5rem;       /* adjust size as you like */
+  color: #ff66cc;        /* pink glow color */
+  text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+  animation: glowPulse 1s infinite alternate;
+  position: relative;
+  left:20rem;
+  top:1rem;
+}
+
+@keyframes glowPulse {
+  from {
+    opacity: 0.6;
+    text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff66cc;
+    transform: scale(1);
+  }
+  to {
+    opacity: 1;
+    text-shadow: 0 0 20px #ff66cc, 0 0 30px #ff99ff;
+    transform: scale(1.2);
+  }
+}
+
+}
+/* Hide arrow on desktop and larger screens */
+.arrow {
+  display: none !important;
+}
+.hero-kicker{font-size: medium;}
+
+/* Show arrow only on mobile screens (≤560px) */
+@media (max-width: 560px) {
+  .arrow {
+    display: inline-block !important;
+    font-size: 1.5rem;
+    color: #ff66cc;
+    text-shadow: 0 0 10px #ff66cc, 0 0 20px #ff66cc;
+    animation: glowPulse 1s infinite alternate;
+    position: relative;
+      left: 22rem;
+    top: 1rem;
+  }
+
+  @keyframes glowPulse {
+    from {
+      opacity: 0.6;
+      text-shadow: 0 0 5px #ff66cc, 0 0 10px #ff66cc;
+      transform: scale(1);
+    }
+    to {
+      opacity: 1;
+      text-shadow: 0 0 20px #ff66cc, 0 0 30px #ff99ff;
+      transform: scale(1.2);
+    }
+  }
+}

@@ -3,91 +3,81 @@
 <link rel="stylesheet" href="{{asset "css/about.css"}}">
 
 <main class="about-page">
-
   <!-- Floating Orbs -->
   <div class="orb orb-1"></div>
   <div class="orb orb-2"></div>
   <div class="orb orb-3"></div>
 
   <!-- Floating Particles -->
-  <div class="particle" style="top: 12%; left: 15%;"></div>
-  <div class="particle" style="top: 28%; left: 78%;"></div>
-  <div class="particle" style="top: 56%; left: 10%;"></div>
-  <div class="particle" style="top: 72%; left: 68%;"></div>
-  <div class="particle" style="top: 44%; left: 44%;"></div>
-  <div class="particle" style="top: 20%; left: 38%;"></div>
-  <div class="particle" style="top: 66%; left: 86%;"></div>
+  <div class="particle p1"></div>
+  <div class="particle p2"></div>
+  <div class="particle p3"></div>
+  <div class="particle p4"></div>
+  <div class="particle p5"></div>
+  <div class="particle p6"></div>
+  <div class="particle p7"></div>
 
   <div class="about-container">
 
-   <!-- HERO -->
-<section class="hero fade-stagger parallax-layer" data-speed="0.5">
-  <div class="hero-left fade-in">
-    <h1 class="stroke">BEHIND THE STACK</h1>
-    <p class="accent meta">16 tinkerers, 2,000 partners in purpose.</p>
-    <div class="tag-cloud fade-stagger">
-      <span>Open Source</span>
-      <span>Community</span>
-      <span>Care-Driven</span>
-      <span>Accessible</span>
-      <span>Mission-First</span>
-    </div>
-  </div>
+    <!-- HERO -->
+    <section class="hero fade-stagger parallax-layer" data-speed="0.5" style="content-visibility:auto; contain-intrinsic-size: 600px">
+      <div class="hero-left fade-in">
+        <h1 style="font-family:Bobby Jones;font-size:80px;color:rgb(0, 0, 0);" class="behind">BEHIND THE STACK</h1>
+        {{!-- <p class="accent meta">16 tinkerers, 2,000 partners in purpose.</p>
+        <div class="tag-cloud fade-stagger">
+          <span>Open Source</span>
+          <span>Community</span>
+          <span>Care-Driven</span>
+          <span>Accessible</span>
+          <span>Mission-First</span>
+        </div> --}}
+      </div>
 
-  <div class="hero-right fade-in scale-in">
-    <div class="accent-block"></div>
-    <!-- 1.png -->
-    <img class="hero-image about-img-1"
-     src="{{asset 'about/1.png'}}"
-     alt="Hero Image"
-     style="transform: scale(0.95); transform-origin: top right;">
+      <div class="hero-right fade-in scale-in">
+        <div class="accent-block"></div>
+        <img class="hero-image about-img-1 is-shrink" src="{{asset 'about/1.png'}}" alt="Hero Image" loading="lazy" decoding="async">
+      </div>
+    </section>
 
-  </div>
-</section>
-<!-- INTRO -->
-<section class="intro fade-stagger parallax-layer" data-speed="0.4">
-  <div class="intro-left fade-in" style="text-align: justify;">
-    <div class="intro-copy">
-      <p>
-        We’re a crew of 16 wildly driven change engineers—part dreamers, part tinkerers, part “let’s see what happens if we press this button.” We break things (on purpose), rebuild them better, and reimagine what tech can do for nonprofits. For years, we’ve been where real impact happens—in the glitchy, remote corners of the world where people still somehow move mountains. We’ve sat with nonprofits in their offices, fields, and community halls, learning what technology really means to them (especially when the signal’s weak but the spirit is strong).
-      </p>
+    <!-- INTRO -->
+    <section class="intro fade-stagger parallax-layer" data-speed="0.4" style="content-visibility:auto; contain-intrinsic-size: 700px">
+      <div class="intro-left fade-in text-justify">
+        <div class="intro-copy">
+          <p>
+            We’re a crew of 16 wildly driven change engineers—part dreamers, part tinkerers, part “let’s see what happens if we press this button.” We break things (on purpose), rebuild them better, and reimagine what tech can do for nonprofits. For years, we’ve been where real impact happens—in the glitchy, remote corners of the world where people still somehow move mountains. We’ve sat with nonprofits in their offices, fields, and community halls, learning what technology really means to them (especially when the signal’s weak but the spirit is strong).
+          </p>
 
-      <p>
-        With every lesson, we shaped our approach—watching them wrestle with tools that never quite fit their world. Naturally, we rolled up our sleeves and started tinkering. Sometimes we sparked magic. Sometimes we built Franken-tech that never left the shelf (hey, that happens).
-      </p>
+          <p>
+            With every lesson, we shaped our approach—watching them wrestle with tools that never quite fit their world. Naturally, we rolled up our sleeves and started tinkering. Sometimes we sparked magic. Sometimes we built Franken-tech that never left the shelf (hey, that happens).
+          </p>
 
-      <p class="intro-question lead">
-        But every win, flop and facepalm brought us closer to one beautifully stubborn question:
-      </p>
-    </div>
-  </div>
+          <p class="intro-question lead">
+            But every win, flop and facepalm brought us closer to one beautifully stubborn question:
+          </p>
+        </div>
+      </div>
 
-  <div class="intro-right fade-stagger"style="border-width:3px;">
-    <div class="intro-row">
-      <img class="scale-in about-img-2" src="{{asset 'about/2.png'}}" alt="Team at work">
-      <img class="scale-in about-img-3" src="{{asset 'about/3.png'}}" alt="Field collaboration">
-    </div>
+      <div class="intro-right fade-stagger">
+        <div class="intro-row">
+          <img class="scale-in about-img-2" src="{{asset 'about/2.png'}}" alt="Team at work" loading="lazy" decoding="async">
+          <img class="scale-in about-img-3" src="{{asset 'about/3.png'}}" alt="Field collaboration" loading="lazy" decoding="async">
+        </div>
 
-    <div class="intro-card scale-in">
-      <img class="about-img-4" src="{{asset 'about/4.png'}}" alt="Mission in action">
-      <p class="tiny accent card-caption"><strong>Many teams, one mission:</strong> remove complexity.</p>
-    </div>
-  </div>
-</section>
-
-
+        <div class="intro-card scale-in">
+          <img class="about-img-4" src="{{asset 'about/4.png'}}" alt="Mission in action" loading="lazy" decoding="async">
+          {{!-- <p class="tiny accent card-caption"><strong>Many teams, one mission:</strong> remove complexity.</p> --}}
+        </div>
+      </div>
+    </section>
 
     <!-- QUESTION -->
-    <section class="question fade-stagger parallax-layer" data-speed="0.6">
+    <section class="question fade-stagger parallax-layer" data-speed="0.6" style="content-visibility:auto; contain-intrinsic-size: 460px">
       <div class="container question-container">
-
-        <h2 class="stroke tight fade-in">WHY DOESN'T TECH JUST <strong style="color: rgb(235, 44, 219);">WORK</strong> FOR NONPROFITS?</h2>
-
+        <h2 class="stroke tight fade-in" style="color:whitesmoke">WHY DOESN'T TECH JUST <strong class="accent-strong" style="color: rgb(194, 74, 203);font-family:Bobby Jones">WORK</strong> FOR NONPROFITS?</h2>
         <div class="question-row fade-in">
           <a class="face">
-            <img src="{{asset 'images/smily.gif'}}" alt="Hero Image">
+            <img src="{{asset 'images/smily.gif'}}" alt="Hero Image" loading="lazy" decoding="async">
           </a>
-
           <ul class="reason">
             <li>Too costly</li>
             <li>Too many tools</li>
@@ -95,44 +85,23 @@
             <li>Constantly changing</li>
           </ul>
         </div>
-
       </div>
     </section>
 
-    <!-- VALUES -->
-    <section class="values fade-stagger parallax-layer" data-speed="0.3">
-      <h2 class="stroke fade-in" style="color: black;">OUR CORE VALUES</h2>
-      <div class="values-grid">
-        <div class="value-item fade-in"><h4>Empathy First</h4><p>Real needs first.</p></div>
-        <div class="value-item fade-in"><h4>Radical Transparency</h4><p>Open by default.</p></div>
-        <div class="value-item fade-in"><h4>Simplicity Wins</h4><p>Remove complexity.</p></div>
-        <div class="value-item fade-in"><h4>Built to Last</h4><p>Stable foundation.</p></div>
-      </div>
-    </section>
-
-    <!-- SPLIT -->
-    <section class="split fade-stagger parallax-layer" data-speed="0.5">
+    <!-- SPLIT (refined alignment + panel) -->
+    <section class="split boxed fade-stagger parallax-layer" data-speed="0.5" style="content-visibility:auto; contain-intrinsic-size: 680px">
       <div class="split-left fade-in">
-        <h3 class="stroke" style="color: black;">THROUGH IT ALL, ONE TRUTH BECAME CLEAR:</h3>
-        
-         
-       <p class="em" style="width:175%;height:50%;">
-          Nonprofits don't need more software.<br>
-          They need <span class="accent" style="font-weight:bolder">simpler, saner, sustainable </span>ways to use the tech that’s already out there<br>without draining their people, their pockets, or their patience. That truth became our compass.
-        </p>
-        <p class="em" style="width:175%;height:30%;position:relative;bottom:30%;">So, instead of adding yet another tool to the pile,<br> <span class="accent" style="font-weight:bolder">We decided to build a shared layer of support.</span>
-        </p>
-        
-       
+        <h3 class="stroke heading-dark" style="font-family: Bobby Jones;font-weight:lighter;font-size:25px">Through it all, one truth became impossible to ignore</h3>
+        <div class="split-copy">
+          <p>Nonprofits <strong style="color: rgb(255, 95, 215);">don't</strong> need more software.</p>
+          <p>They need <strong class="accent strong">simpler, saner, sustainable</strong> ways to use the tech that’s already out there without draining their people, their pockets, or their patience. That truth became our compass.</p>
+          <p>So, instead of adding yet another tool to the pile,We decided to build a shared layer of support.</a></p>
+        </div>
       </div>
-      <p>
-  <img src="{{asset 'images/stack.gif'}}"
-       alt="Decorative Image"
-       class="stack"
-       style="width: 200%; max-width: 900px; display:block; margin:auto;padding-bottom:80%;padding-right:80%;">
-</p>
 
-        
+      <div class="split-figure">
+        <img src="{{asset 'images/stack.gif'}}" alt="Decorative Image" class="stack" loading="lazy" decoding="async">
+      </div>
 
       <div class="split-right card neon-border scale-in">
         <p class="tiny subtle">Say hello to</p>
@@ -142,25 +111,42 @@
     </section>
 
     <!-- CLOSING -->
-    <section class="closing fade-in parallax-layer" data-speed="0.3">
-      <h2 class="stroke center" style="color:black">IT IS TRULY TECH THAT GIVES A <span class="accent">DAMN.</span></h2>
+    <section class="closing fade-in parallax-layer" data-speed="0.3" style="content-visibility:auto; contain-intrinsic-size: 420px">
+      <h2 class="stroke center closing-title">IT IS TRULY TECH THAT GIVES A <span class="accent" style="font-style: italic;">DAMN.</span></h2>
       <p class="subtle center">Now, let's get started.</p>
+      <br>
+      <br>
+      
+      <h3 class="font-bobby center">Join the beta community to access these features :)</h3>
+      <br>
 
-      <center>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSen8w5W5By8I7aC5tselWQqfyi32NMPVtzzPByQF7ef4ord0g/viewform"
-           class="btn-join-beta" style="margin-top: 4.5%;">
-            <span class="btn-text">Join the Beta</span>
-            <span class="neon-glow"></span>
-        </a>
-      </center>
+    <div style="display:inline-block;">
+  <a href="http://joinus.idlistack.com/beta"
+     style="
+       display:inline-flex;
+       align-items:center;
+       justify-content:center;
+       padding:0.8rem 2rem;
+       font-size:1rem;
+       font-weight:600;
+       color:#fff;
+       background:#000;
+       border-radius:9999px;
+       text-decoration:none;
+       position:relative;
+       overflow:hidden;
+       transition:all 0.3s ease-in-out;
+       box-shadow:0 0 0 rgba(255,0,255,0);
+       cursor:pointer;
+     "
+     onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 0 20px rgba(255,102,204,0.7)';"
+     onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 0 0 rgba(255,0,255,0)';">
+    Join the Beta
+  </a>
+</div>
+
     </section>
-
-    <footer class="about-logo fade-in">
-      <div class="brand mark">iDliSt<span class="accent">a</span>ck</div>
-    </footer>
-     
   </div>
-  
 </main>
 
 <script src="{{asset "js/about.js"}}" defer></script>

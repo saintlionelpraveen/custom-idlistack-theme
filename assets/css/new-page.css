@@ -2,19 +2,19 @@
 .embedded-new-page {
   position: relative;         /* to contain the canvas absolutely */
   overflow: hidden;           /* hide canvas overflow */
-  padding: 7rem;
+  padding: 4rem 2rem;
   text-align: center;
   background-color: rgba(218, 208, 208, 0.712); /* gray background */
   color: #ffffff00;                /* ensure readable text */
-  
+
 }
 
 /* The canvas sits behind content */
 .embedded-new-page .bg-canvas {
   position: absolute;
   inset: 0;                   /* top:0; right:0; bottom:0; left:0; */
-  width: 100%;
-  height: 100%;
+  width: 50%;
+  height: 50%;
   z-index: 0;
   pointer-events: none;       /* allow clicks through to page content */
   filter: blur(18px) saturate(0.6); /* soften & darken blobs */
@@ -30,19 +30,62 @@
 /* Image inside the content */
 .embedded-new-page img {
   max-width: 100%;
-  height: auto;
+  height: 50%;
   border-radius: 8px;
-  display: inline-block;
+  display: block;
+  margin: 0 auto;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0);
 }
 
 /* Responsive tweaks */
-@media (max-width: 640px) {
+@media (max-width: 1200px) {
   .embedded-new-page {
-    padding: 1rem;
+    padding: 3rem 1.5rem;
+  }
+  .embedded-new-page img {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 768px) {
+  .embedded-new-page {
+    padding: 2rem 1rem;
+  }
+  .embedded-new-page img {
+    max-width: 100%;
+    height: auto;
   }
   .embedded-new-page .bg-canvas {
     filter: blur(14px) saturate(0.6);
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 640px) {
+  .embedded-new-page {
+    padding: 1.5rem 0.5rem;
+  }
+  .embedded-new-page img {
+    max-width: 100%;
+    border-radius: 6px;
+  }
+  .embedded-new-page .bg-canvas {
+    filter: blur(12px) saturate(0.5);
+    opacity: 0.6;
+  }
+}
+
+@media (max-width: 480px) {
+  .embedded-new-page {
+    padding: 1rem 0.25rem;
+  }
+  .embedded-new-page img {
+    max-width: 100%;
+    border-radius: 4px;
+  }
+  .embedded-new-page .bg-canvas {
+    filter: blur(10px) saturate(0.4);
+    opacity: 0.5;
   }
 }
 
@@ -53,71 +96,4 @@
     animation: none !important;
     filter: blur(18px) saturate(0.6);
   }
-}
-
-/* Top and Bottom Gradient Fade for Embedded Page */
-.embedded-new-page::before,
-.embedded-new-page::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 160px; /* fade height */
-  pointer-events: none;
-  z-index: 2; /* above canvas, below content */
-}
-
-/* Top fade */
-.embedded-new-page::before {
-  top: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(218, 208, 208, 1) 0%,     /* solid page color */
-    rgba(218, 208, 208, 0.8) 40%,  /* soft fade */
-    rgba(218, 208, 208, 0) 100%    /* fully transparent */
-  );
-}
-
-/* Bottom fade */
-.embedded-new-page::after {
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    rgba(218, 208, 208, 1) 0%,     /* solid page color */
-    rgba(218, 208, 208, 0.8) 40%,  /* soft fade */
-    rgba(218, 208, 208, 0) 100%    /* fully transparent */
-  );
-}
-/* Top + Bottom gradient fade inside the background container */
-.embedded-new-page::before,
-.embedded-new-page::after {
-  content: "";
-  position: absolute;
-  left: 0;
-  width: 100%;
-  height: 140px; /* fade height */
-  pointer-events: none;      /* no blocking clicks */
-  z-index: 1;                /* below content, above blur canvas */
-}
-
-/* TOP Fade */
-.embedded-new-page::before {
-  top: 0;
-  background: linear-gradient(
-    to bottom,
-    rgba(218, 208, 208, 0.85) 0%,   /* stronger color at top */
-    rgba(218, 208, 208, 0.5) 50%,   /* mid fade */
-    rgba(218, 208, 208, 0) 100%     /* fully transparent */
-  );
-}
-
-/* BOTTOM Fade */
-.embedded-new-page::after {
-  bottom: 0;
-  background: linear-gradient(
-    to top,
-    rgba(218, 208, 208, 0.85) 0%,   /* stronger color at bottom */
-    rgba(218, 208, 208, 0.5) 50%,   /* mid fade */
-    rgba(218, 208, 208, 0) 100%     /* fully transparent */
-  );
 }

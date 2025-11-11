@@ -29,9 +29,9 @@
 .header-left{ display:flex; align-items:center; gap:1.5rem; }
 
 /* Logo */
-.site-logo{ display:flex; align-items:center; transition:none; flex-shrink:0; }
-.site-logo:hover{ opacity:1; }
-.site-logo img{ height:100px; width:auto; display:block; }
+.site-logo{ display:flex; align-items:center; transition:none; flex-shrink:0;border: none;outline: none;box-shadow: none; }
+.site-logo:hover{ opacity:1;border: none;outline: none;box-shadow: none;  }
+.site-logo img{ height:100px; width:auto; display:block; border: none;outline: none;box-shadow: none; }
 
 /* Brand title (kept subtle next to pill) */
 .site-title{

@@ -10,15 +10,16 @@
   <div class="hero-grid container">
 
     <div class="hero-content">
-      <h1 id="title" class="title">
+      <h1 id="title1" class="title1">
         Open-source made effortless. Hosting made affordable.
       </h1>
-
+      <br>
       <p class="hero-description">
-        Because changemakers deserve <strong>Tech That Gives a Damn</strong>
+        Because changemakers deserve
+        <br> <strong style="font-family: Bobby Jones;font-size:35px" class="damn">Tech That Gives a Damn</strong>
       </p>
 
-      <a href="https://forms.gle/3gSeVYnXPisZAaqR7"
+      <a href="http://joinus.idlistack.com/beta"
          class="btn-join-beta"
          aria-label="Join the Beta (Google Form)"
          target="_blank" rel="noopener">
@@ -26,8 +27,8 @@
         <span class="neon-glow"></span>
       </a>
 
-      <br><br>
-      <p class="hero-kicker">Bring your heart. We’ve got the stack</p>
+    
+      <p class="hero-kicker" style="font-family:Bobby Jones;">Bring your heart. We’ve got the stack</p>
     </div>
 
     <figure class="hero-image-wrapper" aria-hidden="true">
@@ -63,7 +64,7 @@
       <article class="post-card" data-post-id="{{id}}" data-slug="{{slug}}">
         <a href="{{url}}" class="post-link" aria-label="Read {{title}}">
           <div class="post-card-inner">
-            <div class="t4gc-badge" style="color: rgba(0, 0, 0, 0.856);">❤️T4GC <span class="heart" aria-hidden="true" ></span></div>
+            <div class="t4gc-badge">❤️T4GC <span class="heart" aria-hidden="true" ></span></div>
             <div class="post-logo">
               {{#if feature_image}}
                 <img src="{{img_url feature_image size="s"}}" alt="{{title}} logo" class="post-icon" loading="lazy" decoding="async">
@@ -71,8 +72,10 @@
                 <div class="post-icon-placeholder"></div>
               {{/if}}
             </div>
-            <h3 class="post-title">{{title}}</h3>
-            <p class="post-excerpt" style="text-align: left;">{{excerpt words="22"}}{{#unless excerpt}}This is a sample post description.{{/unless}}</p>
+            <h3 class="post-title" style="font-size: larger;">{{title}}</h3>
+            <br>
+            <p class="post-excerpt">{{excerpt words="22"}}{{#unless excerpt}}This is a sample post description.{{/unless}}</p>
+            <p class="arrow"id="arrow">»</p>
           </div>
           <div class="neon-border"></div>
         </a>

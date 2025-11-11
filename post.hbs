@@ -1,58 +1,46 @@
 {{!< default}}
 
-{{!-- Inject Post-Specific CSS --}}
-{{#contentFor "styles"}}
-  <link rel="stylesheet" href="{{asset "css/post-page.css"}}">
-{{/contentFor}}
-
-{{!-- Wrap the entire post in the 'post' context --}}
 {{#post}}
+<article class="post-article post-page" itemscope itemtype="https://schema.org/Article">
+  <div class="post-layout" id="post-layout">
 
-{{!-- Progress bar outside the main card --}}
-<div class="progress-bar-container">
-  <div class="progress-bar" id="progressBar"></div>
-</div>
-
-{{!-- The main white card --}}
-<article class="post-card-wrapper">
-  
-  {{!-- Header: Image on left, Title on right center --}}
-  <header class="post-page-header">
-    
-    {{!-- Logo/Image Column --}}
-    <div class="post-layout-logo">
+    <!-- LEFT COLUMN: Image, Title, and Blocks 1 & 2 -->
+    <aside class="post-left" id="post-left">
       {{#if feature_image}}
-        <img class="post-page-logo" src="{{feature_image}}" alt="{{title}}">
-      {{else}}
-        <div class="post-page-logo-placeholder"></div>
+        <figure class="post-media">
+          <img
+            class="post-image"
+            src="{{img_url feature_image}}"
+            srcset="{{img_url feature_image size="s"}} 300w,
+                    {{img_url feature_image size="m"}} 600w,
+                    {{img_url feature_image size="l"}} 1000w,
+                    {{img_url feature_image size="xl"}} 2000w"
+            sizes="(max-width: 960px) 100vw, 40vw"
+            alt="{{title}}"
+            loading="lazy"
+          >
+        </figure>
       {{/if}}
-    </div>
-    
-    {{!-- Title Column (centered vertically) --}}
-    <div class="post-title-wrapper">
-      <h1 class="post-page-title">{{title}}</h1>
-    </div>
-    
-  </header>
-  
-  {{!-- Content Section (Full Width, Left Aligned) --}}
-  <section class="post-page-content">
-    {{{content}}}
-  </section>
 
+      <h1 class="post-title" itemprop="headline">{{title}}</h1>
+
+      <!-- Slots for admin content blocks 1 & 2 -->
+      <div class="left-extra" id="left-extra" aria-label="Left column extra content"></div>
+    </aside>
+
+    <!-- RIGHT COLUMN: Blocks 3 & 4 (CTA) -->
+    <section class="post-right" id="post-right">
+      <div class="right-content" id="right-content" aria-label="Main post content"></div>
+      <div class="right-cta" id="right-cta" aria-label="Post call to action"></div>
+    </section>
+  </div>
+
+  {{!-- Raw post HTML goes here; JS will distribute into slots --}}
+  <div id="ghost-raw-content" class="ghost-raw-content" hidden>
+    {{content}}
+  </div>
 </article>
-    <center>
-      <h1 style="font-family: 'Bobby Jones', sans-serif;padding-bottom:3%;font-weight:bold;">Be an Early Stacker to access these features :)</h1>
-        <a href="https://docs.google.com/forms/d/e/1FAIpQLSen8w5W5By8I7aC5tselWQqfyi32NMPVtzzPByQF7ef4ord0g/viewform"
-           class="btn-join-beta" style="margin-bottom:50px;">
-            <span class="btn-text">Join the Beta</span>
-            <span class="neon-glow"></span>
-        </a>
-      </center>
-
 {{/post}}
 
-{{!-- Inject Post-Specific JS --}}
-{{#contentFor "scripts"}}
-  <script src="{{asset "js/post.js"}}"></script>
-{{/contentFor}}
+<link rel="stylesheet" href="{{asset "css/post-page.css"}}">
+<script defer src="{{asset "js/post-page.js"}}"></script>

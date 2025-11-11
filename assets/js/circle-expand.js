@@ -18,94 +18,106 @@
     const profiles = Array.from(profileElements).map((element, index) => ({
       id: element.id,
       element: element,
-      angle: (2 * Math.PI * index) / profileCount
+      baseAngle: (2 * Math.PI * index) / profileCount
     }));
 
     // Calculate dynamic sizes based on profile count
-    const baseSize = 96; // Base profile image size
-    const minSize = 64; // Minimum size for many images
-    const maxProfiles = 12; // After this, start reducing size
+    const baseSize = 80;
+    const minSize = 64;
+    const maxProfiles = 12;
     
-    // Calculate profile size (smaller if more images)
     const profileSize = profileCount > maxProfiles 
       ? Math.max(minSize, baseSize - ((profileCount - maxProfiles) * 2))
       : baseSize;
 
-    // Calculate expand radius based on profile count and size
-    const baseRadius = 300;
-    const radiusIncrement = Math.max(0, (profileCount - 6) * 15);
-    const maxExpandRadius = baseRadius + radiusIncrement;
+    // Calculate orbit radius based on profile count and viewport
+    function getOrbitRadius() {
+      const baseRadius = window.innerWidth <= 560 ? 130 : 
+                        window.innerWidth <= 860 ? 170 : 250;
+      const radiusIncrement = Math.max(0, (profileCount - 6) * (window.innerWidth <= 560 ? 8 : 15));
+      return baseRadius + radiusIncrement;
+    }
+
+    let orbitRadius = getOrbitRadius();
 
     // Apply dynamic sizing to profile images
     profileElements.forEach(element => {
       element.style.width = `${profileSize}px`;
       element.style.height = `${profileSize}px`;
+      element.style.transition = 'transform 0.05s linear';
     });
 
-    // Adjust circle sizes based on profile count
-    const innerCircleSize = 400 + (profileCount > 8 ? (profileCount - 8) * 20 : 0);
-    const middleCircleSize = innerCircleSize + 100;
-    const outerCircleSize = middleCircleSize + 100;
-
-    const gradientRing = document.querySelector('.gradient-ring');
-    const innerCircle = document.querySelector('.inner-circle');
-
-    if (gradientRing) {
-      gradientRing.style.width = `${innerCircleSize}px`;
-      gradientRing.style.height = `${innerCircleSize}px`;
-    }
-
-    if (middleCircle) {
-      middleCircle.style.width = `${middleCircleSize}px`;
-      middleCircle.style.height = `${middleCircleSize}px`;
-    }
-
-    if (outerCircle) {
-      outerCircle.style.width = `${outerCircleSize}px`;
-      outerCircle.style.height = `${outerCircleSize}px`;
-    }
-
-    function handleScroll() {
-      const rect = galleryContainer.getBoundingClientRect();
-      const galleryTop = rect.top;
-      const windowHeight = window.innerHeight;
+    // Adjust circle sizes based on profile count and viewport
+    function updateCircleSizes() {
+      const isMobile = window.innerWidth <= 560;
+      const isTablet = window.innerWidth <= 860;
       
-      const scrollProgress = Math.max(0, -galleryTop);
-      const animationProgress = Math.min(scrollProgress / 500, 1);
-      const expandRadius = animationProgress * maxExpandRadius;
+      let innerCircleSize, middleCircleSize, outerCircleSize;
+      
+      if (isMobile) {
+        innerCircleSize = 250 + (profileCount > 8 ? (profileCount - 8) * 10 : 0);
+      } else if (isTablet) {
+        innerCircleSize = 340 + (profileCount > 8 ? (profileCount - 8) * 15 : 0);
+      } else {
+        innerCircleSize = 400 + (profileCount > 8 ? (profileCount - 8) * 20 : 0);
+      }
+      
+      middleCircleSize = innerCircleSize + (isMobile ? 70 : 90);
+      outerCircleSize = middleCircleSize + (isMobile ? 80 : 100);
 
-      if (galleryTop < windowHeight && galleryTop > -rect.height) {
-        profiles.forEach(profile => {
-          if (profile.element) {
-            const x = expandRadius * Math.cos(profile.angle);
-            const y = expandRadius * Math.sin(profile.angle);
-            profile.element.style.transform = `translate(${x}px, ${y}px)`;
-          }
-        });
+      const gradientRing = document.querySelector('.gradient-ring');
 
-        if (scrollProgress > 100) {
-          middleCircle.classList.add('show-border');
-        } else {
-          middleCircle.classList.remove('show-border');
-        }
+      if (gradientRing) {
+        gradientRing.style.width = `${innerCircleSize}px`;
+        gradientRing.style.height = `${innerCircleSize}px`;
+      }
 
-        if (scrollProgress > 250) {
-          content.classList.add('visible');
-        } else {
-          content.classList.remove('visible');
-        }
+      if (middleCircle) {
+        middleCircle.style.width = `${middleCircleSize}px`;
+        middleCircle.style.height = `${middleCircleSize}px`;
+      }
 
-        if (scrollProgress > 300) {
-          outerCircle.classList.add('show-border');
-        } else {
-          outerCircle.classList.remove('show-border');
-        }
+      if (outerCircle) {
+        outerCircle.style.width = `${outerCircleSize}px`;
+        outerCircle.style.height = `${outerCircleSize}px`;
       }
     }
 
-    window.addEventListener('scroll', handleScroll);
-    window.addEventListener('resize', handleScroll);
-    handleScroll();
+    updateCircleSizes();
+
+    // Continuous rotation animation - always running
+    let rotationAngle = 0;
+
+    function animate() {
+      rotationAngle += 0.008; // Smooth rotation speed
+      
+      profiles.forEach(profile => {
+        if (profile.element) {
+          const currentAngle = profile.baseAngle + rotationAngle;
+          const x = orbitRadius * Math.cos(currentAngle);
+          const y = orbitRadius * Math.sin(currentAngle);
+          profile.element.style.transform = `translate(${x}px, ${y}px)`;
+        }
+      });
+
+      requestAnimationFrame(animate);
+    }
+
+    // Show all elements immediately
+    middleCircle.classList.add('show-border');
+    outerCircle.classList.add('show-border');
+    content.classList.add('visible');
+
+    // Start continuous rotation
+    animate();
+
+    // Handle resize
+    function handleResize() {
+      orbitRadius = getOrbitRadius();
+      updateCircleSizes();
+    }
+
+    window.addEventListener('resize', handleResize);
   }
 
   if (document.readyState === 'loading') {

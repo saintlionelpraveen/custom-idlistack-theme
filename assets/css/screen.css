@@ -1,9 +1,14 @@
 @font-face {
   font-family: 'Bobby Jones';
-  src: url('../fonts/BobbyRoughSoftOutline.ttf') format('opentype');
+  src: url('../fonts/BobbyRoughSoftOutline.otf') format('opentype');
   font-weight: normal;
   font-style: normal;
 }
+
+.bobby-jones {
+  font-family: 'Bobby Jones', sans-serif;
+}
+
 /* --- Global Theme Setup --- */
 :root {
   --ghost-accent-color: #8a2be2; /* Neon Purple - can be adjusted */
@@ -18,6 +23,36 @@ body {
   background-color: #000; /* Black background */
   margin: 0;
   padding: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  word-wrap: break-word; /* Ensure text wraps */
+}
+
+/* Performance optimizations for entire site */
+* {
+  box-sizing: border-box;
+}
+
+img, video, iframe {
+  max-width: 100%;
+  height: auto;
+}
+
+.site-wrapper {
+  contain: layout style paint;
+}
+
+.site-wrapper * {
+  contain: layout style;
+}
+
+.site-wrapper img {
+  will-change: auto;
+  transform: translateZ(0);
+}
+
+.site-wrapper .fade-in,
+.site-wrapper .scale-in {
+  will-change: transform, opacity;
 }
 
 /* This is the '.container' class used in index, post, and default */
@@ -121,6 +156,249 @@ body {
   z-index: 10;
 }
 
+/* --- Embedded Sections (GIF and Gallery) --- */
+.embedded-new-page,
+.embedded-gallery {
+  padding: 1rem 0;
+  position: relative;
+  z-index: 10;
+}
+
+.embedded-new-page img {
+  width: 100%;
+  height: auto;
+  max-width: 600px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.embedded-new-page .caption {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
 /* --- Global Site Footer --- */
+
+/* --- Responsive Design --- */
+
+/* Large tablets and smaller screens */
+@media (max-width: 1200px) {
+  .container {
+    max-width: 100%;
+    padding: 0 2rem;
+  }
+
+  .site-header {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .site-title-text {
+    font-size: 1.4rem;
+  }
+
+  .site-nav a {
+    font-size: 0.95rem;
+    padding: 0.6rem 1.2rem;
+  }
+
+  .animated-bg-wrapper .blur {
+    width: 350px;
+    height: 350px;
+  }
+
+  #blur1, #blur2, #blur3 {
+    width: 300px;
+    height: 300px;
+  }
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 1024px) {
+  .container {
+    max-width: 100%;
+    padding: 0 1.5rem;
+  }
+
+  .site-header {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+  }
+
+  .header-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .site-title-text {
+    font-size: 1.25rem;
+  }
+
+  .site-nav {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .site-nav a {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+    min-width: auto;
+  }
+
+  .animated-bg-wrapper .blur {
+    width: 300px;
+    height: 300px;
+  }
+
+  #blur1, #blur2, #blur3 {
+    width: 250px;
+    height: 250px;
+  }
+
+  .site-main {
+    padding: 1.5rem 0;
+  }
+}
+
+/* Mobile screens */
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .site-header {
+    padding: 1rem 1rem;
+  }
+
+  .site-title-text {
+    font-size: 1rem;
+  }
+
+  .site-nav {
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .site-nav a {
+    font-size: 0.85rem;
+    padding: 0.4rem 0.8rem;
+    min-width: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .animated-bg-wrapper .blur {
+    width: 200px;
+    height: 200px;
+  }
+
+  #blur1, #blur2, #blur3 {
+    width: 150px;
+    height: 150px;
+  }
+
+  .site-main {
+    padding: 1rem 0;
+  }
+
+  /* Ensure content doesn't overflow */
+  * {
+    box-sizing: border-box;
+  }
+
+  img, video, iframe {
+    max-width: 100%;
+    height: auto;
+  }
+
+  .site-wrapper {
+    overflow-x: hidden;
+  }
+}
+
+/* Small mobile screens */
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.5rem;
+  }
+
+  .site-header {
+    padding: 0.5rem 0.5rem;
+  }
+
+  .site-title-text {
+    font-size: 0.9rem;
+  }
+
+  .site-nav a {
+    font-size: 0.8rem;
+    padding: 0.3rem 0.6rem;
+  }
+
+  .animated-bg-wrapper .blur {
+    width: 150px;
+    height: 150px;
+  }
+
+  #blur1, #blur2, #blur3 {
+    width: 100px;
+    height: 100px;
+  }
+
+  .site-main {
+    padding: 0.5rem 0;
+  }
+
+  /* Prevent content cutoff */
+  .site-wrapper {
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  .site-main {
+    width: 100%;
+    overflow: visible;
+  }
+
+  /* Ensure text and elements wrap properly */
+  h1, h2, h3, h4, h5, h6, p, span, div {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    hyphens: auto;
+  }
+
+  /* Adjust font sizes for better readability */
+  .site-title-text {
+    font-size: 0.85rem;
+    line-height: 1.2;
+  }
+
+  .site-nav a {
+    font-size: 0.75rem;
+    line-height: 1.2;
+  }
+
+  /* Embedded sections responsive */
+  .embedded-new-page,
+  .embedded-gallery {
+    padding: 0.5rem 0;
+  }
+
+  .embedded-new-page img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+
+  .embedded-new-page .caption {
+    font-size: 0.8rem;
+    margin-top: 0.5rem;
+  }
+}
 
 

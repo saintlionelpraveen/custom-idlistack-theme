@@ -1,4 +1,13 @@
 
+/* Font imports */
+@font-face {
+  font-family: 'Bobby Jones';
+  src: url('../fonts/Bobby-Jones.woff2') format('woff2'),
+       url('../fonts/Bobby-Jones.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 /* Root variables and base styles */
 :root{
   --color-light-pink: #ffe4ef;
