@@ -233,7 +233,7 @@
     padding-left: 4%;
     padding: 8%;
   }
-
+  
   /* stack compactly */
   .post-left{ gap: 10px; }
   .left-extra,
@@ -256,7 +256,7 @@
     
     bottom: 0;
     display: inline-flex;
-    left: 26%;
+    left: 22%;
     margin: 10px auto 1;  /* centers it */
     align-items: center;
     text-align: center;
@@ -267,7 +267,7 @@
   /* slightly smaller heading inside block 4 */
   .h4{
     margin: 8px 0 10px;
-    font-size: 29px;
+    font-size: 13px;
     align-items: center;
   }
 
@@ -283,7 +283,7 @@
 }
 .h412{
   text-align: center;
-
+   font-size: 20px;
   align-items: center;
   font-family: Bobby Jones;
   justify-content: center;
@@ -291,9 +291,11 @@
   top:15%;
   left:28%;
   
-  font-size: 25px;
+  /* font-size: 25px; */
   margin-bottom: 1%;
 }
+.h41{font-size: 13px;}
+
   
 }
 

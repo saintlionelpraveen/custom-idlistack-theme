@@ -1,14 +1,19 @@
-// Header Navigation Script
+// Header Navigation Script with Smooth Transitions
 (function() {
     'use strict';
 
     const navBar = document.getElementById('navBar');
     const lampIndicator = document.getElementById('lampIndicator');
     
-    if (!navBar || !lampIndicator) return;
+    if (!navBar) return;
 
     const navLinks = navBar.querySelectorAll('.nav-container a');
     const currentPath = window.location.pathname;
+
+    // Check if mobile
+    function isMobile() {
+        return window.innerWidth < 768;
+    }
 
     // Set active state based on current URL
     function setActiveNav() {
@@ -32,13 +37,15 @@
             activeLink.classList.add('nav-active');
         }
 
-        if (activeLink) {
+        if (activeLink && lampIndicator && !isMobile()) {
             updateLampPosition(activeLink);
         }
     }
 
-    // Update lamp indicator position
+    // Update lamp indicator position (only on desktop)
     function updateLampPosition(element) {
+        if (!lampIndicator || isMobile()) return;
+
         const container = element.closest('.nav-container');
         const rect = element.getBoundingClientRect();
         const containerRect = container.getBoundingClientRect();
@@ -51,7 +58,7 @@
         lampIndicator.classList.add('active');
     }
 
-    // Handle click events
+    // Handle click events with smooth transition
     navLinks.forEach(link => {
         link.addEventListener('click', function(e) {
             // Remove active class from all links
@@ -60,42 +67,78 @@
             // Add active class to clicked link
             this.classList.add('nav-active');
             
-            // Update lamp position
-            updateLampPosition(this);
+            // Update lamp position (desktop only)
+            if (!isMobile()) {
+                updateLampPosition(this);
+            }
+
+            // Optional: Add page transition effect
+            // Uncomment if you want fade transition between pages
+            /*
+            e.preventDefault();
+            document.body.style.opacity = '0';
+            setTimeout(() => {
+                window.location.href = this.href;
+            }, 200);
+            */
         });
 
-        // Handle hover effect
+        // Handle hover effect (desktop only)
         link.addEventListener('mouseenter', function() {
-            updateLampPosition(this);
+            if (!isMobile()) {
+                updateLampPosition(this);
+            }
         });
     });
 
-    // Reset lamp to active item on mouse leave
-    navBar.addEventListener('mouseleave', function() {
-        const activeLink = navBar.querySelector('.nav-active');
-        if (activeLink) {
-            updateLampPosition(activeLink);
-        }
-    });
-
-    // Mobile detection and handling
-    let isMobile = window.innerWidth < 768;
-
-    function handleResize() {
-        const wasMobile = isMobile;
-        isMobile = window.innerWidth < 768;
-
-        if (wasMobile !== isMobile) {
+    // Reset lamp to active item on mouse leave (desktop only)
+    if (navBar) {
+        navBar.addEventListener('mouseleave', function() {
+            if (isMobile()) return;
+            
             const activeLink = navBar.querySelector('.nav-active');
-            if (activeLink) {
+            if (activeLink && lampIndicator) {
                 updateLampPosition(activeLink);
             }
-        }
+        });
+    }
+
+    // Handle resize with debounce for performance
+    let resizeTimer;
+    function handleResize() {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+            const activeLink = navBar.querySelector('.nav-active');
+            if (activeLink && lampIndicator && !isMobile()) {
+                updateLampPosition(activeLink);
+            } else if (lampIndicator && isMobile()) {
+                // Hide lamp on mobile
+                lampIndicator.style.opacity = '0';
+            }
+        }, 100);
     }
 
     window.addEventListener('resize', handleResize);
 
     // Initialize on load
+    document.addEventListener('DOMContentLoaded', function() {
+        setActiveNav();
+        
+        // Fade in page on load
+        document.body.style.opacity = '1';
+    });
+
+    // Also run immediately in case DOM is already loaded
     setActiveNav();
 
+    // Page visibility: smooth transition when returning to page
+    document.addEventListener('visibilitychange', function() {
+        if (!document.hidden) {
+            setActiveNav();
+        }
+    });
+
 })();
+
+// Optional: Add smooth scroll behavior
+document.documentElement.style.scrollBehavior = 'smooth';

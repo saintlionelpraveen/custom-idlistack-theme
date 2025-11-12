@@ -64,6 +64,8 @@
 @media (max-width: 640px) {
   .embedded-new-page {
     padding: 1.5rem 0.5rem;
+    width: 105%;
+    height:200%;
   }
   .embedded-new-page img {
     max-width: 100%;

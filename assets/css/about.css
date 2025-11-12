@@ -52,15 +52,15 @@
 .intro-row{display:grid;grid-template-columns:1fr 1fr;gap:20px;}
 .about-img-2,.about-img-3{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--border);display:block;}
 .intro-card{background:var(--card-bg);padding:20px;border-radius:12px;border:1px solid var(--border);display:flex;flex-direction:column;gap:12px;}
-.about-img-4{width:100%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--border);display:block;}
+.about-img-4{width:90%;aspect-ratio:4/3;object-fit:cover;border-radius:12px;border:1px solid var(--border);display:block;}
 
 /* Question */
 .question{text-align:center;margin:100px 0;}
-.tight{letter-spacing:-.5px;}
+.tight{letter-spacing:-.3px;}
 .question-row{display:flex;justify-content:center;align-items:center;gap:28px;margin-top:28px;}
-.face{width:300px;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid transparent;}
-.reason li{text-align:left;font-size:25px;font-weight:700;color:#ffffff;}
-.question-container{width:90%;max-width:1200px;margin:0 auto;padding:30px;border:2px solid #ffffff33;border-radius:15px;background:#000000;}
+.face{width:fit-content;height:90px;border-radius:50%;display:flex;align-items:center;justify-content:center;border:2px solid transparent;}
+.reason {text-align:left;font-size:30px;font-weight:700;color:#ffffff;}
+.question-container{width:100%;max-width:1200px;margin:0 auto;padding:30px;border:2px solid #ffffff33;border-radius:15px;background:#000000;}
 
 /* Values */
 .values{margin:100px 0;padding:60px 0;background:linear-gradient(135deg,#fef6ff,#ffeefd);border-radius:16px;border:1px solid #ffd2f4;}
@@ -123,9 +123,11 @@
   .about-container{padding:0 14px}
   .hero-left h1{font-size:1.8rem}
   .split-copy{font-size:1rem}
-  .font-bobby{font-family:"Bobby Jones", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;font-size:medium}
-  .stack{width:25rem;height: 13rem;}
-   .reason{font-size:1px;}
+  .font-bobby{font-family:"Bobby Jones", system-ui, -apple-system, Segoe UI, Roboto, sans-serif;font-size :15px;}
+  .stack{width:50rem;height: 13rem;}
+   .reason{font-size: 18px;width: 109%;position: relative;left:-3px}
+   .face{width:140px;height: 170;left: -10%;position: relative;}
+   .question-row{gap: 0%;}
     
   
    
