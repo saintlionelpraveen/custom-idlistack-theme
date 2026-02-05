@@ -1,0 +1,14 @@
+# Ghost
+node_modules
+versions
+.ghost-cli
+content/data/ghost-local.db
+config.production.json
+
+# Static Export
+static_site
+ghost_site.zip
+
+# System
+.DS_Store
+Thumbs.db
