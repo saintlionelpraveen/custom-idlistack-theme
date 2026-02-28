@@ -20,3 +20,4 @@ Deploy checklist:
 - Replace placeholder images in `assets/images/`.
 - Update `package.json` metadata if desired.
 - Test posts, featured images and site metadata in Ghost admin.
+-deploy.
