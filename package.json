@@ -1,0 +1,149 @@
+{
+  "name": "custom-idlistack-theme",
+  "version": "2.0.0",
+  "description": "Professional B2C Ghost theme – light pink glass design",
+  "engines": {
+    "ghost": ">=5.0.0"
+  },
+  "author": {
+    "name": "Idlistack",
+    "email": "hello@idlistack.com",
+    "url": "https://idlistack.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "ghost",
+    "theme",
+    "ghost-theme",
+    "responsive",
+    "modern",
+    "saas",
+    "b2c"
+  ],
+  "config": {
+    "card_assets": true,
+    "posts_per_page": 9,
+    "image_sizes": {
+      "xxs": {
+        "width": 30
+      },
+      "xs": {
+        "width": 100
+      },
+      "s": {
+        "width": 300
+      },
+      "m": {
+        "width": 600
+      },
+      "l": {
+        "width": 1000
+      },
+      "xl": {
+        "width": 2000
+      }
+    },
+    "custom": {
+      "hero_headline": {
+        "type": "text",
+        "default": "",
+        "description": "Hero big headline (replaces site name). E.g. 'Open-source made effortless.'"
+      },
+      "hero_subheading": {
+        "type": "text",
+        "default": "",
+        "description": "Hero subheading text below the title. E.g. 'Because changemakers deserve'"
+      },
+      "hero_tagline": {
+        "type": "text",
+        "default": "",
+        "description": "Hero bold callout badge text. E.g. 'TECH THAT GIVES A DAMN'"
+      },
+      "hero_cta_text": {
+        "type": "text",
+        "default": "Join the Beta",
+        "description": "Hero CTA button label"
+      },
+      "hero_cta_url": {
+        "type": "text",
+        "default": "/join",
+        "description": "Hero CTA button URL"
+      },
+      "hero_extra_field_2": {
+        "type": "text",
+        "default": "",
+        "description": "Hero text field directly below the CTA button."
+      },
+      "hero_button_bg_color": {
+        "type": "color",
+        "default": "#000000",
+        "description": "Button Background Color"
+      },
+      "hero_button_hover_color": {
+        "type": "color",
+        "default": "#FFC0CB",
+        "description": "Button Hover Background Color (Pink)"
+      },
+      "hero_button_text_color": {
+        "type": "color",
+        "default": "#ffffff",
+        "description": "Button Text Color"
+      },
+      "hero_button_hover_text_color": {
+        "type": "color",
+        "default": "#000000",
+        "description": "Button Hover Text Color (Black)"
+      },
+      "posts_section_bg_color": {
+        "type": "color",
+        "default": "#fcf5fa",
+        "description": "Background color for posts section (used if no image is set)."
+      },
+      "why_stacks_image": {
+        "type": "image",
+        "description": "Upload a full-width GIF or image for the 'Why the Stacks' section below the post cards."
+      },
+      "early_stackers_bg_color": {
+        "type": "color",
+        "default": "#ffeceb",
+        "description": "Background wave color for the Impact Stories section (e.g. #ffeceb)."
+      },
+      "footer_logo": {
+        "type": "image",
+        "description": "Upload a custom logo specifically for the dark footer."
+      },
+      "footer_address": {
+        "type": "text",
+        "default": "680 8th Main Road, <br> 15th Cross, J.P. Nagar, <br> 2nd Phase, Bengaluru, <br> 560078",
+        "description": "Footer Address block (HTML <br> allowed)."
+      },
+      "footer_social_instagram": {
+        "type": "text",
+        "default": "https://instagram.com",
+        "description": "Instagram URL for the Footer Dock."
+      },
+      "footer_social_linkedin": {
+        "type": "text",
+        "default": "https://linkedin.com",
+        "description": "LinkedIn URL for the Footer Dock."
+      },
+      "footer_social_facebook": {
+        "type": "text",
+        "default": "https://facebook.com",
+        "description": "Facebook URL for the Footer Dock."
+      },
+      "footer_copyright": {
+        "type": "text",
+        "default": "© 2026 Idlistack. All rights reserved.",
+        "description": "Centered copyright text at the bottom."
+      },
+      "about_hero_image": {
+        "type": "image",
+        "description": "Upload the About page hero image (displayed on the right side of the hero)."
+      }
+    }
+  },
+  "scripts": {
+    "test": "gscan ."
+  }
+}

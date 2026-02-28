@@ -1,0 +1,176 @@
+{{!< default}} <link rel="stylesheet" href="{{asset 'css/about.css'}}">
+
+  {{!-- Fetch images from a post/page tagged "about-pages" --}}
+  {{!-- Try as post --}}
+  {{#get "posts" filter="tag:about-pages" limit="1"}}
+  {{#foreach posts}}
+  <div class="about-image-source" style="display:none !important" aria-hidden="true">
+    {{content}}
+  </div>
+  {{/foreach}}
+  {{/get}}
+  {{!-- Try as page --}}
+  {{#get "pages" filter="tag:about-pages" limit="1"}}
+  {{#foreach pages}}
+  <div class="about-image-source" style="display:none !important" aria-hidden="true">
+    {{content}}
+  </div>
+  {{/foreach}}
+  {{/get}}
+
+  <main class="new-about-page">
+    <div class="new-about-container">
+
+      <!-- HERO SECTION: Title + First Image only -->
+      <section class="about-hero-section">
+        <div class="about-hero-grid">
+
+          <!-- Left: Title only -->
+          <div class="about-hero-text anim-slide-left">
+            <h1 class="about-title">BEHIND THE STACK</h1>
+          </div>
+
+          <!-- Right: First image with pink background shape -->
+          <div class="about-hero-collage anim-zoom-in">
+            <div class="collage-bg-shape"></div>
+            <div class="collage-item item-hero" data-slot="1">
+              {{#if @custom.about_hero_image}}
+              <img src="{{@custom.about_hero_image}}" alt="About hero" loading="eager">
+              {{else}}
+              <div class="placeholder">Image 1</div>
+              {{/if}}
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- STORY SECTION: Prose text + remaining images -->
+      <section class="about-story-section">
+        <div class="about-story-grid">
+
+          <!-- Left: Story text (from post/page tagged "post-session-1") -->
+          <div class="about-story-text anim-reveal-up">
+            {{#get "posts" filter="tag:post-session-1" limit="1"}}
+            {{#foreach posts}}
+            {{content}}
+            {{/foreach}}
+            {{/get}}
+            {{#get "pages" filter="tag:post-session-1" limit="1"}}
+            {{#foreach pages}}
+            {{content}}
+            {{/foreach}}
+            {{/get}}
+          </div>
+
+          <!-- Right: Remaining 3 images -->
+          <div class="about-story-images anim-stagger-images">
+            <div class="story-images-grid">
+              <div class="collage-item item-side" data-slot="2">
+                <div class="placeholder">Image 2</div>
+              </div>
+              <div class="collage-item item-side" data-slot="3">
+                <div class="placeholder">Image 3</div>
+              </div>
+              <div class="collage-item item-wide" data-slot="4">
+                <div class="placeholder">Image 4</div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BLACK BOX SECTION (content from post tagged "post-session-2") -->
+      <section class="about-black-box-section anim-glow-rise">
+        <div class="black-box">
+
+          {{#get "posts" filter="tag:post-session-2" limit="1"}}
+          {{#foreach posts}}
+          <h2 class="black-box-title">{{{title}}}</h2>
+          <div class="black-box-grid">
+            <div class="black-box-icon icon-slot" data-slot="5">
+              <!-- JS will inject image 5 (gif) here -->
+              <svg viewBox="0 0 24 24" fill="none" class="fallback-icon">
+                <circle cx="12" cy="12" r="10" stroke="#ff33aa" stroke-width="2" />
+                <path d="M8 9h.01M16 9h.01M9 16c1.5-1.5 4.5-1.5 6 0" stroke="#ff33aa" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="black-box-list">
+              {{content}}
+            </div>
+          </div>
+          {{/foreach}}
+          {{/get}}
+          {{#get "pages" filter="tag:post-session-2" limit="1"}}
+          {{#foreach pages}}
+          <h2 class="black-box-title">{{{title}}}</h2>
+          <div class="black-box-grid">
+            <div class="black-box-icon icon-slot" data-slot="5">
+              <svg viewBox="0 0 24 24" fill="none" class="fallback-icon">
+                <circle cx="12" cy="12" r="10" stroke="#ff33aa" stroke-width="2" />
+                <path d="M8 9h.01M16 9h.01M9 16c1.5-1.5 4.5-1.5 6 0" stroke="#ff33aa" stroke-width="2"
+                  stroke-linecap="round" />
+              </svg>
+            </div>
+            <div class="black-box-list">
+              {{content}}
+            </div>
+          </div>
+          {{/foreach}}
+          {{/get}}
+
+        </div>
+      </section>
+
+      <!-- INFO BOX SECTION (content from post tagged "post-session-3") -->
+      <section class="about-pink-box-section anim-slide-right">
+        <div class="pink-box">
+
+          {{#get "posts" filter="tag:post-session-3" limit="1"}}
+          {{#foreach posts}}
+          <div class="pink-box-text">
+            <h3 class="pink-box-title">{{{title}}}</h3>
+            {{content}}
+          </div>
+          {{/foreach}}
+          {{/get}}
+          {{#get "pages" filter="tag:post-session-3" limit="1"}}
+          {{#foreach pages}}
+          <div class="pink-box-text">
+            <h3 class="pink-box-title">{{{title}}}</h3>
+            {{content}}
+          </div>
+          {{/foreach}}
+          {{/get}}
+
+          <div class="pink-box-graphic icon-slot" data-slot="6">
+            <!-- JS will inject image 6 (gif) here -->
+            <svg viewBox="0 0 24 24" fill="none" stroke="#000" stroke-width="2" class="fallback-icon">
+              <rect x="8" y="4" width="8" height="8" rx="1" />
+              <rect x="4" y="12" width="8" height="8" rx="1" />
+              <rect x="12" y="12" width="8" height="8" rx="1" />
+            </svg>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- BOTTOM CTA SECTION -->
+      <section class="about-bottom-cta anim-bounce-in">
+        <h2 class="bottom-title">
+          IT IS TRULY TECH THAT GIVES A <span class="highlight-pink italic">DAMN.</span>
+        </h2>
+        <p class="bottom-subtitle">Now, let's get started.</p>
+
+        <div class="bottom-cta-wrap">
+          <p class="beta-text">JOIN THE BETA COMMUNITY TO ACCESS THESE FEATURES :)</p>
+          <a href="/join" class="btn-cta btn-black">Join the Beta</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <script src="{{asset 'js/about.js'}}" defer></script>

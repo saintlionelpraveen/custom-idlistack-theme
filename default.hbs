@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="{{@site.locale}}">
+
+<head>
+    <!-- Meta Tags -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO Meta Tags -->
+    <title>{{meta_title}}</title>
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="{{meta_title}}">
+    {{#if @site.cover_image}}
+    <meta property="og:image" content="{{img_url @site.cover_image size=" xl"}}">
+    {{/if}}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="{{asset 'images/favicon.ico'}}">
+
+    <!-- Google Fonts: Sora + Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Sora:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- CSS Stylesheets -->
+    <link rel="stylesheet" href="{{asset 'css/style.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/animations.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/header.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/hero.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/posts.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/footer.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/sections.css'}}">
+    <link rel="stylesheet" href="{{asset 'css/post-single.css'}}">
+
+    <!-- Ghost Head -->
+    {{ghost_head}}
+</head>
+
+<body id="site-body" class="{{body_class}}">
+
+    <!-- ── Site Wrapper ──────────────────── -->
+    <div id="site-wrapper" class="site-wrapper">
+
+        <!-- ── Header ────────────────────── -->
+        <header class="site-header" id="siteHeader">
+            <div class="header-wrapper">
+
+                <!-- Logo -->
+                <div class="header-left">
+                    {{#if @site.logo}}
+                    <a href="{{@site.url}}" class="site-logo" aria-label="{{@site.title}} – Home">
+                        <img src="{{@site.logo}}" alt="{{@site.title}}" width="auto" height="42">
+                    </a>
+                    {{else}}
+                    <a href="{{@site.url}}" class="site-title">
+                        {{@site.title}}
+                    </a>
+                    {{/if}}
+                </div>
+
+                <!-- Desktop Navigation -->
+                <nav class="nav-bar" id="navBar" aria-label="Main navigation">
+                    <div class="nav-container">
+                        {{navigation}}
+                        <div class="lamp-indicator" id="lampIndicator"></div>
+                    </div>
+                </nav>
+
+                <!-- Hamburger -->
+                <div style="display:flex;align-items:center;gap:0.75rem;flex-shrink:0">
+                    <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle navigation"
+                        aria-expanded="false">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </button>
+                </div>
+
+            </div>
+        </header>
+
+        <!-- ── Mobile Nav Drawer ─────────── -->
+        <nav class="mobile-nav-drawer" id="mobileNavDrawer" aria-label="Mobile navigation">
+            {{navigation}}
+
+        </nav>
+
+        <!-- ── Main Content Area ─────────── -->
+        <main id="main-content" class="main-content" role="main">
+            {{{body}}}
+        </main>
+
+        <!-- ── Footer ────────────────────── -->
+        {{> footer}}
+
+    </div>
+
+    <!-- JavaScript Files -->
+    <script src="{{asset 'js/main.js'}}"></script>
+    <script src="{{asset 'js/header.js'}}"></script>
+    <script src="{{asset 'js/navigation.js'}}"></script>
+    <script src="{{asset 'js/animated-background.js'}}"></script>
+
+    <!-- Ghost Foot -->
+    {{ghost_foot}}
+</body>
+
+</html>

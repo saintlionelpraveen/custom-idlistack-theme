@@ -1,0 +1,159 @@
+/* ============================================================
+   SECTIONS.CSS – Dynamic homepage content sections +
+   hero actions, tagline, and three .content-section blocks
+   ============================================================ */
+
+/* ── Hero Actions & Tagline ──────────────────────────────── */
+
+.hero-actions {
+    display: flex;
+    gap: 0.9rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+.hero-tagline {
+    font-family: 'Sora', 'Poppins', sans-serif;
+    font-size: clamp(1.1rem, 2vw, 1.35rem);
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-primary);
+    margin-top: 0.5rem;
+    margin-bottom: 1.8rem;
+    line-height: 1.3;
+}
+
+/* ── Base Content Section ────────────────────────────────── */
+
+.content-section {
+    padding: clamp(4rem, 8vw, 7rem) 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.cs-inner {
+    max-width: 720px;
+}
+
+.cs-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.32rem 0.9rem;
+    background: rgba(217, 70, 168, 0.07);
+    border: 1px solid rgba(217, 70, 168, 0.20);
+    border-radius: var(--radius-full);
+    font-size: 0.74rem;
+    font-weight: 700;
+    color: var(--brand-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    margin-bottom: 0.9rem;
+}
+
+.cs-heading {
+    font-family: 'Sora', 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 3.2rem);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: var(--text-primary);
+    margin-bottom: 1.1rem;
+}
+
+.cs-body {
+    font-size: clamp(1rem, 1.8vw, 1.12rem);
+    color: var(--text-secondary);
+    line-height: 1.78;
+    margin-bottom: 2rem;
+    max-width: 560px;
+}
+
+
+
+/* ── Section 1 – soft pink bg ──────────────────────────── */
+.content-section--1 {
+    background:
+        radial-gradient(ellipse 70% 55% at 0% 50%, rgba(252, 231, 243, 0.60) 0%, transparent 65%),
+        radial-gradient(ellipse 50% 45% at 100% 20%, rgba(243, 232, 255, 0.45) 0%, transparent 65%),
+        var(--surface-0);
+}
+
+/* ── Section 2 – reversed layout with violet tint ─────── */
+.content-section--2 {
+    background:
+        radial-gradient(ellipse 65% 55% at 100% 60%, rgba(243, 232, 255, 0.60) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 10% 20%, rgba(252, 231, 243, 0.40) 0%, transparent 65%),
+        var(--surface-1);
+}
+
+.content-section--2 .cs-inner {
+    margin-left: auto;
+    text-align: right;
+}
+
+.content-section--2 .cs-label {
+    margin-left: auto;
+}
+
+.content-section--2 .cs-body {
+    margin-left: auto;
+}
+
+/* ── Section 3 – light coral/warm tint + centered ─────── */
+.content-section--3 {
+    background:
+        radial-gradient(ellipse 80% 60% at 50% 50%, rgba(255, 228, 230, 0.55) 0%, transparent 65%),
+        var(--surface-0);
+    text-align: center;
+}
+
+.content-section--3 .cs-inner {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.content-section--3 .cs-body {
+    margin: 0 auto 2rem;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 768px) {
+    .content-section--2 .cs-inner {
+        margin-left: 0;
+        text-align: left;
+    }
+
+    .content-section--2 .cs-label {
+        margin-left: 0;
+    }
+
+    .content-section--2 .cs-body {
+        margin-left: 0;
+    }
+
+    .content-section--3 {
+        text-align: left;
+    }
+
+    .content-section--3 .cs-inner {
+        margin: 0;
+        text-align: left;
+    }
+
+    .content-section--3 .cs-body {
+        margin: 0 0 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .btn-cta {
+        width: 100%;
+    }
+
+    .hero-actions {
+        flex-direction: column;
+    }
+}

@@ -1,0 +1,18 @@
+{{!< default}} {{#post}} <article id="page-article" class="page-article {{post_class}}">
+    {{#match @page.show_title_and_feature_image}}
+    <header id="page-header" class="page-header">
+        <h1 id="page-title" class="page-title">{{title}}</h1>
+        {{#if feature_image}}
+        <figure class="page-feature-image">
+            <img src="{{feature_image}}" alt="{{title}}"
+                style="max-width: 100%; height: auto; margin-top: 1.5rem; border-radius: var(--radius-lg);">
+        </figure>
+        {{/if}}
+    </header>
+    {{/match}}
+
+    <section id="page-content" class="page-content">
+        {{{content}}}
+    </section>
+    </article>
+    {{/post}}
