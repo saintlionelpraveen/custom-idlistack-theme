@@ -25,5 +25,8 @@
   },
   "paths": {
     "contentPath": "/home/praveen/ghost/content"
+  },
+  "imageOptimization": {
+    "resize": false
   }
 }

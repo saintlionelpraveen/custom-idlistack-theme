@@ -1,0 +1,418 @@
+/* ============================================================
+   ANIMATIONS – Light Theme: Scroll reveal & microinteractions
+   ============================================================ */
+
+/* ── Keyframes ──────────────────────────────────────────── */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(22px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: scale(0.93);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes shimmer {
+    from {
+        background-position: -200% center;
+    }
+
+    to {
+        background-position: 200% center;
+    }
+}
+
+/* ── Entrance Classes ───────────────────────────────────── */
+.animate-fade-up {
+    animation: fadeInUp 0.65s var(--ease-out) both;
+}
+
+.animate-fade-up-1 {
+    animation-delay: 0.08s;
+}
+
+.animate-fade-up-2 {
+    animation-delay: 0.18s;
+}
+
+.animate-fade-up-3 {
+    animation-delay: 0.30s;
+}
+
+.animate-fade-up-4 {
+    animation-delay: 0.44s;
+}
+
+.animate-fade-up-5 {
+    animation-delay: 0.58s;
+}
+
+.animate-scale-in {
+    animation: scaleIn 0.58s var(--ease-spring) both;
+}
+
+/* ── Scroll Reveal ──────────────────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.65s var(--ease-out),
+        transform 0.65s var(--ease-out);
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.reveal-delay-1 {
+    transition-delay: 0.08s;
+}
+
+.reveal-delay-2 {
+    transition-delay: 0.18s;
+}
+
+.reveal-delay-3 {
+    transition-delay: 0.28s;
+}
+
+.reveal-delay-4 {
+    transition-delay: 0.38s;
+}
+
+/* ── Enhanced Home Page Animations ──────────────────────── */
+
+/* Hero image — continuous gentle float */
+@keyframes heroFloat {
+
+    0%,
+    100% {
+        transform: translateY(0) rotate(0deg);
+    }
+
+    33% {
+        transform: translateY(-8px) rotate(0.5deg);
+    }
+
+    66% {
+        transform: translateY(4px) rotate(-0.3deg);
+    }
+}
+
+.hero-image-wrapper {
+    animation: scaleIn 0.8s var(--ease-spring) both,
+        heroFloat 6s ease-in-out 1s infinite;
+}
+
+/* Hero content — slide from left with depth */
+.hero-content {
+    animation: heroSlideIn 1s cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
+@keyframes heroSlideIn {
+    from {
+        opacity: 0;
+        transform: translateX(-40px) translateZ(-20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0) translateZ(0);
+    }
+}
+
+/* Post cards — hover glow only (3D tilt handled by JS) */
+
+/* Post cards — stagger cascade with scale on reveal */
+.post-card.reveal {
+    opacity: 0;
+    transform: translateY(40px) scale(0.95);
+    transition: opacity 0.6s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+
+.post-card.reveal.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+/* Section titles — gradient reveal */
+.section-title.reveal.visible {
+    background: linear-gradient(90deg, #111 0%, #d946a8 50%, #111 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: titleGradient 3s ease-in-out 0.3s 1 forwards;
+}
+
+@keyframes titleGradient {
+    0% {
+        background-position: -100% center;
+    }
+
+    50% {
+        background-position: 100% center;
+    }
+
+    100% {
+        background-position: 0% center;
+        -webkit-text-fill-color: initial;
+        background: none;
+        color: #111;
+    }
+}
+
+/* Why Stacks image — zoom reveal from blurred */
+.why-stacks-section {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(6px);
+    transition: opacity 1s ease-out,
+        transform 1s cubic-bezier(0.2, 0.8, 0.2, 1),
+        filter 1s ease-out;
+}
+
+.why-stacks-section.visible {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+}
+
+.why-stacks-image {
+    transition: transform 0.4s ease;
+}
+
+
+/* Early Stackers section — slide up */
+.early-stackers-section {
+    animation: earlyStackersIn 0.8s ease-out both;
+}
+
+@keyframes earlyStackersIn {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Story cards — stagger pop in */
+.story-card {
+    opacity: 0;
+    transform: translateY(30px) scale(0.92);
+    transition: opacity 0.5s cubic-bezier(0.2, 0.8, 0.2, 1),
+        transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.story-card.visible {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+}
+
+.story-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    transition: transform 0.3s ease;
+}
+
+/* In-house tooltip heart animation on hover */
+.in-house-tooltip {
+    transition: opacity 0.3s ease, transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.post-card-in-house:hover .in-house-tooltip {
+    animation: heartBeat 0.6s ease-in-out;
+}
+
+@keyframes heartBeat {
+    0% {
+        transform: scale(1);
+    }
+
+    25% {
+        transform: scale(1.15);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    75% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* ── Shimmer Text ───────────────────────────────────────── */
+.shimmer-text {
+    background: linear-gradient(90deg,
+            var(--brand-primary) 0%,
+            var(--brand-accent) 30%,
+            var(--brand-primary) 60%,
+            var(--brand-secondary) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    animation: shimmer 4s linear infinite;
+}
+
+/* ═══════════════════════════════════════════════════════════
+   POST / PAGE CONTENT – Light Professional Typography
+═══════════════════════════════════════════════════════════ */
+
+.post-full {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: clamp(6rem, 10vw, 9rem) clamp(1rem, 4vw, 2.5rem) 4rem;
+}
+
+.post-full-header {
+    margin-bottom: 2.4rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid rgba(217, 70, 168, 0.12);
+}
+
+.post-full-title {
+    font-family: 'Sora', 'Poppins', sans-serif;
+    font-size: clamp(2rem, 4vw, 3.1rem);
+    font-weight: 800;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+}
+
+.post-full-meta {
+    display: flex;
+    gap: 1rem;
+    align-items: center;
+    font-size: 0.875rem;
+    color: var(--text-muted);
+    flex-wrap: wrap;
+}
+
+/* ── Post Body ──────────────────────────────────────────── */
+.post-full-content {
+    color: var(--text-secondary);
+    line-height: 1.88;
+    font-size: clamp(1rem, 2vw, 1.1rem);
+}
+
+.post-full-content h2 {
+    font-family: 'Sora', 'Poppins', sans-serif;
+    font-size: 1.72rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 2.4rem 0 1rem;
+    letter-spacing: -0.025em;
+}
+
+.post-full-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 2rem 0 0.75rem;
+}
+
+.post-full-content p {
+    margin-bottom: 1.5rem;
+}
+
+.post-full-content a {
+    color: var(--brand-primary);
+    text-decoration: underline;
+    text-decoration-color: rgba(217, 70, 168, 0.35);
+    text-underline-offset: 3px;
+    transition: text-decoration-color var(--t-fast) var(--ease-out);
+}
+
+.post-full-content a:hover {
+    text-decoration-color: var(--brand-primary);
+}
+
+.post-full-content code {
+    background: var(--surface-2);
+    color: var(--brand-primary);
+    padding: 0.15em 0.42em;
+    border-radius: var(--radius-sm);
+    font-size: 0.9em;
+    font-family: 'Fira Code', 'Cascadia Code', monospace;
+    border: 1px solid rgba(217, 70, 168, 0.12);
+}
+
+.post-full-content pre {
+    background: var(--surface-1);
+    border: 1px solid rgba(217, 70, 168, 0.12);
+    border-radius: var(--radius-md);
+    padding: 1.5rem;
+    overflow-x: auto;
+    margin: 1.5rem 0;
+}
+
+.post-full-content pre code {
+    background: none;
+    padding: 0;
+    color: var(--text-primary);
+    border: none;
+}
+
+.post-full-content blockquote {
+    border-left: 3px solid var(--brand-primary);
+    padding: 1rem 1.5rem;
+    background: rgba(217, 70, 168, 0.04);
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 1.5rem 0;
+    color: var(--text-secondary);
+    font-style: italic;
+}
+
+.post-full-content img {
+    border-radius: var(--radius-lg);
+    margin: 1.5rem 0;
+    box-shadow: var(--glass-shadow-lg);
+    width: 100%;
+}
+
+.post-full-content ul,
+.post-full-content ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--text-secondary);
+}
+
+.post-full-content li {
+    margin-bottom: 0.5rem;
+}

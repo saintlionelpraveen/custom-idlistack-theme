@@ -1,0 +1,494 @@
+/* ============================================================
+   POSTS / SERVICES SECTION – Premium Glassmorphism Cards
+   ============================================================ */
+
+.posts-section {
+  padding: clamp(4rem, 8vw, 7rem) 0;
+  position: relative;
+  overflow: visible;
+}
+
+.posts-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image: var(--posts-bg-img, none);
+  background-color: var(--posts-bg-color, transparent);
+  background-size: cover;
+  background-position: center;
+  pointer-events: none;
+}
+
+.posts-section .container {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Section Header ─────────────────────────────────────── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.35rem 1rem;
+  background: linear-gradient(135deg, rgba(230, 230, 230, 0), rgba(168, 85, 247, 0.06));
+  border: 1px solid rgba(217, 70, 168, 0.18);
+  border-radius: 50px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.9rem;
+  backdrop-filter: blur(8px);
+}
+
+.section-title {
+  font-family: 'Sora', 'Poppins', sans-serif;
+  font-weight: 800;
+  font-size: clamp(1.75rem, 3.2vw, 2.65rem);
+  letter-spacing: -0.03em;
+  line-height: 1.15;
+  margin-bottom: 0.9rem;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.section-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  max-width: 500px;
+  line-height: 1.72;
+  margin-bottom: 3rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Organic Blob Background ────────────────────────────── */
+.posts-section-bg {
+  position: absolute;
+  top: -80px;
+  left: 0;
+  right: 0;
+  bottom: -40px;
+  overflow: visible;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.posts-section-bg .blob-shape {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 115%;
+  height: 130%;
+  opacity: 1;
+  animation: blob-morph 18s ease-in-out infinite alternate;
+}
+
+@keyframes blob-morph {
+  0% {
+    transform: translate(-50%, -50%) scale(1) rotate(0deg);
+  }
+
+  33% {
+    transform: translate(-48%, -52%) scale(1.03) rotate(2deg);
+  }
+
+  66% {
+    transform: translate(-52%, -48%) scale(0.97) rotate(-2deg);
+  }
+
+  100% {
+    transform: translate(-50%, -50%) scale(1.01) rotate(1deg);
+  }
+}
+
+/* ── Posts Grid ──────────────────────────────────────────── */
+.posts-grid {
+  display: grid;
+  gap: 1.8rem;
+  grid-template-columns: repeat(4, 1fr);
+  position: relative;
+  z-index: 1;
+  background-color: transparent;
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.post-card {
+  position: relative;
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 20px;
+  overflow: visible;
+  box-shadow:
+    0 4px 24px rgba(0, 0, 0, 0.04),
+    0 1px 3px rgba(0, 0, 0, 0.03);
+  transition:
+    transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 0.5s ease,
+    border-color 0.4s ease;
+  height: 100%;
+  cursor: pointer;
+  /* 3D depth effect */
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+/* Gradient border glow effect */
+.post-card::before {
+  content: '';
+  position: absolute;
+  inset: -1px;
+  border-radius: 21px;
+  background: linear-gradient(135deg,
+      rgba(217, 70, 168, 0),
+      rgba(217, 70, 168, 0),
+      rgba(168, 85, 247, 0));
+  z-index: -1;
+  transition: background 0.5s ease, opacity 0.5s ease;
+  opacity: 0;
+}
+
+/* Water ripple highlight — follows cursor via CSS custom properties */
+.post-card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: radial-gradient(250px circle at var(--mouse-x, 50%) var(--mouse-y, 50%),
+      rgba(255, 255, 255, 0.4) 0%,
+      rgba(217, 70, 168, 0.06) 40%,
+      transparent 70%);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 3;
+  pointer-events: none;
+}
+
+.post-card:hover {
+  background: rgba(255, 255, 255, 0.9);
+  border-color: rgba(217, 70, 168, 0.2);
+  box-shadow:
+    0 24px 48px rgba(217, 70, 168, 0.1),
+    0 8px 16px rgba(0, 0, 0, 0.04),
+    0 0 0 1px rgba(217, 70, 168, 0.08);
+  /* transform is handled by JS for 3D tilt */
+}
+
+.post-card:hover::before {
+  background: linear-gradient(135deg,
+      rgba(217, 70, 168, 0.15),
+      rgba(168, 85, 247, 0.1),
+      rgba(236, 72, 153, 0.12));
+  opacity: 1;
+}
+
+.post-card:hover::after {
+  opacity: 1;
+}
+
+/* ── In-house special card ── */
+.post-card-in-house {
+  transition: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.post-card-in-house:hover {
+  background: rgba(255, 255, 255, 0.95);
+  border-color: rgba(217, 70, 168, 0.3);
+  box-shadow:
+    0 28px 56px rgba(217, 70, 168, 0.16),
+    0 8px 20px rgba(236, 72, 153, 0.08),
+    0 0 0 1px rgba(217, 70, 168, 0.12);
+  transform: translateY(-14px) scale(1.03);
+}
+
+.post-card-in-house:hover .post-icon-placeholder {
+  background: var(--brand-gradient);
+}
+
+.post-link {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  color: inherit;
+  text-decoration: none;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+/* ── Neon border (kept for logic) ── */
+.neon-border {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.post-card:hover .neon-border {
+  opacity: 0;
+}
+
+/* ── Card Inner ──────────────────────────────────────────── */
+.post-card-inner {
+  padding: 2.2rem 1.8rem 2rem;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 270px;
+}
+
+/* ── Icon ────────────────────────────────────────────────── */
+.post-logo {
+  width: 58px;
+  height: 58px;
+  margin-bottom: 1.6rem;
+  border-radius: 16px;
+  overflow: hidden;
+  flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(252, 231, 243, 0.5), rgba(243, 232, 255, 0.3));
+  padding: 2px;
+  transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1),
+    box-shadow 0.4s ease;
+}
+
+.post-card:hover .post-logo {
+  transform: scale(1.1) rotate(-3deg);
+  box-shadow: 0 8px 24px rgba(236, 72, 153, 0.2);
+}
+
+.post-icon-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--brand-primary), var(--brand-accent));
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.post-icon-placeholder::after {
+  content: '✦';
+  font-size: 1.4rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.post-icon {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+}
+
+/* ── Title ───────────────────────────────────────────────── */
+.post-title {
+  font-family: 'Sora', 'Poppins', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  margin: 0 0 0.8rem;
+  color: var(--text-primary);
+  line-height: 1.35;
+  letter-spacing: -0.015em;
+  transition: color 0.3s ease;
+}
+
+.post-card:hover .post-title {
+  color: #9d174d;
+}
+
+/* ── Excerpt ─────────────────────────────────────────────── */
+.post-excerpt {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.75;
+  margin: 0;
+  flex-grow: 1;
+}
+
+/* ── Read More (appears on hover) ── */
+.post-card-inner::after {
+  content: 'Read more →';
+  display: block;
+  margin-top: 1.4rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--brand-primary);
+  opacity: 0;
+  transform: translateX(-10px);
+  transition: opacity 0.3s ease 0.1s,
+    transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) 0.1s;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.post-card:hover .post-card-inner::after {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ── Embedded Gallery ────────────────────────────────────── */
+.embedded-gallery {
+  margin-top: 4rem;
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Responsive ─────────────────────────────────────────── */
+@media (max-width: 1200px) {
+  .posts-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .posts-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .posts-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+
+  .post-card-inner {
+    min-height: 220px;
+    padding: 1.6rem 1.4rem;
+  }
+
+  /* Add white arrow to bottom right for mobile only */
+  .post-card-inner::after {
+    content: '→';
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    bottom: 1.2rem;
+    right: 1.4rem;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #ffffff;
+    opacity: 1;
+    transform: none;
+    /* override the hover translation */
+    text-shadow: 0 4px 12px rgba(236, 72, 153, 0.6);
+    margin: 0;
+  }
+
+  .post-title {
+    font-size: 1.05rem;
+  }
+
+  .posts-section-bg .blob-shape {
+    width: 160%;
+    height: 140%;
+  }
+}
+
+/* ============================================================
+   T4GC HEART TOOLTIP – Elegant heart popup for in-house posts
+   ============================================================ */
+@keyframes heart-float-in {
+  0% {
+    opacity: 0;
+    transform: translateX(-50%) translateY(12px) scale(0.4) rotate(-10deg);
+  }
+
+  60% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(-8px) scale(1.1) rotate(2deg);
+  }
+
+  80% {
+    transform: translateX(-50%) translateY(2px) scale(0.95) rotate(-1deg);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1) rotate(0deg);
+  }
+}
+
+@keyframes heart-pulse {
+
+  0%,
+  100% {
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    transform: translateX(-50%) scale(1.08);
+  }
+}
+
+@keyframes heart-glow {
+
+  0%,
+  100% {
+    filter: drop-shadow(0 4px 12px rgba(236, 72, 153, 0.3));
+  }
+
+  50% {
+    filter: drop-shadow(0 6px 20px rgba(236, 72, 153, 0.55));
+  }
+}
+
+.in-house-tooltip {
+  position: absolute;
+  top: -62px;
+  left: 50%;
+  transform: translateX(-50%) scale(0.4);
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 68px;
+  height: 62px;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.15s ease, visibility 0.15s ease;
+  color: #ffffff;
+  font-family: 'Sora', 'Poppins', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-align: center;
+  line-height: 1;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.15);
+}
+
+.in-house-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 64px;
+  height: 58px;
+  z-index: -1;
+  background: linear-gradient(150deg, #f472b6 0%, #ec4899 40%, #db2777 100%);
+  clip-path: path('M 30 6 C 13 6, 0 18, 0 28 C 0 42, 30 54, 30 54 C 30 54, 60 42, 60 28 C 60 18, 47 6, 30 6 Z');
+  filter: drop-shadow(0 4px 14px rgba(236, 72, 153, 0.4));
+}
+
+.in-house-tooltip::after {
+  display: none;
+}
+
+.post-card:hover .in-house-tooltip {
+  opacity: 1;
+  visibility: visible;
+  animation:
+    heart-float-in 0.55s cubic-bezier(0.34, 1.56, 0.64, 1) forwards,
+    heart-pulse 2s ease-in-out 0.7s infinite,
+    heart-glow 2s ease-in-out 0.7s infinite;
+}

@@ -1,0 +1,428 @@
+/* ============================================================
+   IDLISTACK THEME – LIGHT PINK PROFESSIONAL DESIGN SYSTEM
+   Production-Ready B2C Theme
+   ============================================================ */
+
+/* ── Fonts loaded in default.hbs ── */
+
+:root {
+  /* 👻 Ghost Admin Fonts */
+  --gh-font-heading: 'Sora', sans-serif;
+  --gh-font-body: 'Inter', sans-serif;
+
+  /* 🎨 Brand Palette – Professional Rose/Pink */
+  --brand-primary: #d946a8;
+  /* deep rose-pink */
+  --brand-secondary: #9333ea;
+  /* violet accent */
+  --brand-accent: #f472b6;
+  /* light pink */
+  --brand-warm: #fb7185;
+  /* coral-rose */
+  --brand-gradient: linear-gradient(135deg, #d946a8 0%, #9333ea 60%, #f472b6 100%);
+  --brand-gradient-s: linear-gradient(135deg, #fce7f3 0%, #fdf4ff 50%, #f0f9ff 100%);
+
+  /* 🌕 Light Surface Scale */
+  --surface-0: #ffffff;
+  /* page bg */
+  --surface-1: #fdf8fd;
+  /* subtle warm tint */
+  --surface-2: #fce7f3;
+  /* pink tint */
+  --surface-3: #f3e8ff;
+  /* violet tint */
+  --surface-4: #f8fafc;
+  /* cool light */
+
+  /* 🔤 Typography */
+  --text-primary: #0f0a1e;
+  /* near black with warm tint */
+  --text-secondary: #4b3869;
+  /* medium purple-grey */
+  --text-muted: #8b7aa6;
+  /* muted lavender */
+  --text-on-brand: #ffffff;
+  /* white on brand colors */
+
+  /* 🪟 Glass System – Light mode */
+  --glass-bg: rgba(255, 255, 255, 0.72);
+  --glass-bg-hover: rgba(255, 255, 255, 0.92);
+  --glass-border: rgba(217, 70, 168, 0.14);
+  --glass-border-hover: rgba(217, 70, 168, 0.32);
+  --glass-blur: blur(20px) saturate(160%);
+  --glass-shadow: 0 4px 24px rgba(217, 70, 168, 0.08), 0 1px 4px rgba(0, 0, 0, 0.05);
+  --glass-shadow-lg: 0 16px 56px rgba(217, 70, 168, 0.14), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --glass-shadow-sm: 0 2px 12px rgba(217, 70, 168, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+
+  /* 📐 Layout */
+  --max-width: 1280px;
+  --radius-xs: 0.375rem;
+  --radius-sm: 0.5rem;
+  --radius-md: 0.875rem;
+  --radius-lg: 1.25rem;
+  --radius-xl: 1.75rem;
+  --radius-2xl: 2.5rem;
+  --radius-full: 9999px;
+
+  /* ⏱️ Transitions */
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --t-fast: 0.15s;
+  --t-base: 0.28s;
+  --t-slow: 0.55s;
+}
+
+/* ── Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  text-size-adjust: 100%;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Warm light mesh gradient background */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -10;
+  background:
+    radial-gradient(ellipse 90% 55% at 15% 5%, rgba(252, 231, 243, 0.65) 0%, transparent 60%),
+    radial-gradient(ellipse 70% 50% at 85% 80%, rgba(243, 232, 255, 0.50) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 40% at 55% 40%, rgba(255, 241, 242, 0.40) 0%, transparent 60%),
+    var(--surface-0);
+  pointer-events: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Sora', 'Poppins', 'Helvetica Neue', Arial, sans-serif;
+  color: var(--text-primary);
+  letter-spacing: -0.025em;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* ── Layout ─────────────────────────────────────────────── */
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 4vw, 2.5rem);
+}
+
+/* ── Scrollbar ──────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--surface-1);
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(var(--brand-primary), var(--brand-accent));
+  border-radius: var(--radius-full);
+}
+
+/* ── Selection ──────────────────────────────────────────── */
+::selection {
+  background: rgba(217, 70, 168, 0.18);
+  color: var(--text-primary);
+}
+
+/* ── Focus ──────────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid var(--brand-primary);
+  outline-offset: 3px;
+  border-radius: var(--radius-sm);
+}
+
+/* ── Glass Card ─────────────────────────────────────────── */
+.glass-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--glass-shadow);
+  transition:
+    background var(--t-base) var(--ease-out),
+    border-color var(--t-base) var(--ease-out),
+    box-shadow var(--t-base) var(--ease-out),
+    transform var(--t-base) var(--ease-out);
+}
+
+.glass-card:hover {
+  background: var(--glass-bg-hover);
+  border-color: var(--glass-border-hover);
+  box-shadow: var(--glass-shadow-lg);
+  transform: translateY(-3px);
+}
+
+/* ── Gradient Text ──────────────────────────────────────── */
+.gradient-text {
+  background: var(--brand-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Site Wrapper ───────────────────────────────────────── */
+.site-wrapper {
+  position: relative;
+}
+
+.main-content {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Why The Stacks Section ─────────────────────────────── */
+.why-stacks-section {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-stacks-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* ── Ghost Post Content Widths ─────────── */
+.kg-width-wide {
+  position: relative;
+  width: 85vw;
+  min-width: 100%;
+  margin-left: calc(50% - 42.5vw);
+  margin-right: calc(50% - 42.5vw);
+  transform: translateX(calc(50vw - 50%));
+}
+
+.kg-width-full {
+  position: relative;
+  width: 100vw;
+  min-width: 100%;
+  margin-left: calc(50% - 50vw);
+  margin-right: calc(50% - 50vw);
+  transform: translateX(calc(50vw - 50%));
+}
+
+/* ── Impact Stories Grid Section ───────────────────────── */
+.early-stackers-section {
+  padding: clamp(6rem, 12vw, 10rem) 0;
+  background-color: transparent;
+  /* Restored elegant background color */
+  color: #111;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Organic Painted Background Canvas */
+.wave-bg-container {
+  position: absolute;
+  top: 29%;
+  /* Start the wave right behind the top-third of the cards */
+  left: 0;
+  right: 0;
+  bottom: 0;
+  /* Anchor securely to the floor of the section */
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  /* Below content */
+  pointer-events: none;
+  /* Ignore clicks */
+}
+
+.wave-accent-line {
+  width: 100vw;
+  height: clamp(80px, 12vw, 150px);
+  display: block;
+  overflow: visible;
+  /* Prevents stroke clipping */
+}
+
+.wave-body-fill {
+  background-color: var(--wave-color);
+  width: 100%;
+  flex-grow: 1;
+  /* Fills empty space down to the bottom */
+  margin-top: -2px;
+  /* Pulls the solid box slightly under the SVG path to hide 1px floating browser gaps */
+}
+
+.impact-stories-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .impact-stories-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 900px) {
+  .impact-stories-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1200px) {
+  .impact-stories-grid {
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns on large screens */
+  }
+}
+
+.story-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  aspect-ratio: 1/1;
+  /* Perfectly square */
+  border-radius: 20px;
+  overflow: hidden;
+  background: #ffffff;
+  /* White background for logos */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  /* Stop edges from touching borders */
+  z-index: 2;
+  /* Float firmly above the custom wave line */
+}
+
+.story-card .img-container {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.story-card img {
+  width: 100%;
+  height: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  /* Never crop the image */
+  filter: grayscale(100%);
+  transition: filter 0.5s ease, transform 0.5s ease;
+  display: block;
+}
+
+/* Hover effect on card brings it to full color and scales it slightly */
+.story-card:hover img {
+  filter: grayscale(0%);
+  transform: scale(1.05);
+}
+
+.story-caption-pill {
+  position: absolute;
+  /* Start hidden slightly below the card */
+  bottom: -60px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #ffffff;
+  color: #111111;
+  padding: 0.7rem 1.4rem;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  opacity: 0;
+  transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+  z-index: 10;
+}
+
+/* On hover, slide the pill smoothly up into the card frame */
+.story-card:hover .story-caption-pill {
+  bottom: 24px;
+  opacity: 1;
+}
+
+.story-caption-pill .arrow {
+  color: #666;
+  font-weight: 400;
+  transition: transform 0.3s ease;
+}
+
+.story-card:hover .story-caption-pill .arrow {
+  transform: translateX(3px);
+  color: #111;
+}
+
+/* ── Mobile View Overrides ──────────────────────────────── */
+@media (max-width: 639px) {
+  .story-card {
+    padding: 0.8rem;
+    border-radius: 14px;
+  }
+
+  /* Automatically reveal full color and caption when scrolled into view */
+  .story-card.visible img {
+    filter: grayscale(0%);
+    transform: scale(1.05);
+  }
+
+  .story-card.visible .story-caption-pill {
+    bottom: 12px;
+    opacity: 1;
+    padding: 0.45rem 0.85rem;
+    font-size: 0.75rem;
+    border-radius: 20px;
+  }
+
+  .story-card.visible .story-caption-pill .arrow {
+    transform: translateX(2px);
+    color: #111;
+  }
+}

@@ -1,0 +1,52 @@
+{{!< default}} {{#post}} <div class="pn-page">
+
+    {{!-- Top row: circle image + title --}}
+    <div class="pn-header-row">
+        {{#if feature_image}}
+        <figure class="pn-circle-img pn-anim-spin-in">
+            <img src="{{img_url feature_image size=" l"}}" alt="{{title}}" loading="eager" decoding="async">
+        </figure>
+        {{/if}}
+        <div class="pn-title-block pn-anim-title-slide">
+            <h1 class="pn-title">{{title}}</h1>
+        </div>
+    </div>
+
+    {{!-- Content in newspaper columns --}}
+    <div class="pn-columns gh-content pn-anim-columns">
+        {{content}}
+    </div>
+
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            // Trigger header animations after a brief delay
+            requestAnimationFrame(() => {
+                document.querySelectorAll(".pn-anim-spin-in, .pn-anim-title-slide, .pn-anim-columns")
+                    .forEach(el => el.classList.add("is-visible"));
+            });
+
+            // Stagger the column children (headings, paragraphs, lists)
+            const columns = document.querySelector(".pn-columns");
+            if (columns) {
+                const children = columns.querySelectorAll("h1, h2, h3, h4, p, ul, ol, blockquote, figure, .kg-card");
+                children.forEach((child, i) => {
+                    child.style.opacity = "0";
+                    child.style.transform = "translateY(20px)";
+                    child.style.transition = `opacity 0.6s ease-out ${0.3 + i * 0.06}s, transform 0.6s ease-out ${0.3 + i * 0.06}s`;
+                });
+                // Trigger after paint
+                requestAnimationFrame(() => {
+                    setTimeout(() => {
+                        children.forEach(child => {
+                            child.style.opacity = "1";
+                            child.style.transform = "translateY(0)";
+                        });
+                    }, 100);
+                });
+            }
+        });
+    </script>
+
+    {{/post}}

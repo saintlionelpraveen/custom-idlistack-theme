@@ -1,0 +1,325 @@
+{{!< default}} {{!-- Animated Background Blobs --}} <div class="animated-bg-wrapper" aria-hidden="true">
+  <div id="blur1" class="blur"></div>
+  <div id="blur2" class="blur"></div>
+  <div id="blur3" class="blur"></div>
+  </div>
+
+  {{!-- ══════════════════════════════════════════════════
+  HERO SECTION
+  • Headline → Admin ▸ Design ▸ Site-wide ▸ "Hero headline"
+  • Description → Admin ▸ Settings ▸ General ▸ "Site description"
+  • Tagline → Admin ▸ Design ▸ Site-wide ▸ "Hero tagline"
+  • CTA text+URL → Admin ▸ Design ▸ Site-wide
+  • Cover image → Admin ▸ Settings ▸ Design ▸ "Publication cover"
+  ══════════════════════════════════════════════════ --}}
+  <section id="hero-section" class="hero-section" aria-labelledby="hero-title">
+    <div class="hero-grid container">
+
+      {{!-- LEFT: Copy --}}
+      <div class="hero-content">
+
+        {{!-- Big Headline (custom, NOT site name) --}}
+        {{#if @custom.hero_headline}}
+        <h1 id="hero-title" class="hero-title animate-fade-up animate-fade-up-2">
+          {{@custom.hero_headline}}
+        </h1>
+        {{else}}
+        {{!-- Fallback: show site title only if no custom headline set --}}
+        <h1 id="hero-title" class="hero-title animate-fade-up animate-fade-up-2">
+          {{@site.title}}
+        </h1>
+        {{/if}}
+
+        {{!-- Subheading (Below Title) --}}
+        {{#if @custom.hero_subheading}}
+        <p class="hero-description animate-fade-up animate-fade-up-3">
+          {{@custom.hero_subheading}}
+        </p>
+        {{/if}}
+
+        {{!-- Bold Callout Tagline / Badge --}}
+        {{#if @custom.hero_tagline}}
+        <p class="hero-tagline animate-fade-up animate-fade-up-3">
+          {{@custom.hero_tagline}}
+        </p>
+        {{/if}}
+
+        {{!-- CTA Button --}}
+        <div class="hero-actions animate-fade-up animate-fade-up-4">
+          <a href="{{#if @custom.hero_cta_url}}{{@custom.hero_cta_url}}{{else}}/{{/if}}" class="btn-cta"
+            aria-label="{{#if @custom.hero_cta_text}}{{@custom.hero_cta_text}}{{else}}Join the Beta{{/if}}" {{#if
+            @custom.hero_button_bg_color}}style="--btn-bg: {{@custom.hero_button_bg_color}}; --btn-text: {{@custom.hero_button_text_color}}; --btn-hover: {{@custom.hero_button_hover_color}}; --btn-hover-text: {{@custom.hero_button_hover_text_color}};"
+            {{/if}}>
+            {{#if @custom.hero_cta_text}}{{@custom.hero_cta_text}}{{else}}Join the Beta{{/if}}
+          </a>
+        </div>
+
+        {{!-- Extra Field 2 --}}
+        {{#if @custom.hero_extra_field_2}}
+        <p class="hero-extra-field animate-fade-up animate-fade-up-4" style="margin-top: 1rem;">
+          {{@custom.hero_extra_field_2}}
+        </p>
+        {{/if}}
+
+
+      </div>
+
+      {{!-- RIGHT: Cover Image --}}
+      <figure class="hero-image-wrapper animate-scale-in" aria-label="Hero image">
+        {{#if @site.cover_image}}
+        <img src="{{img_url @site.cover_image size=" xl"}}" alt="{{@site.title}}" class="hero-image" loading="eager"
+          decoding="async" fetchpriority="high">
+        {{else}}
+        <div class="hero-image-placeholder">
+          <div class="hero-image-placeholder-inner">
+            <svg width="44" height="44" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <rect x="3" y="3" width="18" height="18" rx="2" />
+              <circle cx="8.5" cy="8.5" r="1.5" />
+              <polyline points="21 15 16 10 5 21" />
+            </svg>
+            <p>Set a cover image in<br><strong>Admin → Design</strong></p>
+          </div>
+        </div>
+        {{/if}}
+      </figure>
+
+    </div>
+  </section>
+
+  {{!-- ══════════════════════════════════════════════════
+  SERVICES / POSTS SECTION
+  Cards come from your Ghost posts. Section heading/label
+  controlled by Admin ▸ Design ▸ Site-wide.
+  ══════════════════════════════════════════════════ --}}
+  <section id="posts-section" class="posts-section" aria-labelledby="posts-heading"
+    style="{{#if @custom.posts_section_bg_color}}--posts-bg-color: {{@custom.posts_section_bg_color}};{{/if}}">
+
+    <div class="posts-section-bg" aria-hidden="true">
+      <svg class="blob-shape" viewBox="0 0 1440 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="blobGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#f9a8d4" stop-opacity="0.85" />
+            <stop offset="50%" stop-color="#f472b6" stop-opacity="0.75" />
+            <stop offset="100%" stop-color="#ec4899" stop-opacity="0.65" />
+          </linearGradient>
+        </defs>
+        <path
+          d="M 180 80 C 320 -20, 520 30, 600 120 C 680 210, 820 160, 960 200 C 1100 240, 1260 140, 1340 220 C 1420 300, 1380 460, 1260 500 C 1140 540, 980 480, 820 500 C 660 520, 500 560, 360 500 C 220 440, 100 520, 60 420 C 20 320, 40 180, 180 80 Z"
+          fill="url(#blobGrad)" />
+      </svg>
+    </div>
+
+    <div class="container">
+
+
+
+      <div class="posts-grid" id="posts-grid-container">
+        {{#get "posts" filter="tag:home" limit="100" include="tags"}}
+        {{#foreach posts}}
+        <article class="post-card reveal {{#has tag=" In-house, in-house"}}post-card-in-house{{/has}}"
+          data-post-id="{{id}}" data-tags="{{#foreach tags}}{{name}},{{/foreach}}">
+          <a href="{{url}}" class="post-link" aria-label="Read: {{title}}">
+            {{#has tag="In-house, in-house"}}
+            <div class="in-house-tooltip">T4GC</div>
+            {{/has}}
+            <div class="post-card-inner">
+              <div class="post-logo">
+                {{#if feature_image}}
+                <img src="{{img_url feature_image size=" s"}}" alt="{{title}}" class="post-icon" loading="lazy">
+                {{else}}
+                <div class="post-icon-placeholder" aria-hidden="true"></div>
+                {{/if}}
+              </div>
+              <h3 class="post-title">{{title}}</h3>
+              <p class="post-excerpt">{{excerpt words="22"}}</p>
+            </div>
+            <div class="neon-border" aria-hidden="true"></div>
+          </a>
+        </article>
+        {{else}}
+        <article class="post-card">
+          <div class="post-card-inner">
+            <div class="post-logo">
+              <div class="post-icon-placeholder"></div>
+            </div>
+            <h3 class="post-title">Create your first post</h3>
+            <p class="post-excerpt">Add posts tagged with "home" in Ghost Admin to showcase them here.</p>
+          </div>
+        </article>
+        {{/foreach}}
+        {{/get}}
+      </div>
+
+    </div>
+  </section>
+
+  {{!-- ══════════════════════════════════════════════════
+  WHY THE STACKS SECTION
+  Full width image/GIF uploaded from Ghost Admin
+  ══════════════════════════════════════════════════ --}}
+  {{#if @custom.why_stacks_image}}
+  <section class="why-stacks-section" aria-label="Why the Stacks">
+    <img src="{{@custom.why_stacks_image}}" alt="Why the Stacks" class="why-stacks-image" loading="lazy">
+  </section>
+  {{/if}}
+
+  {{!-- ══════════════════════════════════════════════════
+  EARLY STACKERS ORBIT SECTION
+  Pulls images from a Page tagged 'early-stackers'
+  ══════════════════════════════════════════════════ --}}
+  <div id="hidden-early-stackers-data" style="display: none;" aria-hidden="true">
+    {{#get "pages" filter="tag:early-stackers" limit="1"}}
+    {{#foreach pages}}
+    {{{content}}}
+    {{/foreach}}
+    {{/get}}
+  </div>
+
+  <div id="early-stackers-mount"></div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const dataDiv = document.getElementById('hidden-early-stackers-data');
+      const mount = document.getElementById('early-stackers-mount');
+
+      if (dataDiv && mount) {
+        const images = dataDiv.querySelectorAll('img');
+
+        if (images.length > 0) {
+          const totalItems = images.length;
+          const title = "EARLY STACKERS";
+
+          let cardsHtml = '';
+
+          images.forEach((img, index) => {
+            let altText = "Impact Story";
+            const figureNode = img.closest('figure');
+            if (figureNode) {
+              const figcaptionNode = figureNode.querySelector('figcaption');
+              if (figcaptionNode) altText = figcaptionNode.innerText.trim();
+            }
+
+            // Build out individual vertical cards for the grid (No Links)
+            cardsHtml += `
+              <div class="story-card" aria-label="Story about ${altText}">
+                <div class="img-container">
+                  <img src="${img.src}" alt="${altText}" />
+                </div>
+                <div class="story-caption-pill">
+                  ${altText}
+                </div>
+              </div>
+            `;
+          });
+
+          // Grab the admin color or fallback to a soft wave red/pink
+          const waveColor = '{{#if @custom.early_stackers_bg_color}}{{@custom.early_stackers_bg_color}}{{else}}#ffeceb{{/if}}';
+
+          mount.innerHTML = `
+            <section class="early-stackers-section" aria-label="Impact Stories" style="--wave-color: ${waveColor};">
+              
+              <!-- Two-tone background: A smooth wave filling the bottom half of the section -->
+              <div class="wave-bg-container">
+                <svg class="wave-accent-line" viewBox="0 0 1440 200" preserveAspectRatio="none">
+                  <!-- A smooth hand-drawn style sine wave that drops down to fill the bottom area -->
+                  <path fill="var(--wave-color)" d="M 0 100 Q 350 0, 720 100 T 1440 100 L 1440 200 L 0 200 Z"></path>
+                </svg>
+                <!-- This dives under the SVG to continue the fill to the true bottom of the section -->
+                <div class="wave-body-fill"></div>
+              </div>
+
+              <div class="container" style="position: relative; z-index: 2;">
+                <style>
+                  .early-stackers-section .section-header { text-align: center; margin-bottom: 3rem; }
+                  .early-stackers-section .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #111111; font-family: var(--gh-font-heading, sans-serif); }
+                </style>
+                <div class="section-header">
+                  <h2>${title}</h2>
+                </div>
+                
+                <div class="impact-stories-grid">
+                  ${cardsHtml}
+                </div>
+              </div>
+            </section>
+          `;
+        }
+      }
+    });
+  </script>
+
+  {{!-- Dynamic sections removed as per request --}}
+
+  {{!-- Optional: Circle Gallery page --}}
+  {{#get "pages" filter="slug:circle-gallery" limit="1"}}
+  {{#foreach pages}}
+  <div class="embedded-gallery container">{{{content}}}</div>
+  {{/foreach}}
+  {{/get}}
+
+  <script src="{{asset 'js/animated-background.js'}}"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const grid = document.getElementById('posts-grid-container');
+      if (!grid) return;
+
+      const cards = Array.from(grid.querySelectorAll('.post-card'));
+
+      cards.sort((a, b) => {
+        const tagsA = (a.getAttribute('data-tags') || '').split(',');
+        const tagsB = (b.getAttribute('data-tags') || '').split(',');
+
+        let numA = 9999;
+        let numB = 9999;
+
+        for (let tag of tagsA) {
+          tag = tag.trim().toLowerCase();
+          const match = tag.match(/^(\d+)-post$/);
+          if (match) { numA = parseInt(match[1], 10); break; }
+        }
+        for (let tag of tagsB) {
+          tag = tag.trim().toLowerCase();
+          const match = tag.match(/^(\d+)-post$/);
+          if (match) { numB = parseInt(match[1], 10); break; }
+        }
+
+        return numA - numB;
+      });
+
+      // Clear and re-append sorted nodes
+      cards.forEach(card => grid.appendChild(card));
+
+      // ── 3D Water Depth Tilt Effect ──────────────────────────
+      const allCards = grid.querySelectorAll('.post-card');
+      allCards.forEach(card => {
+        card.addEventListener('mousemove', e => {
+          const rect = card.getBoundingClientRect();
+          const x = e.clientX - rect.left;  // cursor x inside card
+          const y = e.clientY - rect.top;   // cursor y inside card
+          const cx = rect.width / 2;
+          const cy = rect.height / 2;
+
+          // Rotation: tilt toward cursor (max ±12 degrees)
+          const rotateY = ((x - cx) / cx) * 12;
+          const rotateX = ((cy - y) / cy) * 10;
+
+          // Apply 3D tilt + slight lift
+          card.style.transform =
+            `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.01)`;
+
+          // Move the radial highlight to cursor position
+          const px = ((x / rect.width) * 100).toFixed(1);
+          const py = ((y / rect.height) * 100).toFixed(1);
+          card.style.setProperty('--mouse-x', px + '%');
+          card.style.setProperty('--mouse-y', py + '%');
+        });
+
+        card.addEventListener('mouseleave', () => {
+          // Spring back to flat
+          card.style.transform = 'perspective(600px) rotateX(0) rotateY(0) translateY(0) scale(1)';
+          card.style.setProperty('--mouse-x', '50%');
+          card.style.setProperty('--mouse-y', '50%');
+        });
+      });
+    });
+  </script>

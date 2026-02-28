@@ -1,0 +1,157 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.embedded-gallery {
+  min-height: 200vh;
+  background-color: transparent;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+.embedded-gallery .container {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: sticky;
+  top: 0;
+}
+
+.embedded-gallery .outer-circle {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.5s;
+}
+
+.embedded-gallery .outer-circle.show-border {
+  border: 2px solid #6e0dff;
+}
+
+.embedded-gallery .middle-circle {
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  transition: all 0.5s;
+}
+
+.embedded-gallery .middle-circle.show-border {
+  border: 2px solid #b4099a;
+}
+
+.embedded-gallery .gradient-ring {
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: linear-gradient(to right, #c084fc, #ec4899, #ef4444);
+  padding: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.embedded-gallery .inner-circle {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.embedded-gallery .profile-image {
+  position: absolute;
+  width: 96px;
+  height: 96px;
+  border-radius: 1rem;
+  overflow: hidden;
+  border: 4px solid white;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-out;
+}
+
+.embedded-gallery .profile-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.embedded-gallery .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 20;
+  transition: opacity 0.5s;
+  opacity: 0;
+}
+
+.embedded-gallery .content.visible {
+  opacity: 1;
+}
+
+.embedded-gallery .content h1 {
+  font-size: 2.25rem;
+  font-weight: bold;
+  color: #1f2937;
+  text-align: center;
+  margin-bottom: 0.5rem;
+}
+
+.embedded-gallery .content h1:last-of-type {
+  margin-bottom: 1rem;
+}
+
+.embedded-gallery .content p {
+  color: #6b7280;
+  text-align: center;
+  max-width: 20rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  .embedded-gallery {
+    background-color: #000000;
+  }
+
+  .embedded-gallery .outer-circle.show-border {
+    border-color: #374151;
+  }
+
+  .embedded-gallery .middle-circle.show-border {
+    border-color: #1e3a8a;
+  }
+
+  .embedded-gallery .gradient-ring {
+    background: linear-gradient(to right, #9333ea, #db2777, #dc2626);
+  }
+
+  .embedded-gallery .inner-circle {
+    background-color: #000000;
+  }
+
+  .embedded-gallery .profile-image {
+    border-color: #1f2937;
+  }
+
+  .embedded-gallery .content h1 {
+    color: #ffffff;
+  }
+
+  .embedded-gallery .content p {
+    color: #9ca3af;
+  }
+}
