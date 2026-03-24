@@ -7,8 +7,23 @@
   background: #151515;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   padding: clamp(4rem, 7vw, 6rem) clamp(1rem, 4vw, 2.5rem) 2rem;
-  overflow: hidden;
+  /* overflow removed so image can stick out above the footer */
   z-index: 10;
+}
+
+/* ── Footer Illustration ─────────────────────────────────── */
+.footer-tree-illustration {
+  position: absolute;
+  top: 0;
+  right: 1%;
+  width: clamp(350px, 50vw, 550px);
+  height: auto;
+  transform: translateY(-100%);
+  object-fit: contain;
+  object-position: bottom right;
+  z-index: 20;
+  /* Ensure it stays on top of everything */
+  pointer-events: none;
 }
 
 /* ── Footer Container ────────────────────────────────────── */
@@ -35,7 +50,7 @@
 }
 
 .footer-logo {
-  max-width: 140px;
+  max-width: 180px;
   height: auto;
   margin-bottom: 1.15rem;
   opacity: 0.88;
@@ -56,7 +71,7 @@
 
 .footer-address {
   font-style: normal;
-  color: #a1a1aa;
+  color: #ffffffb7;
   font-size: 0.88rem;
   line-height: 1.88;
   padding: 0;
@@ -79,6 +94,7 @@
 /* ── Navigation ──────────────────────────────────────────── */
 .footer-navigation {
   align-items: center;
+  color: #ffffff;
 }
 
 .footer-title {
@@ -94,6 +110,7 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  color: #ffffff;
 }
 
 .footer-nav ul.nav {
@@ -104,17 +121,19 @@
   display: flex;
   flex-direction: column;
   gap: 0.6rem;
+  color: #ffffff;
 }
 
 .footer-nav ul.nav li {
   margin: 0;
+  color: #ffffff;
 }
 
 .footer-nav a {
-  color: rgba(255, 255, 255, 0.65);
+  color: #ffffff;
+  border-radius: 5px;
   text-decoration: none;
   font-size: 1.05rem;
-  transition: all var(--t-fast) var(--ease-out);
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
@@ -123,6 +142,7 @@
 
 .footer-nav a::before {
   content: '';
+  color: #ffffff;
   display: inline-block;
   width: 0;
   height: 1.5px;
@@ -132,11 +152,11 @@
 }
 
 .footer-nav a:hover {
-  color: rgba(255, 255, 255, 1);
+  color: #ffffff;
 }
 
 .footer-nav a:hover::before {
-  width: 10px;
+  width: 5px;
 }
 
 /* ── Social / Newsletter ─────────────────────────────────── */
@@ -314,7 +334,7 @@
 }
 
 .footer-bottom p {
-  color: #71717a;
+  color: #ffffffa5;
   font-size: 0.85rem;
   margin: 0;
 }
@@ -341,6 +361,13 @@
     /* Keep 3 columns but let them squeeze tighter on IPad */
     grid-template-columns: 1fr 1fr 1fr;
     gap: 1.5rem;
+  }
+
+  .footer-tree-illustration {
+    right: auto;
+    left: 50%;
+    width: clamp(280px, 45vw, 450px);
+    transform: translate(-50%, -95%);
   }
 }
 
@@ -394,5 +421,52 @@
 
   .footer-legal {
     justify-content: center;
+  }
+
+  .footer-tree-illustration {
+    right: auto;
+    left: 50%;
+    width: clamp(220px, 80vw, 350px);
+    transform: translate(-50%, -95%);
+    object-position: center bottom;
+  }
+}
+
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+  .site-footer {
+    padding: 2.5rem 0.75rem 1.2rem;
+    margin-top: 2rem;
+  }
+
+  .footer-title {
+    font-size: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .footer-address {
+    font-size: 0.8rem;
+  }
+
+  .footer-nav a {
+    font-size: 0.9rem;
+  }
+
+  .footer-bottom p {
+    font-size: 0.75rem;
+  }
+
+  .dock-item {
+    width: 34px;
+    height: 34px;
+  }
+
+  .dock-icon svg {
+    width: 16px;
+    height: 16px;
+  }
+
+  .footer-tree-illustration {
+    width: clamp(180px, 75vw, 280px);
   }
 }

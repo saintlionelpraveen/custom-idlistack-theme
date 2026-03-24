@@ -1,0 +1,44 @@
+# ============================================================
+# Ghost Archive Watcher — systemd Service Unit
+# Runs the archive watcher script as a persistent service
+# Install: sudo cp ghost-archive-watcher.service /etc/systemd/system/
+#          sudo systemctl daemon-reload
+#          sudo systemctl enable --now ghost-archive-watcher
+# ============================================================
+
+[Unit]
+Description=Ghost Archive Log Watcher — inotify + gzip + rclone to Google Drive
+Documentation=https://github.com/your-org/ghost-monitoring
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+# Run as the praveen user (rclone config is user-specific)
+User=praveen
+Group=praveen
+
+# The watcher script
+ExecStart=/home/praveen/ghost/monitoring/ghost-archive-watcher.sh
+
+# Restart policy — auto restart on any failure
+Restart=always
+RestartSec=5
+
+# Pipe stdout/stderr to the watcher log
+StandardOutput=append:/home/praveen/ghost/log_rotating/watcher.log
+StandardError=append:/home/praveen/ghost/log_rotating/watcher.log
+
+# Environment (ensure rclone is in PATH)
+Environment="PATH=/usr/local/bin:/usr/bin:/bin"
+Environment="HOME=/home/praveen"
+
+# Resource limits
+LimitNOFILE=4096
+
+# Working directory
+WorkingDirectory=/home/praveen/ghost/monitoring
+
+[Install]
+# Start on boot
+WantedBy=multi-user.target

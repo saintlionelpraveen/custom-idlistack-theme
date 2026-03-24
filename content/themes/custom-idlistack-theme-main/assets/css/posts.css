@@ -392,6 +392,45 @@
   }
 }
 
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+  .posts-section {
+    padding: clamp(2.5rem, 6vw, 4rem) 0;
+  }
+
+  .post-card-inner {
+    min-height: 180px;
+    padding: 1.2rem 1rem;
+  }
+
+  .post-title {
+    font-size: 0.95rem;
+  }
+
+  .post-excerpt {
+    font-size: 0.8rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.4rem, 5vw, 1.8rem);
+  }
+
+  .section-subtitle {
+    font-size: 0.9rem;
+    margin-bottom: 2rem;
+  }
+
+  .post-logo {
+    width: 44px;
+    height: 44px;
+    margin-bottom: 1rem;
+  }
+
+  .posts-grid {
+    gap: 1rem;
+  }
+}
+
 /* ============================================================
    T4GC HEART TOOLTIP – Elegant heart popup for in-house posts
    ============================================================ */

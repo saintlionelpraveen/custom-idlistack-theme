@@ -1,0 +1,586 @@
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+touch: cannot touch '/home/praveen/ghost/log_rotating/watcher.log': Permission denied
+[2026-03-23 17:59:36] [INFO] ==========================================
+[2026-03-23 17:59:36] [INFO] ==========================================
+[2026-03-23 17:59:36] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 17:59:36] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 17:59:36] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 17:59:36] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 17:59:36] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 17:59:36] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 17:59:36] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 17:59:36] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 17:59:36] [INFO] ==========================================
+[2026-03-23 17:59:36] [INFO] ==========================================
+[2026-03-23 17:59:36] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 17:59:36] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 17:59:36] [INFO] No existing archive files to process
+[2026-03-23 17:59:36] [INFO] No existing archive files to process
+[2026-03-23 17:59:52] [INFO] ==========================================
+[2026-03-23 17:59:52] [INFO] ==========================================
+[2026-03-23 17:59:52] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 17:59:52] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 17:59:52] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 17:59:52] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 17:59:52] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 17:59:52] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 17:59:52] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 17:59:52] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 17:59:52] [INFO] ==========================================
+[2026-03-23 17:59:52] [INFO] ==========================================
+[2026-03-23 17:59:52] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 17:59:52] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 17:59:52] [INFO] No existing archive files to process
+[2026-03-23 17:59:52] [INFO] No existing archive files to process
+[2026-03-23 18:01:01] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:01:01] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:01:01] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:01:01] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:01:03] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:01:03] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:01:03] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:01:03] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:01:03] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+[2026-03-23 18:01:03] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+2026/03/23 18:01:03 NOTICE: Config file "/home/praveen/.config/rclone/rclone.conf" not found - using defaults
+2026/03/23 18:01:03 Failed to create file system for "gdrive:ghost-logs/archive/": didn't find section in config file
+[2026-03-23 18:01:03] [ERROR] Upload FAILED for test-archive.log.gz — keeping file for manual retry
+[2026-03-23 18:01:03] [ERROR] Upload FAILED for test-archive.log.gz — keeping file for manual retry
+[2026-03-23 18:01:03] [ERROR] Manual retry: rclone copy /home/praveen/ghost/log_rotating/archive/test-archive.log.gz gdrive:ghost-logs/archive/
+[2026-03-23 18:01:03] [ERROR] Manual retry: rclone copy /home/praveen/ghost/log_rotating/archive/test-archive.log.gz gdrive:ghost-logs/archive/
+[2026-03-23 18:01:03] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:01:03] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:01:03] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:01:03] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:01:05] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:01:05] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:01:05] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:01:05] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:01:05] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+[2026-03-23 18:01:05] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+2026/03/23 18:01:05 NOTICE: Config file "/home/praveen/.config/rclone/rclone.conf" not found - using defaults
+2026/03/23 18:01:05 Failed to create file system for "gdrive:ghost-logs/archive/": didn't find section in config file
+[2026-03-23 18:01:05] [ERROR] Upload FAILED for test-archive.log.gz — keeping file for manual retry
+[2026-03-23 18:01:05] [ERROR] Upload FAILED for test-archive.log.gz — keeping file for manual retry
+[2026-03-23 18:01:05] [ERROR] Manual retry: rclone copy /home/praveen/ghost/log_rotating/archive/test-archive.log.gz gdrive:ghost-logs/archive/
+[2026-03-23 18:01:05] [ERROR] Manual retry: rclone copy /home/praveen/ghost/log_rotating/archive/test-archive.log.gz gdrive:ghost-logs/archive/
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:01:05] [SKIP] Skipping already compressed file: test-archive.log.gz
+[2026-03-23 18:25:43] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:25:43] [INFO] Detected new archive file: test-archive.log
+[2026-03-23 18:25:43] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:25:43] [INFO] Waiting 2s for file to finish writing...
+[2026-03-23 18:25:40] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:25:40] [INFO] Compressing test-archive.log → test-archive.log.gz
+[2026-03-23 18:25:40] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:25:40] [INFO] Compression complete: test-archive.log.gz (4.0K)
+[2026-03-23 18:25:40] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+[2026-03-23 18:25:40] [INFO] Uploading test-archive.log.gz → gdrive:ghost-logs/archive/
+2026/03/23 18:25:47 INFO  : test-archive.log.gz: Copied (new)
+2026/03/23 18:25:47 INFO  : 
+Transferred:   	       107 / 107 Bytes, 100%, 50 Bytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         6.7s
+
+[2026-03-23 18:25:47] [SUCCESS] Upload complete: test-archive.log.gz → Google Drive
+[2026-03-23 18:25:47] [SUCCESS] Upload complete: test-archive.log.gz → Google Drive
+[2026-03-23 18:25:47] [INFO] Cleaned up local files: test-archive.log, test-archive.log.gz
+[2026-03-23 18:25:47] [INFO] Cleaned up local files: test-archive.log, test-archive.log.gz
+[2026-03-23 18:29:57] [INFO] ==========================================
+[2026-03-23 18:29:57] [INFO] ==========================================
+[2026-03-23 18:29:57] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 18:29:57] [INFO] Ghost Archive Watcher STARTED
+[2026-03-23 18:29:57] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 18:29:57] [INFO] Watching: /home/praveen/ghost/log_rotating/archive
+[2026-03-23 18:29:57] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 18:29:57] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-23 18:29:57] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 18:29:57] [INFO] Tracker: /home/praveen/ghost/log_rotating/.uploaded_tracker
+[2026-03-23 18:29:57] [INFO] ==========================================
+[2026-03-23 18:29:57] [INFO] ==========================================
+[2026-03-23 18:29:57] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 18:29:57] [INFO] Scanning for unprocessed archive files on startup...
+[2026-03-23 18:29:57] [INFO] No existing archive files to process
+[2026-03-23 18:29:57] [INFO] No existing archive files to process
+[2026-03-24 12:27:29] [INFO] ==========================================
+[2026-03-24 12:27:29] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:29] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:29] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:29] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:27:34] [INFO] ==========================================
+[2026-03-24 12:27:34] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:34] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:34] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:34] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:27:40] [INFO] ==========================================
+[2026-03-24 12:27:40] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:40] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:40] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:40] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:27:45] [INFO] ==========================================
+[2026-03-24 12:27:45] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:45] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:45] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:45] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:27:50] [INFO] ==========================================
+[2026-03-24 12:27:50] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:50] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:50] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:50] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:27:55] [INFO] ==========================================
+[2026-03-24 12:27:55] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:27:55] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:27:55] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:27:55] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:00] [INFO] ==========================================
+[2026-03-24 12:28:00] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:00] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:00] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:00] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:06] [INFO] ==========================================
+[2026-03-24 12:28:06] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:06] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:06] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:06] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:11] [INFO] ==========================================
+[2026-03-24 12:28:11] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:11] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:11] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:11] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:16] [INFO] ==========================================
+[2026-03-24 12:28:16] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:16] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:16] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:16] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:21] [INFO] ==========================================
+[2026-03-24 12:28:21] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:21] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:21] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:21] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:27] [INFO] ==========================================
+[2026-03-24 12:28:27] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:27] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:27] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:27] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:32] [INFO] ==========================================
+[2026-03-24 12:28:32] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:32] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:32] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:32] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:37] [INFO] ==========================================
+[2026-03-24 12:28:37] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:37] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:37] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:37] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:42] [INFO] ==========================================
+[2026-03-24 12:28:42] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:42] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:42] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:42] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:48] [INFO] ==========================================
+[2026-03-24 12:28:48] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:48] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:48] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:48] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:53] [INFO] ==========================================
+[2026-03-24 12:28:53] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:53] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:53] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:53] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:28:58] [INFO] ==========================================
+[2026-03-24 12:28:58] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:28:58] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:28:58] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:28:58] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:03] [INFO] ==========================================
+[2026-03-24 12:29:03] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:03] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:03] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:03] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:09] [INFO] ==========================================
+[2026-03-24 12:29:09] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:09] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:09] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:09] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:14] [INFO] ==========================================
+[2026-03-24 12:29:14] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:14] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:14] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:14] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:19] [INFO] ==========================================
+[2026-03-24 12:29:19] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:19] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:19] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:19] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:24] [INFO] ==========================================
+[2026-03-24 12:29:24] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:24] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:24] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:24] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:30] [INFO] ==========================================
+[2026-03-24 12:29:30] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:30] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:30] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:30] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:35] [INFO] ==========================================
+[2026-03-24 12:29:35] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:35] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:35] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:35] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:40] [INFO] ==========================================
+[2026-03-24 12:29:40] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:40] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:40] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:40] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:45] [INFO] ==========================================
+[2026-03-24 12:29:45] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:45] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:45] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:45] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:51] [INFO] ==========================================
+[2026-03-24 12:29:51] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:51] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:51] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:51] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:29:56] [INFO] ==========================================
+[2026-03-24 12:29:56] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:29:56] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:29:56] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:29:56] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:01] [INFO] ==========================================
+[2026-03-24 12:30:01] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:01] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:01] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:01] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:06] [INFO] ==========================================
+[2026-03-24 12:30:06] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:06] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:06] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:06] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:12] [INFO] ==========================================
+[2026-03-24 12:30:12] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:12] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:12] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:12] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:17] [INFO] ==========================================
+[2026-03-24 12:30:17] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:17] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:17] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:17] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:22] [INFO] ==========================================
+[2026-03-24 12:30:22] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:22] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:22] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:22] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:27] [INFO] ==========================================
+[2026-03-24 12:30:27] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:27] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:27] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:27] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:33] [INFO] ==========================================
+[2026-03-24 12:30:33] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:33] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:33] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:33] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:38] [INFO] ==========================================
+[2026-03-24 12:30:38] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:38] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:38] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:38] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:43] [INFO] ==========================================
+[2026-03-24 12:30:43] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:43] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:43] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:43] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:48] [INFO] ==========================================
+[2026-03-24 12:30:48] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:48] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:48] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:48] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:54] [INFO] ==========================================
+[2026-03-24 12:30:54] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:54] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:54] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:54] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:30:59] [INFO] ==========================================
+[2026-03-24 12:30:59] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:30:59] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:30:59] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:30:59] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:04] [INFO] ==========================================
+[2026-03-24 12:31:04] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:04] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:04] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:04] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:09] [INFO] ==========================================
+[2026-03-24 12:31:09] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:09] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:09] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:09] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:15] [INFO] ==========================================
+[2026-03-24 12:31:15] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:15] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:15] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:15] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:20] [INFO] ==========================================
+[2026-03-24 12:31:20] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:20] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:20] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:20] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:25] [INFO] ==========================================
+[2026-03-24 12:31:25] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:25] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:25] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:25] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:30] [INFO] ==========================================
+[2026-03-24 12:31:30] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:30] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:30] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:30] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:36] [INFO] ==========================================
+[2026-03-24 12:31:36] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:36] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:36] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:36] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:41] [INFO] ==========================================
+[2026-03-24 12:31:41] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:41] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:41] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:41] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:46] [INFO] ==========================================
+[2026-03-24 12:31:46] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:46] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:46] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:46] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:51] [INFO] ==========================================
+[2026-03-24 12:31:51] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:51] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:51] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:51] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:31:57] [INFO] ==========================================
+[2026-03-24 12:31:57] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:31:57] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:31:57] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:31:57] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:02] [INFO] ==========================================
+[2026-03-24 12:32:02] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:02] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:02] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:02] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:07] [INFO] ==========================================
+[2026-03-24 12:32:07] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:07] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:07] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:07] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:12] [INFO] ==========================================
+[2026-03-24 12:32:12] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:12] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:12] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:12] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:18] [INFO] ==========================================
+[2026-03-24 12:32:18] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:18] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:18] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:18] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:23] [INFO] ==========================================
+[2026-03-24 12:32:23] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:23] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:23] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:23] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:28] [INFO] ==========================================
+[2026-03-24 12:32:28] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:28] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:28] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:28] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:33] [INFO] ==========================================
+[2026-03-24 12:32:33] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:33] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:33] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:33] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:39] [INFO] ==========================================
+[2026-03-24 12:32:39] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:39] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:39] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:39] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:44] [INFO] ==========================================
+[2026-03-24 12:32:44] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:44] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:44] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:44] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:49] [INFO] ==========================================
+[2026-03-24 12:32:49] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:49] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:49] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:49] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:32:54] [INFO] ==========================================
+[2026-03-24 12:32:54] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:32:54] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:32:54] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:32:54] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:33:00] [INFO] ==========================================
+[2026-03-24 12:33:00] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:33:00] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:33:00] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:33:00] [INFO] ==========================================
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 12:33:05] [INFO] ==========================================
+[2026-03-24 12:33:05] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:33:05] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:33:05] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:33:05] [INFO] ==========================================
+[2026-03-24 12:34:01] [INFO] ==========================================
+[2026-03-24 12:34:01] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 12:34:01] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 12:34:01] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 12:34:01] [INFO] ==========================================
+[2026-03-24 12:36:11] [INFO] Processing rotated log: log-2026-03-24.log.8 (Total files: 4, Keeping: 3)
+[2026-03-24 12:36:11] [INFO] Compressing log-2026-03-24.log.8 → /tmp/log-2026-03-24.log.8.gz
+[2026-03-24 12:36:12] [INFO] Uploading log-2026-03-24.log.8.gz → gdrive:ghost-logs/archive/
+2026/03/24 12:36:13 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 12:36:13] [ERROR] Upload FAILED for log-2026-03-24.log.8.gz — will retry next cycle
+[2026-03-24 12:36:23] [INFO] Processing rotated log: log-2026-03-24.log.8 (Total files: 5, Keeping: 3)
+[2026-03-24 12:36:23] [INFO] Compressing log-2026-03-24.log.8 → /tmp/log-2026-03-24.log.8.gz
+[2026-03-24 12:36:23] [INFO] Uploading log-2026-03-24.log.8.gz → gdrive:ghost-logs/archive/
+2026/03/24 12:36:29 INFO  : log-2026-03-24.log.8.gz: Copied (new)
+2026/03/24 12:36:29 INFO  : 
+Transferred:   	    1.365M / 1.365 MBytes, 100%, 515.924 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         5.2s
+
+[2026-03-24 12:36:29] [SUCCESS] Upload complete: log-2026-03-24.log.8.gz → Google Drive
+[2026-03-24 12:36:29] [INFO] Cleaned up local active file: log-2026-03-24.log.8
+[2026-03-24 12:36:29] [INFO] Processing rotated log: log-2026-03-24.log.9 (Total files: 5, Keeping: 3)
+[2026-03-24 12:36:29] [INFO] Compressing log-2026-03-24.log.9 → /tmp/log-2026-03-24.log.9.gz
+[2026-03-24 12:36:29] [INFO] Uploading log-2026-03-24.log.9.gz → gdrive:ghost-logs/archive/
+2026/03/24 12:36:34 INFO  : log-2026-03-24.log.9.gz: Copied (new)
+2026/03/24 12:36:34 INFO  : 
+Transferred:   	    1.376M / 1.376 MBytes, 100%, 544.502 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.9s
+
+[2026-03-24 12:36:34] [SUCCESS] Upload complete: log-2026-03-24.log.9.gz → Google Drive
+[2026-03-24 12:36:34] [INFO] Cleaned up local active file: log-2026-03-24.log.9
+[2026-03-24 12:36:44] [INFO] Processing rotated log: log-2026-03-24.log.10 (Total files: 5, Keeping: 3)
+[2026-03-24 12:36:44] [INFO] Compressing log-2026-03-24.log.10 → /tmp/log-2026-03-24.log.10.gz
+[2026-03-24 12:36:44] [INFO] Uploading log-2026-03-24.log.10.gz → gdrive:ghost-logs/archive/
+2026/03/24 12:36:49 INFO  : log-2026-03-24.log.10.gz: Copied (new)
+2026/03/24 12:36:49 INFO  : 
+Transferred:   	  825.848k / 825.848 kBytes, 100%, 353.562 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.7s
+
+[2026-03-24 12:36:49] [SUCCESS] Upload complete: log-2026-03-24.log.10.gz → Google Drive
+[2026-03-24 12:36:49] [INFO] Cleaned up local active file: log-2026-03-24.log.10
+[2026-03-24 12:36:49] [INFO] Processing rotated log: log-2026-03-24.log.11 (Total files: 5, Keeping: 3)
+[2026-03-24 12:36:49] [INFO] Compressing log-2026-03-24.log.11 → /tmp/log-2026-03-24.log.11.gz
+[2026-03-24 12:36:49] [INFO] Uploading log-2026-03-24.log.11.gz → gdrive:ghost-logs/archive/
+2026/03/24 12:36:55 INFO  : log-2026-03-24.log.11.gz: Copied (new)
+2026/03/24 12:36:55 INFO  : 
+Transferred:   	  821.396k / 821.396 kBytes, 100%, 268.709 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         5.6s
+
+[2026-03-24 12:36:55] [SUCCESS] Upload complete: log-2026-03-24.log.11.gz → Google Drive
+[2026-03-24 12:36:55] [INFO] Cleaned up local active file: log-2026-03-24.log.11

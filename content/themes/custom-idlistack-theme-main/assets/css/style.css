@@ -244,185 +244,251 @@ img {
   transform: translateX(calc(50vw - 50%));
 }
 
-/* ── Impact Stories Grid Section ───────────────────────── */
+/* ── Early Stackers Section ───────────────────────── */
 .early-stackers-section {
-  padding: clamp(6rem, 12vw, 10rem) 0;
-  background-color: transparent;
-  /* Restored elegant background color */
-  color: #111;
+  padding: 4rem 0 6rem;
+  background:
+    linear-gradient(135deg, rgba(252, 231, 243, 0.45) 0%, rgba(243, 232, 255, 0.4) 50%, rgba(255, 241, 242, 0.35) 100%),
+    url('../images/crumbled_paper.png') center/cover repeat,
+    var(--surface-0);
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
-  position: relative;
 }
 
-/* Organic Painted Background Canvas */
-.wave-bg-container {
-  position: absolute;
-  top: 29%;
-  /* Start the wave right behind the top-third of the cards */
-  left: 0;
-  right: 0;
-  bottom: 0;
-  /* Anchor securely to the floor of the section */
+.stackers-container {
   display: flex;
   flex-direction: column;
-  z-index: 1;
-  /* Below content */
-  pointer-events: none;
-  /* Ignore clicks */
-}
-
-.wave-accent-line {
-  width: 100vw;
-  height: clamp(80px, 12vw, 150px);
-  display: block;
-  overflow: visible;
-  /* Prevents stroke clipping */
-}
-
-.wave-body-fill {
-  background-color: var(--wave-color);
-  width: 100%;
-  flex-grow: 1;
-  /* Fills empty space down to the bottom */
-  margin-top: -2px;
-  /* Pulls the solid box slightly under the SVG path to hide 1px floating browser gaps */
-}
-
-.impact-stories-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1rem;
-  width: 100%;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (min-width: 640px) {
-  .impact-stories-grid {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 900px) {
-  .impact-stories-grid {
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-}
-
-@media (min-width: 1200px) {
-  .impact-stories-grid {
-    grid-template-columns: repeat(4, 1fr);
-    /* 4 columns on large screens */
-  }
-}
-
-.story-card {
-  position: relative;
-  display: flex;
   align-items: center;
-  justify-content: center;
-  aspect-ratio: 1/1;
-  /* Perfectly square */
-  border-radius: 20px;
-  overflow: hidden;
-  background: #ffffff;
-  /* White background for logos */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
-  padding: 1.5rem;
-  /* Stop edges from touching borders */
-  z-index: 2;
-  /* Float firmly above the custom wave line */
+  gap: 4rem;
+  width: 100%;
 }
 
-.story-card .img-container {
+.stackers-title {
+  font-family: 'Press Start 2P', monospace;
+  font-size: clamp(1.5rem, 5vw, 3rem);
+  color: var(--text-primary);
+  text-align: center;
+  margin-bottom: -1rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+/* ── Avatars Row ── */
+.avatars-row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  flex-wrap: wrap;
+}
+
+.stacker-avatar-wrapper {
+  position: relative;
+  width: 90px;
+  height: 90px;
+  margin-left: -20px;
+  border-radius: 50%;
+  border: 4px solid var(--surface-0);
+  background-color: #ffffff;
+  /* provide bright contrast for logos */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform var(--t-base) var(--ease-spring), margin var(--t-base) var(--ease-spring);
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* removing overflow hidden so tooltips can show! */
+}
+
+.stacker-avatar-wrapper:first-child {
+  margin-left: 0;
+}
+
+.stacker-avatar {
   width: 100%;
   height: 100%;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.story-card img {
-  width: 100%;
-  height: 100%;
-  max-height: 100%;
+  padding: 6px;
+  /* gives breathing room from the border */
+  border-radius: 50%;
   object-fit: contain;
-  /* Never crop the image */
+  /* ensures logos are fully visible, not cropped */
   filter: grayscale(100%);
-  transition: filter 0.5s ease, transform 0.5s ease;
-  display: block;
+  transition: filter var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-out);
 }
 
-/* Hover effect on card brings it to full color and scales it slightly */
-.story-card:hover img {
+.stacker-avatar-wrapper:hover {
+  transform: translateY(-8px) scale(1.1);
+  z-index: 100 !important;
+  margin-left: -10px;
+  margin-right: 10px;
+}
+
+.stacker-avatar-wrapper:hover .stacker-avatar {
   filter: grayscale(0%);
-  transform: scale(1.05);
 }
 
-.story-caption-pill {
+.stacker-tooltip {
   position: absolute;
-  /* Start hidden slightly below the card */
-  bottom: -60px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #ffffff;
-  color: #111111;
-  padding: 0.7rem 1.4rem;
-  border-radius: 30px;
+  bottom: -45px;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  padding: 0.5rem 1.25rem;
+  border-radius: 20px;
+  font-size: 0.875rem;
   font-weight: 600;
-  font-size: 0.9rem;
   white-space: nowrap;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
   opacity: 0;
-  transition: bottom 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275), opacity 0.4s ease;
+  transform: translateY(-10px);
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-spring);
+  border: 1px solid var(--surface-2);
   z-index: 10;
 }
 
-/* On hover, slide the pill smoothly up into the card frame */
-.story-card:hover .story-caption-pill {
-  bottom: 24px;
+.stacker-avatar-wrapper:hover .stacker-tooltip {
   opacity: 1;
+  transform: translateY(0);
 }
 
-.story-caption-pill .arrow {
-  color: #666;
-  font-weight: 400;
-  transition: transform 0.3s ease;
+/* ── Flowers Row ── */
+.flowers-row {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 2rem;
+  margin-top: 1rem;
 }
 
-.story-card:hover .story-caption-pill .arrow {
-  transform: translateX(3px);
-  color: #111;
+.flower-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: transform var(--t-base) var(--ease-spring);
 }
 
-/* ── Mobile View Overrides ──────────────────────────────── */
+.flower-item:hover {
+  transform: translateY(-10px);
+}
+
+.flower-svg {
+  width: 80px;
+  height: auto;
+  overflow: visible;
+}
+
+.flower-head {
+  transition: transform 0.5s var(--ease-spring);
+  transform-origin: 50px 50px;
+}
+
+.flower-item:hover .flower-head {
+  transform: scale(1.15) rotate(5deg);
+}
+
+.flower-tooltip {
+  position: absolute;
+  top: -15px;
+  background: var(--surface-0);
+  color: var(--text-primary);
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  opacity: 0;
+  transform: translateY(10px);
+  pointer-events: none;
+  transition: opacity var(--t-base) var(--ease-out), transform var(--t-base) var(--ease-spring);
+  z-index: 10;
+  border: 1px solid var(--surface-2);
+}
+
+.flower-item:hover .flower-tooltip {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Mobile View Overrides ── */
 @media (max-width: 639px) {
-  .story-card {
-    padding: 0.8rem;
-    border-radius: 14px;
+  .stacker-avatar-wrapper {
+    width: 50px;
+    height: 50px;
+    margin-left: -12px;
+    border-width: 2px;
   }
 
-  /* Automatically reveal full color and caption when scrolled into view */
-  .story-card.visible img {
-    filter: grayscale(0%);
-    transform: scale(1.05);
+  .stacker-avatar-wrapper:hover {
+    margin-left: -6px;
+    margin-right: 6px;
   }
 
-  .story-card.visible .story-caption-pill {
-    bottom: 12px;
-    opacity: 1;
-    padding: 0.45rem 0.85rem;
+  .flower-svg {
+    width: 55px;
+  }
+
+  .flowers-row {
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .stacker-tooltip {
     font-size: 0.75rem;
-    border-radius: 20px;
+    padding: 0.4rem 0.8rem;
+    bottom: -35px;
+  }
+}
+
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+  .early-stackers-section {
+    padding: 2.5rem 0 3.5rem;
   }
 
-  .story-card.visible .story-caption-pill .arrow {
-    transform: translateX(2px);
-    color: #111;
+  .stackers-container {
+    gap: 2rem;
+  }
+
+  .stackers-title {
+    font-size: clamp(0.7rem, 4vw, 1rem);
+    letter-spacing: 0.05em;
+  }
+
+  .stacker-avatar-wrapper {
+    width: 40px;
+    height: 40px;
+    margin-left: -10px;
+    border-width: 2px;
+    padding: 3px;
+  }
+
+  .stacker-avatar-wrapper:hover {
+    margin-left: -5px;
+    margin-right: 5px;
+  }
+
+  .flower-svg {
+    width: 40px;
+  }
+
+  .flowers-row {
+    gap: 0.6rem;
+  }
+
+  .stacker-tooltip {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
+    bottom: -30px;
+  }
+
+  .flower-tooltip {
+    font-size: 0.65rem;
+    padding: 0.3rem 0.6rem;
   }
 }

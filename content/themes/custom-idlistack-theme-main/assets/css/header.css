@@ -117,7 +117,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-family: 'Bobby Jones', sans-serif;
+    font-size: 0.75rem;
     font-weight: 500;
     padding: 0.6rem 1.6rem;
     border-radius: 50px;
@@ -293,7 +294,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.75rem;
     font-weight: 500;
     color: #111111;
     background: transparent;
@@ -355,5 +357,26 @@
 
     .site-title {
         font-size: 1.15rem;
+    }
+}
+
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+    .site-logo img {
+        height: 32px;
+    }
+
+    .site-title {
+        font-size: 1rem;
+    }
+
+    .mobile-menu-toggle {
+        width: 36px;
+        height: 36px;
+    }
+
+    .mobile-nav-drawer a {
+        font-size: 0.85rem;
+        padding: 0.6rem 0;
     }
 }

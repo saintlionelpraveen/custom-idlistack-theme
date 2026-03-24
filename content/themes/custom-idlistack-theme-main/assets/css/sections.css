@@ -157,3 +157,27 @@
         flex-direction: column;
     }
 }
+
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+    .content-section {
+        padding: clamp(2.5rem, 6vw, 4rem) 0;
+    }
+
+    .cs-heading {
+        font-size: clamp(1.5rem, 6vw, 2rem);
+    }
+
+    .cs-body {
+        font-size: 0.92rem;
+    }
+
+    .cs-label {
+        font-size: 0.68rem;
+        padding: 0.25rem 0.7rem;
+    }
+
+    .hero-tagline {
+        font-size: clamp(0.9rem, 3vw, 1.1rem);
+    }
+}

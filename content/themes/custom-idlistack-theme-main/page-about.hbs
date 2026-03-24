@@ -25,8 +25,40 @@
       <section class="about-hero-section">
         <div class="about-hero-grid">
 
-          <!-- Left: Title only -->
+          <!-- Left: Title with Box Decorations -->
           <div class="about-hero-text anim-slide-left">
+            <div class="about-hero-decorations" aria-hidden="true">
+              <!-- Box 1: Black Solid -->
+              <div class="decor-box box-1">
+                <svg viewBox="0 0 24 24" fill="none" class="decor-svg">
+                  <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+                </svg>
+              </div>
+              <!-- Box 2: Purple Solid -->
+              <div class="decor-box box-2">
+                <svg viewBox="0 0 24 24" fill="none" class="decor-svg">
+                  <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+                </svg>
+              </div>
+              <!-- Box 3: Red Solid -->
+              <div class="decor-box box-3">
+                <svg viewBox="0 0 24 24" fill="none" class="decor-svg">
+                  <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+                </svg>
+              </div>
+              <!-- Box 4: Hot Pink Solid -->
+              <div class="decor-box box-4">
+                <svg viewBox="0 0 24 24" fill="none" class="decor-svg">
+                  <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+                </svg>
+              </div>
+              <!-- Box 5: Light Pink Solid -->
+              <div class="decor-box box-5">
+                <svg viewBox="0 0 24 24" fill="none" class="decor-svg">
+                  <rect x="3" y="3" width="18" height="18" fill="currentColor" />
+                </svg>
+              </div>
+            </div>
             <h1 class="about-title">BEHIND THE STACK</h1>
           </div>
 
@@ -166,7 +198,13 @@
 
         <div class="bottom-cta-wrap">
           <p class="beta-text">JOIN THE BETA COMMUNITY TO ACCESS THESE FEATURES :)</p>
-          <a href="/join" class="btn-cta btn-black">Join the Beta</a>
+          <a href="{{#if @custom.hero_cta_url}}{{@custom.hero_cta_url}}{{else}}https://joinus.idlistack.com/beta/new{{/if}}"
+            class="btn-cta"
+            aria-label="{{#if @custom.hero_cta_text}}{{@custom.hero_cta_text}}{{else}}Join the Beta{{/if}}" {{#if
+            @custom.hero_button_bg_color}}style="--btn-bg: {{@custom.hero_button_bg_color}}; --btn-text: {{@custom.hero_button_text_color}}; --btn-hover: {{@custom.hero_button_hover_color}}; --btn-hover-text: {{@custom.hero_button_hover_text_color}};"
+            {{/if}}>
+            {{#if @custom.hero_cta_text}}{{@custom.hero_cta_text}}{{else}}Join the Beta{{/if}}
+          </a>
         </div>
       </section>
 

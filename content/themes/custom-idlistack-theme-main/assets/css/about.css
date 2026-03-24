@@ -1,10 +1,23 @@
 /* =========================================================================
    ABOUT PAGE REWRITE
    ========================================================================= */
+@import url('https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap');
 
 .new-about-page {
   padding: clamp(6rem, 10vw, 8rem) 0 clamp(4rem, 8vw, 6rem);
-  background: #ffffff;
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(to bottom, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(to right, rgba(0, 0, 0, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(255, 255, 255, 0.40), rgba(255, 255, 255, 0.40)),
+    url('../images/crumbled_paper.png');
+  background-size:
+    24px 24px,
+    24px 24px,
+    100% 100%,
+    800px 800px;
+  background-position: top left, top left, center center, center center;
+  background-attachment: fixed;
   overflow: hidden;
 }
 
@@ -24,18 +37,90 @@
 .about-hero-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 4rem;
+  gap: clamp(2rem, 5vw, 4rem);
   align-items: center;
 }
 
+.about-hero-text {
+  position: relative;
+  z-index: 2;
+}
+
+/* ─────────────────────────────────────────────────────────
+   HERO DECORATIVE BOXES
+   ───────────────────────────────────────────────────────── */
+.about-hero-decorations {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.decor-box {
+  position: absolute;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.85;
+}
+
+.decor-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* Colors and Positions (matching screenshot) */
+.box-1 {
+  color: #000000d3;
+  top: -35%;
+  left: -10%;
+}
+
+/* Black Circle (top left) */
+.box-2 {
+  color: #6b21a8;
+  top: -50%;
+  left: 90%;
+}
+
+/* Purple Diagonal (top right) */
+.box-3 {
+  color: #e11d476c;
+  top: 0.01%;
+  left: 60%;
+}
+
+/* Red Curve (mid right) */
+.box-4 {
+  color: #da0665;
+  top: 120%;
+  left: -20%;
+}
+
+/* Hot Pink Square (bottom left) */
+.box-5 {
+  color: #d491cdcd;
+  top: 110%;
+  left: 65%;
+}
+
+/* Light Pink Cross (bottom right) */
+
 .about-title {
-  font-family: 'Fredoka One', 'Sora', sans-serif;
+  font-family: 'Fredoka One', 'Poppins', cursive;
   font-size: clamp(3rem, 6vw, 4.5rem);
-  color: #7a437a;
+  color: #000000;
+  -webkit-text-stroke: 0.5px #ffffff;
+  text-shadow: 5px 5px 0px #ff97eabd;
   line-height: 1.1;
   margin-bottom: 0;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: 0.02em;
 }
 
 /* Hero collage: single image with pink shape */
@@ -50,8 +135,9 @@
   right: -8%;
   width: 95%;
   height: 90%;
-  background: #c772c6;
+  background: rgba(210, 200, 210, 0.35);
   border-radius: 8px;
+  backdrop-filter: blur(24px) saturate(180%);
   z-index: 0;
 }
 
@@ -60,15 +146,15 @@
   z-index: 1;
   border-radius: 12px;
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.671);
   background: #fff;
-  height: 380px;
+  height: clamp(240px, 40vw, 380px);
 }
 
 .item-hero img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   display: block;
 }
 
@@ -76,7 +162,14 @@
    STORY SECTION (Prose + remaining images)
    ───────────────────────────────────────────────────────── */
 .about-story-section {
+  background: #ffffff;
+  padding: clamp(3rem, 8vw, 6rem) clamp(1.5rem, 8vw, 6rem);
   margin-bottom: 6rem;
+  /* Redesigned Jagged Edge Polygon (Crumbled Thunder) stays closer to the edges */
+  clip-path: polygon(2% 0%, 15% 2%, 50% 0%, 75% 3%, 98% 0%,
+      99% 25%, 96% 50%, 100% 75%,
+      98% 100%, 70% 98%, 45% 100%, 25% 97%, 2% 100%,
+      0% 70%, 3% 45%, 0% 20%);
 }
 
 .about-story-grid {
@@ -115,17 +208,17 @@
 .collage-item img {
   width: 100%;
   height: 100%;
-  object-fit: cover;
+  object-fit: fill;
   display: block;
 }
 
 .item-side {
-  height: 180px;
+  height: clamp(140px, 20vw, 180px);
 }
 
 .item-wide {
   grid-column: 1 / -1;
-  height: 240px;
+  height: clamp(180px, 25vw, 240px);
 }
 
 .placeholder {
@@ -151,7 +244,7 @@
   background: #000;
   color: #fff;
   border-radius: 16px;
-  padding: 4rem 4rem;
+  padding: clamp(2rem, 6vw, 4rem);
   box-shadow: 0 20px 40px rgba(217, 70, 168, 0.15);
   position: relative;
 }
@@ -232,15 +325,15 @@
 }
 
 .pink-box {
-  border: none;
+  border: 1px solid #00000022;
   border-radius: 16px;
   padding: 4rem;
   display: grid;
   grid-template-columns: 1fr auto;
   gap: 4rem;
   align-items: center;
-  background: #fafafa00;
-  box-shadow: 0 4px 24px rgba(217, 70, 168, 0.396);
+  background: #ffffff;
+  box-shadow: 0 4px 24px rgba(42, 39, 41, 0.71);
 }
 
 .pink-box-title {
@@ -344,8 +437,10 @@
 
 .btn-black:hover {
   transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
-  color: #ff33aa;
+  border: none;
+  background: #e88dca;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.225);
+  color: #000000;
 }
 
 /* ─────────────────────────────────────────────────────────
@@ -368,6 +463,14 @@
     top: -5%;
   }
 
+  .box-1,
+  .box-2,
+  .box-3,
+  .box-4,
+  .box-5 {
+    display: none;
+  }
+
   .black-box,
   .pink-box {
     padding: 3rem 1.5rem;
@@ -381,6 +484,55 @@
   .pink-box-graphic {
     margin: 0 auto;
   }
+}
+
+/* ── Small Phones ── */
+@media (max-width: 480px) {
+  .new-about-container {
+    width: 95%;
+    margin: 40px auto;
+  }
+
+  .about-hero-section {
+    margin-bottom: 3rem;
+  }
+
+  .box-1,
+  .box-2,
+  .box-3,
+  .box-4,
+  .box-5 {
+    display: none;
+  }
+}
+
+.black-box-icon {
+  width: 150px;
+  height: 150px;
+  margin: 0 auto;
+}
+
+.black-box-list li {
+  font-size: 1rem;
+  margin-bottom: 0.8rem;
+}
+
+.pink-box-graphic {
+  width: 200px;
+  height: 200px;
+}
+
+.btn-black {
+  width: max-content;
+  max-width: 95%;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.9rem 2rem;
+}
+
+.bottom-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2.5rem;
 }
 
 /* ─────────────────────────────────────────────────────────

@@ -1,0 +1,199 @@
+# Grafana PVC — persistent dashboard storage
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: grafana-data
+  namespace: log-rotating
+  labels:
+    app: grafana
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 2Gi
+---
+# Grafana Datasource ConfigMap — auto-provisions Loki as default datasource
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-datasources
+  namespace: log-rotating
+  labels:
+    app: grafana
+data:
+  datasources.yaml: |
+    apiVersion: 1
+    datasources:
+      - name: Loki
+        type: loki
+        access: proxy
+        url: http://loki.log-rotating.svc.cluster.local:3100
+        isDefault: true
+        editable: true
+---
+# Grafana Dashboard Provisioner ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-provisioner
+  namespace: log-rotating
+  labels:
+    app: grafana
+data:
+  dashboards.yaml: |
+    apiVersion: 1
+    providers:
+      - name: 'default'
+        orgId: 1
+        folder: 'Ghost'
+        type: file
+        disableDeletion: false
+        editable: true
+        options:
+          path: /var/lib/grafana/dashboards
+          foldersFromFilesStructure: false
+---
+# Grafana Dashboard JSON ConfigMap
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: grafana-dashboard-json
+  namespace: log-rotating
+  labels:
+    app: grafana
+data:
+  ghost-logs.json: |
+    {
+      "annotations": { "list": [] },
+      "editable": true,
+      "fiscalYearStartMonth": 0,
+      "graphTooltip": 0,
+      "id": null,
+      "links": [],
+      "panels": [
+        {
+          "datasource": { "type": "loki", "uid": "" },
+          "fieldConfig": { "defaults": {}, "overrides": [] },
+          "gridPos": { "h": 20, "w": 24, "x": 0, "y": 0 },
+          "id": 1,
+          "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": true,
+            "showCommonLabels": false,
+            "showLabels": true,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": true
+          },
+          "targets": [
+            {
+              "datasource": { "type": "loki", "uid": "" },
+              "editorMode": "code",
+              "expr": "{job=\"ghost\", log_type=\"active\"}",
+              "queryType": "range",
+              "refId": "A"
+            }
+          ],
+          "title": "Ghost Active Logs",
+          "type": "logs"
+        }
+      ],
+      "schemaVersion": 39,
+      "tags": ["ghost", "logs"],
+      "templating": { "list": [] },
+      "time": { "from": "now-1h", "to": "now" },
+      "timepicker": {},
+      "timezone": "browser",
+      "title": "Ghost CMS Logs",
+      "uid": "ghost-cms-logs",
+      "version": 1
+    }
+---
+# Grafana Deployment — with auto-provisioned datasource and dashboard
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: grafana
+  namespace: log-rotating
+  labels:
+    app: grafana
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: grafana
+  template:
+    metadata:
+      labels:
+        app: grafana
+    spec:
+      securityContext:
+        fsGroup: 472
+        runAsUser: 472
+      containers:
+        - name: grafana
+          image: grafana/grafana:10.4.2
+          ports:
+            - containerPort: 3000
+              name: http
+          env:
+            - name: GF_SECURITY_ADMIN_PASSWORD
+              value: "admin"
+            - name: GF_USERS_ALLOW_SIGN_UP
+              value: "false"
+          volumeMounts:
+            - name: grafana-data
+              mountPath: /var/lib/grafana
+            - name: grafana-datasources
+              mountPath: /etc/grafana/provisioning/datasources
+            - name: grafana-dashboard-provisioner
+              mountPath: /etc/grafana/provisioning/dashboards
+            - name: grafana-dashboard-json
+              mountPath: /var/lib/grafana/dashboards
+          resources:
+            requests:
+              memory: "128Mi"
+              cpu: "100m"
+            limits:
+              memory: "256Mi"
+              cpu: "300m"
+          readinessProbe:
+            httpGet:
+              path: /api/health
+              port: 3000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+      volumes:
+        - name: grafana-data
+          persistentVolumeClaim:
+            claimName: grafana-data
+        - name: grafana-datasources
+          configMap:
+            name: grafana-datasources
+        - name: grafana-dashboard-provisioner
+          configMap:
+            name: grafana-dashboard-provisioner
+        - name: grafana-dashboard-json
+          configMap:
+            name: grafana-dashboard-json
+---
+# Grafana Service — NodePort for browser access via minikube
+apiVersion: v1
+kind: Service
+metadata:
+  name: grafana
+  namespace: log-rotating
+  labels:
+    app: grafana
+spec:
+  type: NodePort
+  ports:
+    - port: 3000
+      targetPort: 3000
+      nodePort: 30300
+      protocol: TCP
+      name: http
+  selector:
+    app: grafana

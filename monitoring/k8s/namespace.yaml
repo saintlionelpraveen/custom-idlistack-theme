@@ -1,0 +1,8 @@
+# Namespace: log-rotating
+# Isolates all logging components (Loki, Grafana, Promtail) in Minikube
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: log-rotating
+  labels:
+    app.kubernetes.io/part-of: ghost-logging

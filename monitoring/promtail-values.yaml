@@ -1,0 +1,72 @@
+# ============================================================
+# Promtail Helm Values — Ghost Active Log Pipeline
+# Deploy: helm install promtail grafana/promtail -n log-rotating -f promtail-values.yaml
+# ============================================================
+
+# --- Namespace ---
+namespace: log-rotating
+
+# --- DaemonSet Configuration ---
+# Runs on every node (single node in our case)
+daemonset:
+  enabled: true
+
+# --- Loki Push Target ---
+config:
+  clients:
+    - url: http://loki.log-rotating.svc.cluster.local:3100/loki/api/v1/push
+
+  # --- Scrape Config: ONLY active/*.log ---
+  snippets:
+    scrapeConfigs: |
+      - job_name: ghost-active-logs
+        static_configs:
+          - targets:
+              - localhost
+            labels:
+              job: ghost
+              log_type: active
+              __path__: /var/log/ghost/active/*.log
+        # Parse Winston JSON log format
+        pipeline_stages:
+          - json:
+              expressions:
+                timestamp: timestamp
+                level: level
+                message: message
+          - timestamp:
+              source: timestamp
+              format: RFC3339
+          - labels:
+              level:
+
+# --- Volume Mounts ---
+# hostPath maps the local log directory into the Promtail container
+extraVolumes:
+  - name: ghost-active-logs
+    hostPath:
+      path: /home/praveen/ghost/log_rotating/active   # Host machine path
+      type: DirectoryOrCreate
+
+extraVolumeMounts:
+  - name: ghost-active-logs
+    mountPath: /var/log/ghost/active                   # Container path (matches __path__)
+    readOnly: true
+
+# --- Resource Limits ---
+resources:
+  requests:
+    cpu: 50m
+    memory: 64Mi
+  limits:
+    cpu: 200m
+    memory: 128Mi
+
+# --- Tolerations (run on control plane too) ---
+tolerations:
+  - key: node-role.kubernetes.io/control-plane
+    operator: Exists
+    effect: NoSchedule
+  - key: node-role.kubernetes.io/master
+    operator: Exists
+    effect: NoSchedule

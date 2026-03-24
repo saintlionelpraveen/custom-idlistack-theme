@@ -175,7 +175,8 @@
     {{/get}}
   </div>
 
-  <div id="early-stackers-mount"></div>
+  <div id="early-stackers-mount" {{#if @custom.early_stackers_bg_color}}data-bg="{{@custom.early_stackers_bg_color}}"
+    {{/if}}></div>
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
@@ -187,7 +188,7 @@
 
         if (images.length > 0) {
           const totalItems = images.length;
-          const title = "EARLY STACKERS";
+          const title = "EARLY  STACKERS";
 
           let cardsHtml = '';
 
@@ -199,127 +200,75 @@
               if (figcaptionNode) altText = figcaptionNode.innerText.trim();
             }
 
-            // Build out individual vertical cards for the grid (No Links)
             cardsHtml += `
-              <div class="story-card" aria-label="Story about ${altText}">
-                <div class="img-container">
-                  <img src="${img.src}" alt="${altText}" />
-                </div>
-                <div class="story-caption-pill">
+              <div class="stacker-avatar-wrapper" aria-label="Story about ${altText}" style="z-index: ${totalItems - index};">
+                <img src="${img.src}" alt="${altText}" class="stacker-avatar" />
+                <div class="stacker-tooltip">
                   ${altText}
                 </div>
               </div>
             `;
           });
 
-          // Grab the admin color or fallback to a soft wave red/pink
-          const waveColor = '{{#if @custom.early_stackers_bg_color}}{{@custom.early_stackers_bg_color}}{{else}}#ffeceb{{/if}}';
+          // Define the basic flower SVG
+          const flowerSVG = `
+            <svg viewBox="0 0 100 250" class="flower-svg">
+              <line x1="50" y1="50" x2="50" y2="250" stroke="#a3e635" stroke-width="2" stroke-opacity="0.6"/>
+              <path d="M50 130 C30 130 20 110 20 110 C20 110 35 100 50 130" fill="#84cc16"/>
+              <path d="M50 160 C70 160 80 140 80 140 C80 140 65 130 50 160" fill="#84cc16"/>
+              
+              <g class="flower-head">
+                <circle cx="50" cy="20" r="14" fill="var(--petal)"/>
+                <circle cx="73" cy="30" r="14" fill="var(--petal)"/>
+                <circle cx="78" cy="55" r="14" fill="var(--petal)"/>
+                <circle cx="63" cy="75" r="14" fill="var(--petal)"/>
+                <circle cx="37" cy="75" r="14" fill="var(--petal)"/>
+                <circle cx="22" cy="55" r="14" fill="var(--petal)"/>
+                <circle cx="27" cy="30" r="14" fill="var(--petal)"/>
+                <circle cx="50" cy="48" r="16" fill="var(--center)"/>
+                <circle cx="50" cy="48" r="12" fill="none" stroke="#ffffff" stroke-dasharray="2,3" stroke-width="2" opacity="0.6"/>
+                <circle cx="50" cy="48" r="5" fill="#ffffff" opacity="0.4"/>
+              </g>
+            </svg>
+          `;
 
           mount.innerHTML = `
-            <section class="early-stackers-section" aria-label="Impact Stories" style="--wave-color: ${waveColor};">
-              
-              <!-- Two-tone background: A smooth wave filling the bottom half of the section -->
-              <div class="wave-bg-container">
-                <svg class="wave-accent-line" viewBox="0 0 1440 200" preserveAspectRatio="none">
-                  <!-- A smooth hand-drawn style sine wave that drops down to fill the bottom area -->
-                  <path fill="var(--wave-color)" d="M 0 100 Q 350 0, 720 100 T 1440 100 L 1440 200 L 0 200 Z"></path>
-                </svg>
-                <!-- This dives under the SVG to continue the fill to the true bottom of the section -->
-                <div class="wave-body-fill"></div>
-              </div>
-
-              <div class="container" style="position: relative; z-index: 2;">
-                <style>
-                  .early-stackers-section .section-header { text-align: center; margin-bottom: 3rem; }
-                  .early-stackers-section .section-header h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 700; color: #111111; font-family: var(--gh-font-heading, sans-serif); }
-                </style>
-                <div class="section-header">
-                  <h2>${title}</h2>
-                </div>
+            <section class="early-stackers-section" aria-label="Early Stackers">
+              <div class="stackers-container container">
                 
-                <div class="impact-stories-grid">
+                <h2 class="stackers-title">EARLY STACHERS</h2>
+
+                <div class="avatars-row">
                   ${cardsHtml}
                 </div>
+
+                <div class="flowers-row">
+                  <div class="flower-item" style="--petal: #fde047; --center: #ca8a04;">
+                    <div class="flower-tooltip">Grow</div>
+                    ${flowerSVG}
+                  </div>
+                  <div class="flower-item" style="--petal: #f9a8d4; --center: #f0abfc;">
+                    <div class="flower-tooltip">Bloom</div>
+                    ${flowerSVG}
+                  </div>
+                  <div class="flower-item" style="--petal: #3b82f6; --center: #facc15;">
+                    <div class="flower-tooltip">Shine</div>
+                    ${flowerSVG}
+                  </div>
+                  <div class="flower-item" style="--petal: #f43f5e; --center: #facc15;">
+                    <div class="flower-tooltip">Thrive</div>
+                    ${flowerSVG}
+                  </div>
+                  <div class="flower-item" style="--petal: #f97316; --center: #ea580c;">
+                    <div class="flower-tooltip">Flourish</div>
+                    ${flowerSVG}
+                  </div>
+                </div>
+
               </div>
             </section>
           `;
         }
       }
-    });
-  </script>
-
-  {{!-- Dynamic sections removed as per request --}}
-
-  {{!-- Optional: Circle Gallery page --}}
-  {{#get "pages" filter="slug:circle-gallery" limit="1"}}
-  {{#foreach pages}}
-  <div class="embedded-gallery container">{{{content}}}</div>
-  {{/foreach}}
-  {{/get}}
-
-  <script src="{{asset 'js/animated-background.js'}}"></script>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const grid = document.getElementById('posts-grid-container');
-      if (!grid) return;
-
-      const cards = Array.from(grid.querySelectorAll('.post-card'));
-
-      cards.sort((a, b) => {
-        const tagsA = (a.getAttribute('data-tags') || '').split(',');
-        const tagsB = (b.getAttribute('data-tags') || '').split(',');
-
-        let numA = 9999;
-        let numB = 9999;
-
-        for (let tag of tagsA) {
-          tag = tag.trim().toLowerCase();
-          const match = tag.match(/^(\d+)-post$/);
-          if (match) { numA = parseInt(match[1], 10); break; }
-        }
-        for (let tag of tagsB) {
-          tag = tag.trim().toLowerCase();
-          const match = tag.match(/^(\d+)-post$/);
-          if (match) { numB = parseInt(match[1], 10); break; }
-        }
-
-        return numA - numB;
-      });
-
-      // Clear and re-append sorted nodes
-      cards.forEach(card => grid.appendChild(card));
-
-      // ── 3D Water Depth Tilt Effect ──────────────────────────
-      const allCards = grid.querySelectorAll('.post-card');
-      allCards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = e.clientX - rect.left;  // cursor x inside card
-          const y = e.clientY - rect.top;   // cursor y inside card
-          const cx = rect.width / 2;
-          const cy = rect.height / 2;
-
-          // Rotation: tilt toward cursor (max ±12 degrees)
-          const rotateY = ((x - cx) / cx) * 12;
-          const rotateX = ((cy - y) / cy) * 10;
-
-          // Apply 3D tilt + slight lift
-          card.style.transform =
-            `perspective(600px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px) scale(1.01)`;
-
-          // Move the radial highlight to cursor position
-          const px = ((x / rect.width) * 100).toFixed(1);
-          const py = ((y / rect.height) * 100).toFixed(1);
-          card.style.setProperty('--mouse-x', px + '%');
-          card.style.setProperty('--mouse-y', py + '%');
-        });
-
-        card.addEventListener('mouseleave', () => {
-          // Spring back to flat
-          card.style.transform = 'perspective(600px) rotateX(0) rotateY(0) translateY(0) scale(1)';
-          card.style.setProperty('--mouse-x', '50%');
-          card.style.setProperty('--mouse-y', '50%');
-        });
-      });
     });
   </script>

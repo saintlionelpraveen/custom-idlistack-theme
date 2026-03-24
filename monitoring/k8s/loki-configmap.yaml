@@ -1,0 +1,68 @@
+# Loki Configuration ConfigMap
+# Production-tuned config for Minikube — handles 100MB burst ingestion
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: loki-config
+  namespace: log-rotating
+  labels:
+    app: loki
+data:
+  local-config.yaml: |
+    # Authentication disabled for local setup
+    auth_enabled: false
+
+    server:
+      http_listen_port: 3100
+      grpc_listen_port: 9096
+      log_level: warn
+
+    common:
+      path_prefix: /loki
+      storage:
+        filesystem:
+          chunks_directory: /loki/chunks
+          rules_directory: /loki/rules
+      replication_factor: 1
+      ring:
+        instance_addr: 127.0.0.1
+        kvstore:
+          store: inmemory
+
+    schema_config:
+      configs:
+        - from: 2020-10-24
+          store: tsdb
+          object_store: filesystem
+          schema: v13
+          index:
+            prefix: index_
+            period: 24h
+
+    # Compactor for 7-day retention
+    compactor:
+      working_directory: /loki/compactor
+      delete_request_store: filesystem
+      compaction_interval: 10m
+      retention_enabled: true
+      retention_delete_delay: 2h
+      retention_delete_worker_count: 150
+
+    # Production limits — tuned for 100MB burst ingestion
+    limits_config:
+      retention_period: 168h                # 7 days
+      ingestion_rate_mb: 40                 # 40MB/s ingestion rate
+      ingestion_burst_size_mb: 60           # 60MB burst allowance
+      per_stream_rate_limit: 20MB           # 20MB/s per stream
+      per_stream_rate_limit_burst: 40MB     # 40MB burst per stream
+      max_entries_limit_per_query: 10000    # Higher query limit
+      max_query_series: 1500
+
+    # Ingester config for production
+    ingester:
+      chunk_idle_period: 5m
+      chunk_retain_period: 30s
+      max_transfer_retries: 0
+      wal:
+        dir: /loki/wal
+        enabled: true

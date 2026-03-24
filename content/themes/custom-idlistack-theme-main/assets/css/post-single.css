@@ -271,7 +271,9 @@
     }
 
     .pn-header-row {
+        max-width: 100%;
         gap: 1.2rem;
+        margin-top: 5rem;
     }
 
     .pn-circle-img {
@@ -285,6 +287,31 @@
 
     .pn-page {
         padding: 1.5rem 1.25rem 2.5rem;
+    }
+}
+
+/* ── Very Small Phones (iPhone SE, Galaxy A, Vivo Y) ── */
+@media (max-width: 380px) {
+    .pn-header-row {
+        gap: 0.8rem;
+        margin-top: 4rem;
+    }
+
+    .pn-circle-img {
+        width: 70px;
+        height: 70px;
+    }
+
+    .pn-title {
+        font-size: 1.15rem;
+    }
+
+    .pn-page {
+        padding: 1rem 1rem 2rem;
+    }
+
+    .pn-columns {
+        font-size: 0.88rem;
     }
 }
 
