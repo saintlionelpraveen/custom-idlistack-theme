@@ -5,6 +5,10 @@ versions
 content/data/ghost-local.db
 config.production.json
 
+# Ignore logs and media
+content/logs/
+content/media/
+
 # Static Export
 static_site
 ghost_site.zip
