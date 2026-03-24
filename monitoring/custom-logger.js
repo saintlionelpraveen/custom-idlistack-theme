@@ -41,8 +41,8 @@ function getNextArchiveFilename() {
 // Set up the daily rotate file transport
 // Although it's called 'daily', we strictly limit by size and use it for the hooks required.
 const rotateTransport = new winston.transports.DailyRotateFile({
-    filename: path.join(ACTIVE_DIR, 'log-%DATE%.log'),
-    datePattern: 'YYYY-MM-DD',
+    filename: path.join(ACTIVE_DIR, 'ghost-%DATE%.log'),
+    datePattern: 'YYYY-MM-DD-HH-mm-ss',
     zippedArchive: false,     // Disabled to keep readable logs
     maxSize: '20m',           // 20MB per file maximum limit
     maxFiles: '10',           // Keep up to 10 files locally as fallback (watcher handles primary cleanup)

@@ -30,7 +30,7 @@ process_active_logs() {
         if [[ -f "${file}" ]]; then
             log_files+=("${file}")
         fi
-    done < <(find "${ACTIVE_DIR}" -maxdepth 1 -name 'log-*' -type f -printf '%T@ %p\0' | sort -z -n | sed -z 's/^[^ ]* //')
+    done < <(find "${ACTIVE_DIR}" -maxdepth 1 -name 'ghost-*' -type f -printf '%T@ %p\0' | sort -z -n | sed -z 's/^[^ ]* //')
 
     local num_files=${#log_files[@]}
 

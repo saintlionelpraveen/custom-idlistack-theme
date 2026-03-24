@@ -17,7 +17,7 @@ scrape_configs:
         labels:
           job: ghost
           log_type: active
-          __path__: /var/log/ghost/active/*.log
+          __path__: /var/log/ghost/active/ghost-*.log*
 
     # Parse the JSON log line payload format created by Winston
     pipeline_stages:

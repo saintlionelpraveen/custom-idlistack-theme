@@ -584,3 +584,356 @@ Elapsed time:         5.6s
 
 [2026-03-24 12:36:55] [SUCCESS] Upload complete: log-2026-03-24.log.11.gz → Google Drive
 [2026-03-24 12:36:55] [INFO] Cleaned up local active file: log-2026-03-24.log.11
+/home/praveen/ghost/monitoring/ghost-archive-watcher.sh: line 35: log_files: unbound variable
+[2026-03-24 15:01:16] [INFO] ==========================================
+[2026-03-24 15:01:16] [INFO] Ghost Active Log Watcher STARTED
+[2026-03-24 15:01:16] [INFO] Watching: /home/praveen/ghost/log_rotating/active (Keeping youngest 3 files)
+[2026-03-24 15:01:16] [INFO] Destination: gdrive:ghost-logs/archive
+[2026-03-24 15:01:16] [INFO] ==========================================
+[2026-03-24 15:01:16] [INFO] Processing rotated log: ghost-seed.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:16] [INFO] Compressing ghost-seed.log → /tmp/ghost-seed.log.gz
+[2026-03-24 15:01:16] [INFO] Uploading ghost-seed.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:17 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:17] [ERROR] Upload FAILED for ghost-seed.log.gz — will retry next cycle
+[2026-03-24 15:01:17] [INFO] Processing rotated log: ghost-2026-03-24-15-01-07.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:17] [INFO] Compressing ghost-2026-03-24-15-01-07.log → /tmp/ghost-2026-03-24-15-01-07.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-07.log: No such file or directory
+[2026-03-24 15:01:17] [ERROR] Compression failed for ghost-2026-03-24-15-01-07.log
+[2026-03-24 15:01:17] [INFO] Processing rotated log: ghost-2026-03-24-15-01-08.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:17] [INFO] Compressing ghost-2026-03-24-15-01-08.log → /tmp/ghost-2026-03-24-15-01-08.log.gz
+[2026-03-24 15:01:17] [INFO] Uploading ghost-2026-03-24-15-01-08.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:17 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:17] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-08.log.gz — will retry next cycle
+[2026-03-24 15:01:17] [INFO] Processing rotated log: ghost-2026-03-24-15-01-09.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:17] [INFO] Compressing ghost-2026-03-24-15-01-09.log → /tmp/ghost-2026-03-24-15-01-09.log.gz
+[2026-03-24 15:01:17] [INFO] Uploading ghost-2026-03-24-15-01-09.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:18 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:18] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-09.log.gz — will retry next cycle
+[2026-03-24 15:01:18] [INFO] Processing rotated log: ghost-2026-03-24-15-01-10.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:18] [INFO] Compressing ghost-2026-03-24-15-01-10.log → /tmp/ghost-2026-03-24-15-01-10.log.gz
+[2026-03-24 15:01:18] [INFO] Uploading ghost-2026-03-24-15-01-10.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:18 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:18] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-10.log.gz — will retry next cycle
+[2026-03-24 15:01:18] [INFO] Processing rotated log: ghost-2026-03-24-15-01-11.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:18] [INFO] Compressing ghost-2026-03-24-15-01-11.log → /tmp/ghost-2026-03-24-15-01-11.log.gz
+[2026-03-24 15:01:18] [INFO] Uploading ghost-2026-03-24-15-01-11.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:19 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:19] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-11.log.gz — will retry next cycle
+[2026-03-24 15:01:19] [INFO] Processing rotated log: ghost-2026-03-24-15-01-12.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:19] [INFO] Compressing ghost-2026-03-24-15-01-12.log → /tmp/ghost-2026-03-24-15-01-12.log.gz
+[2026-03-24 15:01:19] [INFO] Uploading ghost-2026-03-24-15-01-12.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:20 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:20] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-12.log.gz — will retry next cycle
+[2026-03-24 15:01:20] [INFO] Processing rotated log: ghost-2026-03-24-15-01-13.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:20] [INFO] Compressing ghost-2026-03-24-15-01-13.log → /tmp/ghost-2026-03-24-15-01-13.log.gz
+[2026-03-24 15:01:20] [INFO] Uploading ghost-2026-03-24-15-01-13.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:20 Failed to create file system for "gdrive:ghost-logs/archive/": couldn't find root directory ID: googleapi: Error 403: Quota exceeded for quota metric 'Queries' and limit 'Queries per minute' of service 'drive.googleapis.com' for consumer 'project_number:202264815644'.
+Details:
+[
+  {
+    "@type": "type.googleapis.com/google.rpc.ErrorInfo",
+    "domain": "googleapis.com",
+    "metadata": {
+      "consumer": "projects/202264815644",
+      "quota_limit": "defaultPerMinutePerProject",
+      "quota_limit_value": "840000",
+      "quota_location": "global",
+      "quota_metric": "drive.googleapis.com/default",
+      "quota_unit": "1/min/{project}",
+      "service": "drive.googleapis.com"
+    },
+    "reason": "RATE_LIMIT_EXCEEDED"
+  },
+  {
+    "@type": "type.googleapis.com/google.rpc.Help",
+    "links": [
+      {
+        "description": "Request a higher quota limit.",
+        "url": "https://cloud.google.com/docs/quotas/help/request_increase"
+      }
+    ]
+  }
+]
+, rateLimitExceeded
+[2026-03-24 15:01:20] [ERROR] Upload FAILED for ghost-2026-03-24-15-01-13.log.gz — will retry next cycle
+[2026-03-24 15:01:30] [INFO] Processing rotated log: ghost-seed.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:30] [INFO] Compressing ghost-seed.log → /tmp/ghost-seed.log.gz
+[2026-03-24 15:01:30] [INFO] Uploading ghost-seed.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:35 INFO  : ghost-seed.log.gz: Copied (new)
+2026/03/24 15:01:35 INFO  : 
+Transferred:   	       233 / 233 Bytes, 100%, 102 Bytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.5s
+
+[2026-03-24 15:01:35] [SUCCESS] Upload complete: ghost-seed.log.gz → Google Drive
+[2026-03-24 15:01:35] [INFO] Cleaned up local active file: ghost-seed.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-21.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-21.log → /tmp/ghost-2026-03-24-15-01-21.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-21.log: No such file or directory
+[2026-03-24 15:01:35] [ERROR] Compression failed for ghost-2026-03-24-15-01-21.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-22.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-22.log → /tmp/ghost-2026-03-24-15-01-22.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-22.log: No such file or directory
+[2026-03-24 15:01:35] [ERROR] Compression failed for ghost-2026-03-24-15-01-22.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-23.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-23.log → /tmp/ghost-2026-03-24-15-01-23.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-23.log: No such file or directory
+[2026-03-24 15:01:35] [ERROR] Compression failed for ghost-2026-03-24-15-01-23.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-24.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-24.log → /tmp/ghost-2026-03-24-15-01-24.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-24.log: No such file or directory
+[2026-03-24 15:01:35] [ERROR] Compression failed for ghost-2026-03-24-15-01-24.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-25.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-25.log → /tmp/ghost-2026-03-24-15-01-25.log.gz
+gzip: /home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-25.log: No such file or directory
+[2026-03-24 15:01:35] [ERROR] Compression failed for ghost-2026-03-24-15-01-25.log
+[2026-03-24 15:01:35] [INFO] Processing rotated log: ghost-2026-03-24-15-01-26.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:35] [INFO] Compressing ghost-2026-03-24-15-01-26.log → /tmp/ghost-2026-03-24-15-01-26.log.gz
+[2026-03-24 15:01:35] [INFO] Uploading ghost-2026-03-24-15-01-26.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:40 INFO  : ghost-2026-03-24-15-01-26.log.gz: Copied (new)
+2026/03/24 15:01:40 INFO  : 
+Transferred:   	   93.337k / 93.337 kBytes, 100%, 40.460 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.6s
+
+[2026-03-24 15:01:40] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-26.log.gz → Google Drive
+[2026-03-24 15:01:40] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-26.log
+[2026-03-24 15:01:40] [INFO] Processing rotated log: ghost-2026-03-24-15-01-27.log (Total files: 11, Keeping: 3)
+[2026-03-24 15:01:40] [INFO] Compressing ghost-2026-03-24-15-01-27.log → /tmp/ghost-2026-03-24-15-01-27.log.gz
+[2026-03-24 15:01:40] [INFO] Uploading ghost-2026-03-24-15-01-27.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:44 INFO  : ghost-2026-03-24-15-01-27.log.gz: Copied (new)
+2026/03/24 15:01:44 INFO  : 
+Transferred:   	   88.861k / 88.861 kBytes, 100%, 42.114 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.5s
+
+[2026-03-24 15:01:44] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-27.log.gz → Google Drive
+[2026-03-24 15:01:44] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-27.log
+[2026-03-24 15:01:54] [INFO] Processing rotated log: ghost-2026-03-24-15-01-28.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:01:54] [INFO] Compressing ghost-2026-03-24-15-01-28.log → /tmp/ghost-2026-03-24-15-01-28.log.gz
+[2026-03-24 15:01:54] [INFO] Uploading ghost-2026-03-24-15-01-28.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:01:59 INFO  : ghost-2026-03-24-15-01-28.log.gz: Copied (new)
+2026/03/24 15:01:59 INFO  : 
+Transferred:   	   83.056k / 83.056 kBytes, 100%, 36.981 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         5.4s
+
+[2026-03-24 15:01:59] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-28.log.gz → Google Drive
+[2026-03-24 15:01:59] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-28.log
+[2026-03-24 15:01:59] [INFO] Processing rotated log: ghost-2026-03-24-15-01-29.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:01:59] [INFO] Compressing ghost-2026-03-24-15-01-29.log → /tmp/ghost-2026-03-24-15-01-29.log.gz
+[2026-03-24 15:01:59] [INFO] Uploading ghost-2026-03-24-15-01-29.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:02:04 INFO  : ghost-2026-03-24-15-01-29.log.gz: Copied (new)
+2026/03/24 15:02:04 INFO  : 
+Transferred:   	   90.741k / 90.741 kBytes, 100%, 38.228 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.6s
+
+[2026-03-24 15:02:04] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-29.log.gz → Google Drive
+[2026-03-24 15:02:04] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-29.log
+[2026-03-24 15:02:04] [INFO] Processing rotated log: ghost-2026-03-24-15-01-30.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:02:04] [INFO] Compressing ghost-2026-03-24-15-01-30.log → /tmp/ghost-2026-03-24-15-01-30.log.gz
+[2026-03-24 15:02:04] [INFO] Uploading ghost-2026-03-24-15-01-30.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:02:09 INFO  : ghost-2026-03-24-15-01-30.log.gz: Copied (new)
+2026/03/24 15:02:09 INFO  : 
+Transferred:   	   90.560k / 90.560 kBytes, 100%, 41.924 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.4s
+
+[2026-03-24 15:02:09] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-30.log.gz → Google Drive
+[2026-03-24 15:02:09] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-30.log
+[2026-03-24 15:02:09] [INFO] Processing rotated log: ghost-2026-03-24-15-01-31.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:02:09] [INFO] Compressing ghost-2026-03-24-15-01-31.log → /tmp/ghost-2026-03-24-15-01-31.log.gz
+[2026-03-24 15:02:09] [INFO] Uploading ghost-2026-03-24-15-01-31.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:02:30 INFO  : ghost-2026-03-24-15-01-31.log.gz: Copied (new)
+2026/03/24 15:02:30 INFO  : 
+Transferred:   	   53.793k / 53.793 kBytes, 100%, 4.539 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:        21.0s
+
+[2026-03-24 15:02:30] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-31.log.gz → Google Drive
+[2026-03-24 15:02:30] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-31.log
+[2026-03-24 15:02:30] [INFO] Processing rotated log: ghost-2026-03-24-15-01-32.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:02:30] [INFO] Compressing ghost-2026-03-24-15-01-32.log → /tmp/ghost-2026-03-24-15-01-32.log.gz
+[2026-03-24 15:02:30] [INFO] Uploading ghost-2026-03-24-15-01-32.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:02:34 INFO  : ghost-2026-03-24-15-01-32.log.gz: Copied (new)
+2026/03/24 15:02:34 INFO  : 
+Transferred:   	   63.239k / 63.239 kBytes, 100%, 28.906 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         4.3s
+
+[2026-03-24 15:02:34] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-32.log.gz → Google Drive
+[2026-03-24 15:02:34] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-32.log
+[2026-03-24 15:02:34] [INFO] Processing rotated log: ghost-2026-03-24-15-01-33.log (Total files: 9, Keeping: 3)
+[2026-03-24 15:02:34] [INFO] Compressing ghost-2026-03-24-15-01-33.log → /tmp/ghost-2026-03-24-15-01-33.log.gz
+[2026-03-24 15:02:34] [INFO] Uploading ghost-2026-03-24-15-01-33.log.gz → gdrive:ghost-logs/archive/
+2026/03/24 15:02:39 INFO  : ghost-2026-03-24-15-01-33.log.gz: Copied (new)
+2026/03/24 15:02:39 INFO  : 
+Transferred:   	   93.383k / 93.383 kBytes, 100%, 35.777 kBytes/s, ETA 0s
+Transferred:            1 / 1, 100%
+Elapsed time:         5.1s
+
+[2026-03-24 15:02:39] [SUCCESS] Upload complete: ghost-2026-03-24-15-01-33.log.gz → Google Drive
+[2026-03-24 15:02:39] [INFO] Cleaned up local active file: ghost-2026-03-24-15-01-33.log

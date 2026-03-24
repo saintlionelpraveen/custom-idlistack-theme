@@ -26,7 +26,7 @@ config:
             labels:
               job: ghost
               log_type: active
-              __path__: /var/log/ghost/active/*.log
+              __path__: /var/log/ghost/active/ghost-*.log*
         # Parse Winston JSON log format
         pipeline_stages:
           - json:

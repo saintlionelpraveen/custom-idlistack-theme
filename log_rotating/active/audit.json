@@ -6,39 +6,54 @@
     "auditLog": "/home/praveen/ghost/log_rotating/active/audit.json",
     "files": [
         {
-            "date": 1774335055891,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.8",
-            "hash": "edf944948421026de61c17025885530548c0a912184121885a3c289217887a9b"
+            "date": 1774344687000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-27.log",
+            "hash": "8058d72a816aecabb95574f80f8fc97a18ab97f1b69210cbc965c796b677ee5a"
         },
         {
-            "date": 1774335076904,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.9",
-            "hash": "ec261599e9e98dc93c4cf9f5914511bdab4d9704dc071eab2bda81b9b13a112f"
+            "date": 1774344688000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-28.log",
+            "hash": "16ab5f8be6ec31d3903ea6e70857cf17dc7004df53700d97de9ffed7b5d64b83"
         },
         {
-            "date": 1774335099133,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.10",
-            "hash": "df285887887da0ae316b254ff69411f36ab6dcd3b0ac1b4298edeab96d5c1965"
+            "date": 1774344689000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-29.log",
+            "hash": "dd4dddf5bcd9f38d13bb9f8780274dde6b7bf72a5a41042b9a87fb797ecd21d4"
         },
         {
-            "date": 1774335967777,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.11",
-            "hash": "ab85e43de0e0952bbd39c2aa3d694106d4fae73e5239eceb02a0ab5f4332d36c"
+            "date": 1774344690000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-30.log",
+            "hash": "d9eb040a2c9adb487c223657f992632437e5561ab99e8f1679493142d4e23eb7"
         },
         {
-            "date": 1774335976856,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.12",
-            "hash": "622b224571cba3c754630341cae5e9a9dfa8153081d8b303efa5e8a3d6716b3c"
+            "date": 1774344691000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-31.log",
+            "hash": "33a664778cdbe5a3e1ccffba9f9194634a328a1a9d1b76787d57368ed9436429"
         },
         {
-            "date": 1774335986634,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.13",
-            "hash": "907ad1f8a369a4b0cb3d166d48c3cba35085e41a155aa85dd46614a3da59942c"
+            "date": 1774344692179,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-32.log",
+            "hash": "1f9f18239f21024969e33f399be47f30cf6d56bf3317d8aa1b3e94b48a72c11d"
         },
         {
-            "date": 1774335997272,
-            "name": "/home/praveen/ghost/log_rotating/active/log-2026-03-24.log.14",
-            "hash": "c49e66185e6069fb0b6e3b2d309c6f7ab988c3c5b7c9498b4fc87a1d26c51987"
+            "date": 1774344693000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-33.log",
+            "hash": "007a6711a7f81cd0081da63e76c3bba8801f7af06480928045fa0573c3d4adb8"
+        },
+        {
+            "date": 1774344694000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-34.log",
+            "hash": "94cf9dcd029b4096fb61f8ce777a5b7b646638c6111cc9b614175c13ef6a8db9"
+        },
+        {
+            "date": 1774344695000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-35.log",
+            "hash": "5b754f3e95c59fd6469c0bdea291c241ab48a9df3a16a7da69ed66b20127504a"
+        },
+        {
+            "date": 1774344696000,
+            "name": "/home/praveen/ghost/log_rotating/active/ghost-2026-03-24-15-01-36.log",
+            "hash": "b4283cad6ab4cd71a136b3e73936c543ee8dbdeaae08401354ec3a6e533f1420"
         }
     ],
     "hashType": "sha256"
